@@ -11,9 +11,9 @@ class PiterApiOrchestrator:
     async def get_enriched_gazette_data(self, filters: FilterParams):
         # 1. Busca os dados brutos no Querido Diário
         gazettes_response = await self.qd_client.fetch_gazettes(filters)
-        
+
         enriched = []
-        
+
         # 2. Corrige a chave para "gazettes" e itera sobre os resultados
         for gazette in gazettes_response.get("gazettes", []):
             # (Opcional) Chamar a análise do spaCy
@@ -22,5 +22,9 @@ class PiterApiOrchestrator:
                 **gazette,
                 # "spacy_analysis": analysis # Descomente quando a API spaCy estiver pronta
             })
-            
-        return enriched
+
+        # 3. Retorna no formato esperado pelo frontend
+        return {
+            "gazettes": enriched,
+            "total_gazettes": gazettes_response.get("total_gazettes", len(enriched))
+        }
