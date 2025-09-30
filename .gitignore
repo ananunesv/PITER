@@ -1,29 +1,81 @@
-# Arquivo de configuração de ambiente local. NUNCA commite este arquivo.
+# === ARQUIVOS DE AMBIENTE E CONFIGURAÇÃO ===
+# Arquivos de configuração de ambiente local. NUNCA commite estes arquivos.
 .env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
 
+# === PYTHON/BACKEND ===
 # Ambiente virtual do Python. Contém pacotes instalados e é específico da máquina.
-/venv
+backend/venv/
+backend/__pycache__/
 venv/
-
-# Arquivos de cache do Python. São gerados automaticamente.
-__pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
 
-# Arquivos de configuração e cache de editores de código
+# === NEXT.JS/FRONTEND ===
+# Dependências do Node.js
+node_modules/
+frontend/node_modules/
+
+# Build e cache do Next.js
+.next/
+frontend/.next/
+out/
+frontend/out/
+build/
+frontend/build/
+dist/
+frontend/dist/
+
+# === EDITORES E IDES ===
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
-# Arquivos de log e bancos de dados temporários
+# === LOGS E DATABASES ===
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.sqlite3
 *.db
 
-# Arquivos gerados pelo sistema operacional
+# === SISTEMA OPERACIONAL ===
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Arquivos de dependências e build do Node.js (para o frontend Next.js)
-/node_modules
-.next/
+# === DOCKER ===
+.dockerignore
+
+# === TEMPORÁRIOS ===
+*.tmp
+*.temp
+*.pid
+*.seed
+*.pid.lock
+
+# === COBERTURA DE TESTES ===
+coverage/
+*.lcov
+
+# === VERCEL (removido mas mantendo entrada para prevenção) ===
+.vercel
