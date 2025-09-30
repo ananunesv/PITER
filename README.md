@@ -1,131 +1,125 @@
-````md
-# Projeto P.I.T.E.R – Backend (Implementar API)
+# P.I.T.E.R - Plataforma de Integração e Transparência em Educação e Recursos
 
-Plataforma de Integração e Transparência em Educação e Recursos (P.I.T.E.R)
-
----
-
-## Visão Geral
-
-Este módulo corresponde ao **Backend** do P.I.T.E.R, implementado em **Python** utilizando o framework **FastAPI**.  
-O objetivo da API é disponibilizar de forma organizada e acessível os dados públicos municipais, permitindo consultas, filtros e análises que poderão ser consumidas pelo frontend ou outras aplicações externas.
+**Arquitetura Limpa e Separada** - Frontend Next.js + Backend FastAPI
 
 ---
 
-## Funcionalidades
+## 🏗️ Nova Arquitetura
 
-- API REST desenvolvida em **FastAPI**.  
-- Endpoints para consulta de diários oficiais e metadados relacionados.  
-- Suporte a filtros (ex.: município, categoria, período).  
-- Estrutura pronta para integração com fontes externas (ex.: Querido Diário).  
-- Documentação interativa automática em `/docs` (Swagger UI) e `/redoc`.
+```
+📁 frontend/          # Next.js React Application
+├── app/              # Next.js App Router
+├── components/       # React Components (Atomic Design)
+├── hooks/            # Custom React Hooks
+├── types/            # TypeScript Types
+├── package.json      # Frontend Dependencies
+└── Dockerfile        # Frontend Container
+
+📁 backend/           # FastAPI Python API
+├── services/         # Business Logic & External APIs
+├── main.py           # FastAPI Application
+├── requirements.txt  # Python Dependencies
+└── Dockerfile        # Backend Container
+
+📄 docker-compose.yml # Orquestração Local
+```
 
 ---
 
-## Tecnologias Utilizadas
+## 🚀 Como Executar
 
-- **Linguagem:** Python 3.10+  
-- **Framework:** FastAPI  
-- **Servidor ASGI:** Uvicorn  
-- **Gerenciamento de pacotes:** pip / requirements.txt  
-- **Outros:** Pydantic (validação de dados), requests (requisições HTTP externas)
-
----
-
-## Instalação e Execução
-
-### Pré-requisitos
-
-- Python 3.10 ou superior  
-- pip (gerenciador de pacotes)  
-
-### Passos para rodar localmente
-
+### Opção 1: Docker Compose (Recomendado)
 ```bash
-# Clonar o repositório
-git clone https://github.com/unb-mds/Projeto-P.I.T.E.R.git
+# Rodar tudo junto
+docker-compose up
 
-# Entrar no branch
-git checkout Backend-ImplementarAPI
+# Acessar:
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:8000
+# Docs: http://localhost:8000/docs
+```
 
-# Entrar na pasta do backend
-cd Projeto-P.I.T.E.R/src
+### Opção 2: Desenvolvimento Separado
 
-# Criar ambiente virtual (opcional, mas recomendado)
+#### Backend:
+```bash
+cd backend
 python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-
-# Instalar dependências
+source venv/bin/activate
 pip install -r requirements.txt
-
-# Rodar servidor local
 uvicorn main:app --reload
-````
-
-A API ficará acessível em:
-👉 `http://127.0.0.1:8000`
-
----
-
-## Endpoints Principais
-
-| Método | Rota             | Descrição                                                                   |
-| ------ | ---------------- | --------------------------------------------------------------------------- |
-| `GET`  | `/`              | Endpoint inicial de teste (Hello, World)                                    |
-| `GET`  | `/gazettes`      | Retorna lista de diários oficiais com filtros (município, categoria, datas) |
-| `GET`  | `/gazettes/{id}` | Detalhes de um diário oficial específico                                    |
-
-> A documentação completa está disponível em:
->
-> * Swagger UI → `http://127.0.0.1:8000/docs`
-> * Redoc → `http://127.0.0.1:8000/redoc`
-
----
-
-## Estrutura do Projeto
-
 ```
-src/
-├── main.py              # Ponto de entrada da aplicação FastAPI
-├── routes/              # Definição das rotas da API
-├── services/            # Serviços e integrações externas
-├── models/              # Definições de dados (Pydantic)
-├── tests/               # Testes unitários e de integração
-├── README.md            # Este arquivo
-└── requirements.txt     # Dependências do backend
+
+#### Frontend:
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
 ---
 
-## Desenvolvimento
+## 🌐 Deploy
 
-* **Estilo de código:** PEP8
-* **Validação de dados:** Pydantic
-* **Documentação automática:** FastAPI gera Swagger e Redoc nativos
-* **Testes:** `pytest` (quando implementados)
-
----
-
-## Futuras Melhorias
-
-* Integração completa com a API Querido Diário.
-* Paginação e caching de resultados.
-* Autenticação/autorização em endpoints restritos.
-* Geração de relatórios a partir dos dados processados.
-* Deploy em ambiente de nuvem (Railway, Heroku, ou outra plataforma).
-
----
-
-## Equipe
-
-Desenvolvido pela equipe **UnB-MDS**.
-
----
-
-## Licença
-
-MIT
-
+### Backend (Vercel)
+```bash
+cd backend
+vercel --prod
 ```
 
+### Frontend (Vercel)
+```bash
+cd frontend
+# Atualizar BACKEND_URL no vercel.json
+vercel --prod
+```
+
+---
+
+## 📋 Features
+
+- **Separação Clara**: Frontend e Backend independentes
+- **API Única**: FastAPI consolidada com CORS configurado
+- **Deploy Independente**: Cada parte pode ser deployed separadamente
+- **Docker Ready**: Containers prontos para produção
+- **TypeScript**: Frontend totalmente tipado
+- **Documentação Auto**: Swagger/ReDoc automático no backend
+
+---
+
+## 🔄 Fluxo de Dados
+
+1. **Frontend** faz requests para `/api/*`
+2. **Next.js** redireciona para Backend via proxy
+3. **Backend** processa e retorna dados
+4. **Frontend** renderiza com React + Chart.js
+
+---
+
+## 🛠️ Tecnologias
+
+**Frontend:**
+- Next.js 14 (App Router)
+- React 18 + TypeScript
+- Tailwind CSS
+- Chart.js
+- Axios
+
+**Backend:**
+- FastAPI + Uvicorn
+- Python 3.10+
+- Pydantic
+- httpx
+- python-jose
+
+---
+
+## ⚙️ Configuração
+
+Copie os arquivos de exemplo:
+```bash
+cp backend/.env.example backend/.env
+cp frontend/.env.local.example frontend/.env.local
+```
+
+Ajuste as URLs conforme necessário.
