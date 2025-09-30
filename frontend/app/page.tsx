@@ -24,7 +24,7 @@ export default function HomePage() {
       if (!response.ok) throw new Error(`Error: ${response.status}`);
 
       const data = await response.json();
-      setGazettes(data);
+      setGazettes(data.gazettes || data);
     } catch (err: any) {
       setError(err.message);
     } finally {

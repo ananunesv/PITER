@@ -13,7 +13,7 @@ app = FastAPI(
 # CORS para permitir frontend separado
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://your-frontend-domain.com"],
+    allow_origins=["http://localhost:3000", "http://localhost:3001", "https://your-frontend-domain.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
