@@ -36,7 +36,6 @@ export interface SearchState {
 // Opções para os selects
 export const MUNICIPALITIES = [
   { value: 'goiania', label: 'Goiânia', ibge_code: '5208707' },
-  { value: 'anapolis', label: 'Anápolis', ibge_code: '5201108' },
   { value: 'aparecida', label: 'Aparecida de Goiânia', ibge_code: '5201405' },
 ] as const;
 
