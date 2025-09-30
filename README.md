@@ -197,7 +197,7 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 
 O projeto está configurado para deploy independente:
 
-- **Frontend**: Vercel, Netlify
+- **Frontend**: Vercel
 - **Backend**: Vercel, Railway, Heroku
 - **Docker**: Qualquer plataforma que suporte containers
 
