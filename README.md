@@ -45,6 +45,13 @@ docker-compose.yml # Orquestração Local
 - **Python** 3.10+
 - **Git**
 
+### Importante
+**AMBOS os servidores (Backend e Frontend) precisam estar rodando simultaneamente para a aplicação funcionar corretamente!**
+
+Se você receber o erro `"Failed to fetch"` no frontend, verifique se:
+1. O backend está rodando na porta 8000
+2. Ambos os servidores foram iniciados
+
 ### Execução Rápida (Recomendado)
 
 #### 1. Clone o repositório:
@@ -53,17 +60,17 @@ git clone <url-do-repositorio>
 cd B.I.I.A
 ```
 
-#### 2. Inicie o Backend:
+#### 2. Inicie o Backend (Terminal 1):
 ```bash
 cd backend
 python -m venv venv
 source venv/bin/activate          # Linux/Mac
 # ou venv\Scripts\activate        # Windows
 pip install -r requirements.txt
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-#### 3. Em outro terminal, inicie o Frontend:
+#### 3. Em outro terminal, inicie o Frontend (Terminal 2):
 ```bash
 cd frontend
 npm install
@@ -74,6 +81,34 @@ npm run dev
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8000
 - **Documentação API**: http://localhost:8000/docs
+
+---
+
+## Problemas Comuns
+
+### Frontend mostrando versão antiga após atualização
+Se após fazer alterações no código o frontend continuar mostrando a versão antiga:
+
+```bash
+# Pare o servidor (Ctrl+C) e execute:
+lsof -ti:3000 | xargs kill -9  # Mata processo na porta 3000
+cd frontend
+rm -rf .next                    # Remove cache do Next.js
+npm run dev                     # Reinicia o servidor
+```
+
+### Erro "Failed to fetch" ao fazer busca
+Certifique-se que o backend está rodando:
+
+```bash
+# Verifique se a porta 8000 está em uso
+lsof -ti:8000
+
+# Se não estiver, inicie o backend:
+cd backend
+source venv/bin/activate
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
 
 ---
 
