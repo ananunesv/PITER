@@ -4,6 +4,11 @@
 
 Plataforma para busca e análise de diários oficiais municipais com foco em investimentos educacionais em tecnologia e robótica.
 
+## 📚 Links Importantes
+
+- **📖 Documentação**: [https://unb-mds.github.io/Projeto-P.I.T.E.R/](https://unb-mds.github.io/Projeto-P.I.T.E.R/)
+- **🎨 Design (Figma)**: [https://www.figma.com/design/SrD9XAdENSImL4DVWmEZD5/Organização-MDS](https://www.figma.com/design/SrD9XAdENSImL4DVWmEZD5/Organiza%C3%A7%C3%A3o-MDS?node-id=0-1&t=0wOi8rZ1ZfIk7Juu-1)
+
 ---
 
 ## Arquitetura do Projeto
