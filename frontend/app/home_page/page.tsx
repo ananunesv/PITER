@@ -8,7 +8,7 @@ export default function HomePage() {
       <main className="container mx-auto px-4 py-8">
         <div className="bg-blue-200">
           <h1 className="text-2xl font-bold">Bem-vindo à página inicial do P.I.T.E.R</h1>
-          <p className="text-gray-600 mt-2">Use a barra de pesquisa para começar.</p>
+          <p className="text-gray-600 mt-2">Use o menu para começar</p>
         </div>
       </main>
     </div>
