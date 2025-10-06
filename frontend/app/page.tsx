@@ -39,12 +39,12 @@ export default function Home() {
         {!showResults ? (
           // Página de busca inicial
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-10">
+              <h1 className="text-4xl font-bold text-gray-900 mt-10 mb-5">
                 Buscar Diários Oficiais
               </h1>
               <p className="text-xl text-gray-600">
-                Encontre investimentos em tecnologia educacional nos diários oficiais de Goiás
+                Encontre investimentos em tecnologia para educação nos diários oficiais do seu estado ou município
               </p>
             </div>
 
@@ -63,7 +63,6 @@ export default function Home() {
                     onClick={clearError}
                     className="text-red-500 hover:text-red-700 font-bold"
                   >
-                    ×
                   </button>
                 </div>
               </div>
