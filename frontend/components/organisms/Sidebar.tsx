@@ -12,8 +12,14 @@ export const Sidebar: React.FC = () => {
     <aside className="w-64 bg-white h-screen shadow-md fixed left-0 top-0 flex flex-col items-center py-8">
       <div className="flex items-center space-x-3 mb-8">
         <a href="https://unb-mds.github.io/Projeto-P.I.T.E.R/">
-          <img src="/logo.png" alt="logo" width={44} height={44} />
-        </a>      
+        <img
+          src="/logo.png"
+          alt="logo"
+          width={44}
+          height={44}
+          className="transition-transform duration-300 hover:scale-[1.2]"
+        />
+        </a>
       </div>
 
       <nav className="w-full">

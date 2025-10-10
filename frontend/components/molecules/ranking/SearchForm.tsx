@@ -43,7 +43,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           onChange={(value) => onRightChange({ municipio: value })}
           placeholder="Selecione o município"
           required
-          id="state"
+          id="estado"
         />
 
         <Input
@@ -80,7 +80,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           size="lg"
           className="px-8"
         >
-          {loading ? 'Buscando...' : 'Comparar'}
+          {loading ? 'Buscando...' : 'Rankear'}
         </Button>
       </div>
     </div>
