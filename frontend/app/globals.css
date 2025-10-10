@@ -4,14 +4,43 @@
 
 /* Estilos globais para P.I.T.E.R */
 :root {
+  /* use numeric rgb values so rgba(var(--...)) works */
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --piter-grad-start: 165, 177, 250; /* purple */
+  --piter-grad-end: 39, 68, 245; /* lighter purple */
+  --card-bg: 255, 255, 255;
 }
 
+
 body {
-  background-color: #f3f4f6;
+  /* stronger alpha to darken background while keeping the purple gradient */
+  background: linear-gradient(180deg, rgba(var(--piter-grad-start),0.35) 0%, rgba(var(--piter-grad-end),0.20) 100%);
   color: rgb(var(--foreground-rgb));
+}
+
+/* Helper background specifically for the app area */
+.bg-piter-100 {
+  background: linear-gradient(180deg, rgba(var(--piter-grad-start),0.91) 0%, rgba(var(--piter-grad-end),0.8) 100%);
+}
+
+/* Card style used by the search form and tips */
+.piter-card {
+  background-color: rgb(var(--card-bg));
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border-radius: 12px;
+}
+
+/* A larger container style used for main white search card */
+.piter-card-lg {
+  background-color: #555555;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+}
+
+footer {
+  backdrop-filter: blur(4px);
 }
 
 /* Estilos customizados para componentes */
