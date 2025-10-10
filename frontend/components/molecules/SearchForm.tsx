@@ -1,24 +1,14 @@
-'use client';
+ 'use client';
 
 import React from 'react';
 import { Select } from '@/components/atoms/Select';
 import { Input } from '@/components/atoms/Input';
 import { Button } from '@/components/atoms/Button';
-import { MUNICIPALITIES, CATEGORIES } from '@/types';
+import { MUNICIPALITIES, CATEGORIES, SearchFilters } from '@/types';
 
 interface SearchFormProps {
-  filters: {
-    municipio: string;
-    categoria: string;
-    dataInicio: string;
-    dataFim: string;
-  };
-  onFiltersChange: (filters: Partial<{
-    municipio: string;
-    categoria: string;
-    dataInicio: string;
-    dataFim: string;
-  }>) => void;
+  filters: SearchFilters;
+  onFiltersChange: (filters: Partial<SearchFilters>) => void;
   onSearch: () => void;
   loading?: boolean;
 }
@@ -30,7 +20,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   loading = false,
 }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md space-y-4">
+    <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Select
           label="Município"
@@ -46,7 +36,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           label="Categoria"
           options={CATEGORIES}
           value={filters.categoria}
-          onChange={(value) => onFiltersChange({ categoria: value })}
+          onChange={(value) => onFiltersChange({ categoria: value as SearchFilters['categoria'] })}
           placeholder="Selecione a categoria"
           required
           id="categoria"

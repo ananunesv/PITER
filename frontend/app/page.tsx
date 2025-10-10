@@ -32,41 +32,42 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
+    <div className="min-h-screen">
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="max-w-5xl mx-auto px-6 py-12">
         {!showResults ? (
           // Página de busca inicial
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-10">
-              <h1 className="text-4xl font-bold text-gray-900 mt-10 mb-5">
-                Buscar Diários Oficiais
-              </h1>
-              <p className="text-xl text-gray-600">
-                Encontre investimentos em tecnologia para educação nos diários oficiais do seu estado ou município
-              </p>
-            </div>
+          <div>
+              <div className="text-center mb-8 mt-6">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  Buscar Diários Oficiais
+                </h1>
+                <p className="text-gray-600">
+                  Encontre investimentos em tecnologia educacional nos diários oficiais de Goiás
+                </p>
+              </div>
 
-            <SearchForm
-              filters={filters}
-              onFiltersChange={updateFilters}
-              onSearch={handleSearch}
-              loading={loading}
-            />
+              <div className="w-full max-w-4xl mx-auto">
+                <div className="bg-transparent p-6 mb-8">
+                  <SearchForm
+                    filters={filters}
+                    onFiltersChange={updateFilters}
+                    onSearch={handleSearch}
+                    loading={loading}
+                  />
+                </div>
 
-            {error && (
-              <div className="mt-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-                <div className="flex justify-between items-center">
-                  <span>{error}</span>
-                  <button
-                    onClick={clearError}
-                    className="text-red-500 hover:text-red-700 font-bold"
-                  >
-                  </button>
+                <div className="flex justify-center">
+                  <div className="bg-gray-100 rounded-xl p-6 w-96 text-center">
+                    <div className="text-sm text-gray-700 mb-2">💡 Dicas de Busca 💡</div>
+                    <ul className="text-gray-700 text-sm list-none space-y-2">
+                      <li>Experimente um período de tempo mais amplo</li>
+                      <li>Teste outras categorias tecnológicas</li>
+                      <li>Verifique se há publicações recentes no município</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            )}
           </div>
         ) : (
           // Página de resultados
