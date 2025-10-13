@@ -6,7 +6,7 @@ interface Option {
 }
 
 interface SelectProps {
-  options: Option[];
+  options: readonly Option[] | Option[];
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;

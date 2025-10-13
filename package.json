@@ -1,0 +1,28 @@
+{
+  "name": "projp",
+  "version": "1.0.0",
+  "description": "**Procurador de Investimentos em Tecnologia na Educação e Recursos**",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "start": "npm --prefix frontend run start",
+    "build": "npm --prefix frontend run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blazemorales/ProjP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blazemorales/ProjP/issues"
+  },
+  "homepage": "https://github.com/Blazemorales/ProjP#readme",
+  "dependencies": {
+    "@types/react": "^19.2.2",
+    "lucide-react": "^0.545.0",
+    "react": "^19.2.0"
+  }
+}
