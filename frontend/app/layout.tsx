@@ -7,9 +7,12 @@ import Footer from '@/components/organisms/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'P.I.T.E.R - Painel de Investimentos em Transparência e Eficiência de Recursos',
+  title: 'Projeto P.I.T.E.R',
   description: 'Análise de investimentos públicos em pesquisa e eletrônicos para Goiás e Goiânia',
   keywords: 'investimentos públicos, transparência, Goiás, Goiânia, pesquisa, eletrônicos',
+  icons: {
+    icon: '/logo_inv.png',
+  }
 };
 
 export default function RootLayout({
