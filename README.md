@@ -74,6 +74,7 @@ python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```bash
 cd frontend
 npm install
+npm install lucide-react
 cd ..
 npm run dev
 ```
