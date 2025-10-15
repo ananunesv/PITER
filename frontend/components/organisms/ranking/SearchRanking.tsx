@@ -9,13 +9,17 @@ export default function SearchRanking() {
   const second = useGazetteSearch();
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="text-center mb-6">
-        <h1 className="text-3xl font-semibold mb-5">Ranking</h1>
-        <p className="text-gray-600">Compare investimentos em tecnologia educacional no seu município com o seu estado</p>
-      </div>
+    <div
+      className="w-full items-center justify-center min-h-[calc(100vh-80px)] pt-8"
+    >
+      <div className="w-full items-center">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-semibold mb-5">Ranking</h1>
+          <p className="text-gray-600">
+            Compare investimentos em tecnologia educacional no seu município com o seu estado
+          </p>
+        </div>
 
-      <div className="w-full max-w-4xl">
         <div className="bg-transparent p-6 mb-6">
           <div className="space-y-6">
             <div className="grid grid-cols-1 gap-4">
@@ -25,14 +29,19 @@ export default function SearchRanking() {
                   rightFilters={second.filters}
                   onLeftChange={first.updateFilters}
                   onRightChange={second.updateFilters}
-                  onSearch={() => { first.search(); second.search(); }}
+                  onSearch={() => {
+                    first.search();
+                    second.search();
+                  }}
                   loading={first.loading || second.loading}
                 />
               </div>
             </div>
 
             <div className="bg-gray-100 rounded-lg p-4">
-              <div className="text-sm font-medium text-gray-700 mb-2">💡 Dicas de Busca</div>
+              <div className="text-sm font-medium text-gray-700 mb-2">
+                💡 Dicas de Busca
+              </div>
               <ul className="text-sm text-gray-700 list-disc pl-5 space-y-1">
                 <li>Experimente um período de tempo mais amplo</li>
                 <li>Teste outras categorias tecnológicas</li>
