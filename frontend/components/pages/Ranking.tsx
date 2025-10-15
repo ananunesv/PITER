@@ -5,7 +5,7 @@ import SearchRanking from '@/components/organisms/ranking/SearchRanking';
 
 export default function Ranking() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex items-center">
       <SearchRanking />
     </div>
   );

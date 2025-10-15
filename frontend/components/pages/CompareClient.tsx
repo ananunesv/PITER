@@ -9,7 +9,7 @@ export default function CompareClient() {
   const second = useGazetteSearch();
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-8">
       <div className="text-center mb-6">
         <h1 className="text-3xl font-semibold mb-5">Comparar Diários Oficiais</h1>
         <p className="text-gray-600">Compare investimentos em tecnologia educacional nos diários oficiais do seu município</p>

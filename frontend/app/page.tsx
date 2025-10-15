@@ -38,8 +38,8 @@ export default function Home() {
         {!showResults ? (
           // Página de busca inicial
           <div>
-              <div className="text-center mb-8 mt-6">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <div className="text-center mb-8 mt-8">
+                <h1 className="text-3xl font-bold text-gray-900 mb-5">
                   Buscar Diários Oficiais
                 </h1>
                 <p className="text-gray-600">
