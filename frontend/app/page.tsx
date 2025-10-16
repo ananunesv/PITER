@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Header } from '@/components/organisms/Header';
+import { Navbar_second } from '@/components/atoms/Navbar_second';
 import { SearchForm } from '@/components/molecules/SearchForm';
 import { GazetteCard } from '@/components/molecules/GazetteCard';
 import { useGazetteSearch } from '@/hooks/useGazetteSearch';
@@ -38,7 +38,10 @@ export default function Home() {
         {!showResults ? (
           // Página de busca inicial
           <div>
-              <div className="text-center mb-8 mt-8">
+              <div className='w-full mx-auto bg-transparent p-6 mt-30'>
+                  <Navbar_second />
+              </div>
+              <div className="text-center mb-8 ">
                 <h1 className="text-3xl font-bold text-gray-900 mb-5">
                   Buscar Diários Oficiais
                 </h1>
@@ -46,7 +49,7 @@ export default function Home() {
                   Encontre investimentos em tecnologia educacional nos diários oficiais de Goiás
                 </p>
               </div>
-
+              
               <div className="w-full max-w-4xl mx-auto">
                 <div className="bg-transparent p-6 mb-8">
                   <SearchForm
@@ -56,7 +59,6 @@ export default function Home() {
                     loading={loading}
                   />
                 </div>
-
                 <div className="flex justify-center">
                   <div className="bg-gray-100 rounded-xl p-6 w-96 text-center">
                     <div className="text-sm text-gray-700 mb-2">💡 Dicas de Busca 💡</div>

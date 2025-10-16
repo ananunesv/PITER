@@ -25,7 +25,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
 }) => {
   return (
     <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
           <Select
             label="Município"
             options={MUNICIPALITIES}

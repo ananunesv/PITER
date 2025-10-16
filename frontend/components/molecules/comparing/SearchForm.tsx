@@ -25,7 +25,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
 }) => {
   return (
     <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
           <Select
             label="Município 1"
             options={MUNICIPALITIES}
@@ -61,18 +61,18 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           onChange={(value) => onLeftChange({ dataFim: value })}
           id="dataFim_left"
         />
-        
-        <Select
-          label="Categoria"
-          options={CATEGORIES}
-          value={leftFilters.categoria}
-          onChange={(value) => onLeftChange({ categoria: value as SearchFilters['categoria'] })}
-          placeholder="Selecione a categoria"
-          required
-          id="categoria_left"
-        />
       </div>
-
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-4 items-center">
+        <Select
+            label="Categoria"
+            options={CATEGORIES}
+            value={leftFilters.categoria}
+            onChange={(value) => onLeftChange({ categoria: value as SearchFilters['categoria'] })}
+            placeholder="Selecione a categoria"
+            required
+            id="categoria_left"
+          />
+      </div>
       <div className="flex justify-center pt-4">
         <Button
           onClick={onSearch}
