@@ -5,6 +5,38 @@ from pydantic import BaseModel
 from typing import Optional, Dict, Any
 from datetime import date
 
+QUERIDO_DIARIO_API_URL = "https://api.queridodiario.ok.org.br" # <-- Corrigido
+
+async def fetch_gazettes(territory_id: str, since: str, until: str) -> Optional[Dict[Any, Any]]:
+    """
+    Busca diários oficiais de um território em um período.
+    """
+    url = f"{QUERIDO_DIARIO_API_URL}/gazettes"
+    params = {
+        "territory_ids": territory_id,
+        "since": since,
+        "until": until,
+        "size": 5 # Apenas 5 para este exemplo
+    }
+    
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, params=params)
+            
+            # Levanta um erro se a requisição falhar (ex: 404, 500)
+            response.raise_for_status() 
+            
+            data = response.json()
+            print(f"Querido Diário: Encontrados {data.get('total_gazettes', 0)} diários.")
+            return data
+    
+    except httpx.HTTPStatusError as e:
+        print(f"Erro ao buscar dados do Querido Diário: {e}")
+        return None
+    except Exception as e:
+        print(f"Erro inesperado no cliente do Querido Diário: {e}")
+        return None
+
 class FilterParams(BaseModel):
     """Modelo para os parâmetros de filtro da API do Querido Diário."""
     territory_ids: Optional[str] = None
@@ -14,7 +46,7 @@ class FilterParams(BaseModel):
     size: Optional[int] = 10
 
 class QueridoDiarioClient:
-    BASE_URL = "https://queridodiario.ok.org.br/api/gazettes"
+    BASE_URL = "https://api.queridodiario.ok.org.br/gazettes" # <-- Corrigido
 
     async def fetch_gazettes(self, filters: FilterParams) -> Dict[str, Any]:
         # Converte o modelo Pydantic para um dicionário, removendo valores nulos
