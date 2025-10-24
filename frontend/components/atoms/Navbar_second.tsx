@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, AlignEndHorizontal,  ChartCandlestick } from "lucide-react";
+import { Search, ChartNoAxesCombined,  Award } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -14,8 +14,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Pesquisa", href: "/", icon: Search },
-  { label: "Comparação", href: "/compare", icon: AlignEndHorizontal },
-  { label: "Ranking", href: "/ranking", icon: ChartCandlestick },
+  { label: "Comparação", href: "/compare", icon: ChartNoAxesCombined },
+  { label: "Ranking", href: "/ranking", icon: Award },
 ];
 
 export const Navbar_second: React.FC = () => {
@@ -25,8 +25,8 @@ export const Navbar_second: React.FC = () => {
     pathname === path || pathname.startsWith(path + "/");
 
   return (
-    <main className="w-full mt-50 z-50 bg-transparent backdrop-blur-xl">
-      <div className="container mx-auto flex items-center justify-center py-3 px-6">
+    <main className="w-full mt-50 z-50 bg-transparent backdrop-blur-xl mb-5">
+      <div className="container mx-auto flex align-center justify-center py-3 px-6">
         {/* Navigation */}
         <nav>
           <ul className="flex items-center gap-2">
