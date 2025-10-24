@@ -4,6 +4,7 @@ import React from 'react';
 import { useGazetteSearch } from '@/hooks/useGazetteSearch';
 import { SearchForm } from '@/components/molecules/ranking/SearchForm';
 import { Navbar_second } from '@/components/atoms/Navbar_second';
+import SugestaoPesquisa from '@/components/atoms/Sugestão_pesquisa';
 
 export default function SearchRanking() {
   const first = useGazetteSearch();
@@ -18,8 +19,8 @@ export default function SearchRanking() {
           <Navbar_second />
         </div>
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-semibold mb-5">Ranking</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl text-[#01161E] font-semibold mb-5">Ranking</h1>
+          <p className="text-[#01161E]">
             Compare investimentos em tecnologia educacional no seu município com o seu estado
           </p>
         </div>
@@ -27,7 +28,7 @@ export default function SearchRanking() {
         <div className="bg-transparent p-6 mb-6">
           <div className="space-y-6">
             <div className="grid grid-cols-1 gap-4">
-              <div className="mx-auto w-full">
+              <div className="mx-auto w-full mb-6">
                 <SearchForm
                   leftFilters={first.filters}
                   rightFilters={second.filters}
@@ -41,18 +42,8 @@ export default function SearchRanking() {
                 />
               </div>
             </div>
-
-            <div className="bg-gray-100 rounded-lg p-4">
-              <div className="bg-gray-100 rounded-lg justify-center text-center">
-              <div className="text-sm font-medium text-gray-700 mb-2">💡 Dicas de Busca 💡</div>
-              <ul className="text-sm text-gray-700 list-disc space-y-1">
-                <ul>Experimente um período de tempo mais amplo</ul>
-                <ul>Teste outras categorias tecnológicas</ul>
-                <ul>Verifique se há publicações recentes no município</ul>
-              </ul>
-            </div>
-            </div>
           </div>
+          <SugestaoPesquisa />
         </div>
       </div>
     </div>
