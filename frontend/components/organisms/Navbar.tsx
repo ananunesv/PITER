@@ -13,8 +13,8 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Sobre Nós", href: "/", icon: Home, external: true },
-  { label: "Documentação", href: "https://unb-mds.github.io/Projeto-P.I.T.E.R/", icon: Book },
+  { label: "Home", href: "/", icon: Home, external: true },
+  { label: "Sobre Nós", href: "https://unb-mds.github.io/Projeto-P.I.T.E.R/", icon: Book },
   { label: "GitHub", href: "https://github.com/unb-mds/Projeto-P.I.T.E.R.git", icon: Github, external: true },
 ];
 
@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
     pathname === path || pathname.startsWith(path + "/");
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-white/80 backdrop-blur-xl shadow-md">
+    <header className="w-full fixed top-0 left-0 z-50 bg-[#EFF6E0]/50 backdrop-blur-xl shadow-md">
       <div className="container mx-auto flex items-center justify-between py-3 px-6">
         {/* Logo */}
         <a
