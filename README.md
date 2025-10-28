@@ -57,7 +57,7 @@ Se você receber o erro `"Failed to fetch"` no frontend, verifique se:
 #### 1. Clone o repositório:
 ```bash
 git clone <url-do-repositorio>
-cd B.I.I.A
+cd Projeto-P.I.T.E.R
 ```
 
 #### 2. Inicie o Backend (Terminal 1):
