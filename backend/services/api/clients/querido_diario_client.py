@@ -30,10 +30,13 @@ async def fetch_gazettes(territory_id: str, since: str, until: str) -> Optional[
             print(f"Querido Diário: Encontrados {data.get('total_gazettes', 0)} diários.")
             return data
     
-    except httpx.HTTPStatusError as e:
-        print(f"Erro ao buscar dados do Querido Diário: {e}")
+    except httpx.HTTPStatusError as e: # Captura erros de status (4xx, 5xx)
+        print(f"Erro HTTP ao buscar dados do Querido Diário: Status {e.response.status_code}")
         return None
-    except Exception as e:
+    except httpx.RequestError as e: # Captura erros de conexão, DNS, timeout, etc.
+        print(f"Erro de CONEXÃO ao buscar dados do Querido Diário: {e}")
+        return None
+    except Exception as e: # Captura outros erros inesperados
         print(f"Erro inesperado no cliente do Querido Diário: {e}")
         return None
 
