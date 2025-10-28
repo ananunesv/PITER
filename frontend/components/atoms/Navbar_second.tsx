@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Book, Github } from "lucide-react";
+import { Search, ChartNoAxesCombined,  Award } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -13,36 +13,20 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/", icon: Home, external: true },
-  { label: "Sobre Nós", href: "https://unb-mds.github.io/Projeto-P.I.T.E.R/", icon: Book },
-  { label: "GitHub", href: "https://github.com/unb-mds/Projeto-P.I.T.E.R.git", icon: Github, external: true },
+  { label: "Pesquisa", href: "/", icon: Search },
+  { label: "Comparação", href: "/compare", icon: ChartNoAxesCombined },
+  { label: "Ranking", href: "/ranking", icon: Award },
 ];
 
-export const Navbar: React.FC = () => {
+export const Navbar_second: React.FC = () => {
   const pathname = usePathname();
 
   const isActive = (path: string) =>
     pathname === path || pathname.startsWith(path + "/");
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-[#EFF6E0]/50 backdrop-blur-xl shadow-md">
-      <div className="container mx-auto flex items-center justify-between py-3 px-6">
-        {/* Logo */}
-        <a
-          href="https://unb-mds.github.io/Projeto-P.I.T.E.R/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center space-x-3"
-        >
-          <img
-            src="/logo.png"
-            alt="logo"
-            width={40}
-            height={40}
-            className="transition-transform duration-300 hover:scale-110"
-          />
-        </a>
-
+    <main className="w-full mt-50 z-50 bg-transparent backdrop-blur-xl mb-5">
+      <div className="container mx-auto flex align-center justify-center py-3 px-6">
         {/* Navigation */}
         <nav>
           <ul className="flex items-center gap-2">
@@ -74,8 +58,8 @@ export const Navbar: React.FC = () => {
           </ul>
         </nav>
       </div>
-    </header>
+    </main>
   );
 };
 
-export default Navbar;
+export default Navbar_second;

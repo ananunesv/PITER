@@ -8,8 +8,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --piter-grad-start: 165, 177, 250; /* purple */
-  --piter-grad-end: 39, 68, 245; /* lighter purple */
+  --piter-grad-start: 174, 195, 176; /* purple */
+  --piter-grad-end: 89, 131, 146; /* lighter purple */
   --card-bg: 255, 255, 255;
 }
 
@@ -22,7 +22,7 @@ body {
 
 /* Helper background specifically for the app area */
 .bg-piter-100 {
-  background: linear-gradient(180deg, rgba(var(--piter-grad-start),0.91) 0%, rgba(var(--piter-grad-end),0.8) 100%);
+  background: linear-gradient(180deg, rgba(var(--piter-grad-start),0.91) 15%, rgba(var(--piter-grad-end), 0.81) 85%);
 }
 
 /* Card style used by the search form and tips */
