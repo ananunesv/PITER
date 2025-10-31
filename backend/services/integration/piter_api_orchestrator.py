@@ -3,10 +3,11 @@ from typing import Dict, Any
 from httpx import RequestError
 
 # --- Imports para a CLASSE e a FUNÇÃO ---
-# (Remova o prefixo 'backend.')
 from services.api.clients import querido_diario_client, spacy_api_client
-from services.api.clients.querido_diario_client import FilterParams, QueridoDiarioClient # Adicionado QueridoDiarioClient aqui
-from services.processing import data_cleaner, statistics_generator
+from services.api.clients.querido_diario_client import FilterParams, QueridoDiarioClient
+# --- IMPORT CORRIGIDO ---
+from services.processing import data_cleaner
+from services.processing.statistics_generator import StatisticsGenerator
 
 # --- Definição da CLASSE ---
 class PiterApiOrchestrator:
@@ -51,7 +52,6 @@ async def run_analysis_pipeline(territory_id: str, since: str, until: str) -> Di
         gazette_data = await querido_diario_client.fetch_gazettes(territory_id, since, until)
     except RequestError as e:
         print(f"Erro ao conectar ao Querido Diário: {e}")
-        # Retorna o mesmo formato que o teste espera
         return {"error": "Nenhum diário encontrado."}
 
     if not gazette_data or "gazettes" not in gazette_data or not gazette_data["gazettes"]:
@@ -66,8 +66,9 @@ async def run_analysis_pipeline(territory_id: str, since: str, until: str) -> Di
     # 3. Processamento de IA
     entities = await spacy_api_client.extract_entities(cleaned_text)
 
-    # 4. Estatística
-    statistics = statistics_generator.calculate_entity_statistics(entities)
+    # 4. Estatística --- CHAMADA CORRIGIDA ---
+    stats_gen = StatisticsGenerator() # <-- Crie a instância
+    statistics = stats_gen.calculate_entity_statistics(entities) # <-- Chame o método
 
     print("Pipeline finalizado (função).")
 
