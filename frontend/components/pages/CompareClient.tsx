@@ -4,6 +4,7 @@ import React from 'react';
 import { SearchForm } from '@/components/molecules/comparing/SearchForm';
 import { useGazetteSearch } from '@/hooks/useGazetteSearch';
 import { GazetteCard } from '@/components/molecules/GazetteCard';
+import Navbar_sec from '@/components/atoms/Navbar_sec';
 
 export default function CompareClient() {
   const first = useGazetteSearch();
@@ -14,7 +15,10 @@ export default function CompareClient() {
   return (
     <div className="w-full">
       {!showResults ? (
-        <div className="flex flex-col items-center mt-8">
+        <div className="flex flex-col items-center mt-0">
+          <div className="w-full mx-auto bg-transparent p-6">
+            <Navbar_sec />
+          </div>
           <div className="text-center mb-6">
             <h1 className="text-3xl font-semibold mb-5">Comparar Diários Oficiais</h1>
             <p className="text-gray-600">Compare investimentos em tecnologia educacional nos diários oficiais do seu município</p>
