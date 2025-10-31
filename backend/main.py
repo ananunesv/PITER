@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from services.integration.piter_api_orchestrator import PiterApiOrchestrator
 from services.api.clients.querido_diario_client import FilterParams
 from services.integration.piter_api_orchestrator import run_analysis_pipeline
+from services.api.ranking import ranking_router
 from typing import Dict, Any
 import uvicorn
 
@@ -13,6 +14,9 @@ app = FastAPI(
     description="Plataforma de Integração e Transparência em Educação e Recursos",
     version="1.0.0"
 )
+
+# Inclui as rotas do ranking
+app.include_router(ranking_router, prefix="/api/v1", tags=["ranking"])
 
 # CORS para permitir frontend separado
 app.add_middleware(
