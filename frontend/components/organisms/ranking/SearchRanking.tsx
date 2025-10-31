@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useCallback, useState } from 'react';
-import { useGazetteSearch } from '@/hooks/useGazetteSearch';
-import { useRanking } from '@/hooks/useRanking';
-import { SearchForm } from '@/components/molecules/ranking/SearchForm';
-import { GazetteCard } from '@/components/molecules/GazetteCard';
+import React, { useCallback, useState } from "react";
+import { useGazetteSearch } from "@/hooks/useGazetteSearch";
+import { useRanking } from "@/hooks/useRanking";
+import { SearchForm } from "@/components/molecules/ranking/SearchForm";
+import { GazetteCard } from "@/components/molecules/GazetteCard";
+import Navbar_sec from "@/components/atoms/Navbar_sec";
 
 export default function SearchRanking() {
   const municipalitySearch = useGazetteSearch();
@@ -68,45 +69,46 @@ export default function SearchRanking() {
   return (
     <div className="w-full">
       {!showResults ? (
-        <div className="w-full items-center justify-center min-h-[calc(100vh-80px)] pt-8">
-          <div className="w-full items-center">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-semibold mb-5">Ranking</h1>
-              <p className="text-gray-600">
-                Compare investimentos em tecnologia educacional no seu município com o seu estado
-              </p>
-            </div>
+        <div className="flex flex-col items-center mt-0">
+          <div className="w-full mx-auto bg-transparent p-6">
+            <Navbar_sec />
+          </div>
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-semibold mb-5">Ranking</h1>
+            <p className="text-gray-600">
+              Compare investimentos em tecnologia educacional no seu município com o seu estado
+            </p>
+          </div>
 
-            <div className="bg-transparent p-6 mb-6">
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="mx-auto w-full">
-                    <SearchForm
-                      leftFilters={municipalitySearch?.filters}
-                      rightFilters={stateSearch?.filters}
-                      onLeftChange={municipalitySearch?.updateFilters}
-                      onRightChange={stateSearch?.updateFilters}
-                      onSearch={handleSearch}
-                      loading={ranking.loading}
-                    />
-                    {localError ? (
-                      <div className="mt-3 bg-yellow-100 border border-yellow-300 text-yellow-800 px-3 py-2 rounded">
-                        {localError}
-                      </div>
-                    ) : null}
-                  </div>
+          <div className="bg-transparent p-6 mb-6">
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 gap-4">
+                <div className="mx-auto w-full">
+                  <SearchForm
+                    leftFilters={municipalitySearch?.filters}
+                    rightFilters={stateSearch?.filters}
+                    onLeftChange={municipalitySearch?.updateFilters}
+                    onRightChange={stateSearch?.updateFilters}
+                    onSearch={handleSearch}
+                    loading={ranking.loading}
+                  />
+                  {localError ? (
+                    <div className="mt-3 bg-yellow-100 border border-yellow-300 text-yellow-800 px-3 py-2 rounded">
+                      {localError}
+                    </div>
+                  ) : null}
                 </div>
+              </div>
 
-                <div className="bg-gray-100 rounded-lg p-4">
-                  <div className="text-sm font-medium text-gray-700 mb-2">
-                    💡 Dicas de Busca
-                  </div>
-                  <ul className="text-sm text-gray-700 list-disc pl-5 space-y-1">
-                    <li>Experimente um período de tempo mais amplo</li>
-                    <li>Teste outras categorias tecnológicas</li>
-                    <li>Verifique se há publicações recentes no município</li>
-                  </ul>
+              <div className="bg-gray-100 rounded-lg p-4">
+                <div className="text-sm font-medium text-gray-700 mb-2">
+                  💡 Dicas de Busca
                 </div>
+                <ul className="text-sm text-gray-700 list-disc pl-5 space-y-1">
+                  <li>Experimente um período de tempo mais amplo</li>
+                  <li>Teste outras categorias tecnológicas</li>
+                  <li>Verifique se há publicações recentes no município</li>
+                </ul>
               </div>
             </div>
           </div>
