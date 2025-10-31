@@ -13,7 +13,9 @@ Guia de configuração e execução do ambiente de desenvolvimento local para a 
   - **Framework:** FastAPI
   - **Validação de Dados:** Pydantic
   - **Servidor ASGI:** Uvicorn
-  - **Banco de Dados:** JSON (gerado dinamicamente pela API)
+  - **Testes:** Pytest, Pytest-Mock
+  - **Qualidade de Código:** Pre-commit, Black, Flake8
+  - **Análise de Dados:** Pandas
 
 -----
 
@@ -34,46 +36,52 @@ Garanta que você tenha o básico instalado:
 
 ### Passo 2: Instalação
 
-Clone o repositório, crie o ambiente virtual e instale as dependências.
+Clone o repositório, entre na pasta do backend, crie o ambiente virtual e instale as dependências.
 
 ```bash
 # Clone o projeto
 git clone https://github.com/unb-mds/Projeto-P.I.T.E.R.git
 cd Projeto-P.I.T.E.R
 
-# Entre na branch de desenvolvimento do backend
+# Entre na branch de desenvolvimento
 # (Ajuste o nome da branch se necessário)
-git checkout branch-criada
+git checkout enviodadosapi
 
-# Crie e ative o ambiente virtual
+# --- Entre na pasta do backend ---
+cd backend
+
+# Crie e ative o ambiente virtual (dentro da pasta backend)
 python3 -m venv venv
 
 # Ativar no Linux/Mac:
 source venv/bin/activate
 # Ativar no Windows (PowerShell):
-# venv\Scripts\Activate.ps1
+# .\venv\Scripts\Activate.ps1
 
-# Instale as dependências do projeto
+# Instale as dependências do projeto (do backend)
+# (Isso inclui FastAPI, Uvicorn, Pandas, Pytest, Pytest-Mock, etc.)
 pip install -r requirements.txt
 
-# Baixe o modelo de linguagem em português para o spaCy
-python -m spacy download pt_core_news_lg
+# (Opcional, se for rodar o Spacy localmente)
+# python -m spacy download pt_core_news_lg
 ```
 
 -----
 
 ### Passo 3: Configuração do Ambiente
 
-A API precisa de algumas variáveis de ambiente para funcionar, como a URL da API do spaCy.
+A API precisa de algumas variáveis de ambiente para funcionar.
 
-1.  Crie um arquivo chamado `.env` na raiz do projeto.
-2.  Adicione as seguintes variáveis a ele (use os valores corretos para o seu ambiente):
+1.  Dentro da pasta `backend`, crie um arquivo chamado `.env`.
+2.  Copie o conteúdo de `.env.example` para o novo `.env`.
+3.  Adicione as seguintes variáveis a ele (use os valores corretos para o seu ambiente):
 
 <!-- end list -->
 
 ```env
-# Exemplo de arquivo .env
-SPACY_API_URL="http://localhost:8001" # URL onde seu serviço spaCy irá rodar
+# Exemplo de arquivo .env (dentro de backend/)
+# URL onde seu serviço Spacy irá rodar (se for externo)
+SPACY_API_URL="http://127.0.0.1:8080/ent"
 ```
 
 -----
@@ -83,89 +91,79 @@ SPACY_API_URL="http://localhost:8001" # URL onde seu serviço spaCy irá rodar
 Com tudo instalado e configurado, inicie o servidor FastAPI.
 
 ```bash
-# A partir da raiz do projeto, execute o Uvicorn
-# 'src.app.main:app' aponta para o objeto 'app' no arquivo 'main.py' dentro da pasta 'app'
-# '--reload' reinicia o servidor automaticamente quando você salva uma alteração no código
-uvicorn src.app.main:app --reload
+# Certifique-se de que você está na pasta 'backend'
+# e que seu ambiente virtual (venv) está ativo.
+
+# Execute o Uvicorn
+# 'main:app' aponta para o objeto 'app' no arquivo 'main.py'
+# '--reload' reinicia o servidor automaticamente quando você salva uma alteração
+python3 -m uvicorn main:app --reload
 ```
 
-O terminal deverá mostrar uma mensagem indicando que o servidor está rodando, geralmente em `http://127.0.0.1:8000`.
+O terminal deverá mostrar uma mensagem indicando que o servidor está rodando em `http://127.0.0.1:8000`.
 
 ### Exemplo de acesso aos dados via API
 
-Com o servidor rodando localmente, acesse no navegador ou via ferramentas como Postman/cURL:
+Com o servidor rodando, acesse no navegador:
 
-```
-http://127.0.0.1:8000/api/v1/gazettes?territory_ids=5208707&published_since=2024-02-19&published_until=2024-03-11&size=5
-```
+**Endpoint de Análise (Pipeline de IA):**
+`http://127.0.0.1:8000/analyze`
 
-**Exemplo de resposta JSON:**
-```json
-[
-  {
-    "territory_id": "5208707",
-    "date": "2024-03-08",
-    "scraped_at": "2024-03-09T22:52:58.147631",
-    "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-03-08/31cd73c20ee923dd9f3c2b20d93125278763d77f.pdf",
-    "territory_name": "Goiânia",
-    "state_code": "GO",
-    "excerpts": [],
-    "edition": "8245",
-    "is_extra_edition": true,
-    "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-03-08/31cd73c20ee923dd9f3c2b20d93125278763d77f.txt"
-  },
-  {
-    "territory_id": "5208707",
-    "date": "2024-03-11",
-    "scraped_at": "2024-03-11T23:29:48.162641",
-    "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-03-11/f401d9e9501c3192c797832ed44e964d54a3c38d.pdf",
-    "territory_name": "Goiânia",
-    "state_code": "GO",
-    "excerpts": [],
-    "edition": "8246",
-    "is_extra_edition": false,
-    "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-03-11/f401d9e9501c3192c797832ed44e964d54a3c38d.txt"
-  },
-  {
-    "territory_id": "5208707",
-    "date": "2024-02-28",
-    "scraped_at": "2024-02-29T23:05:23.763574",
-    "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-02-28/7579e17ed2c87095960b836bf637bbee89a4ec6b.pdf",
-    "territory_name": "Goiânia",
-    "state_code": "GO",
-    "excerpts": [],
-    "edition": "8238",
-    "is_extra_edition": false,
-    "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-02-28/7579e17ed2c87095960b836bf637bbee89a4ec6b.txt"
-  },
-  {
-    "territory_id": "5208707",
-    "date": "2024-02-20",
-    "scraped_at": "2024-02-20T23:44:32.484490",
-    "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-02-20/d6a14923f908716e36dab88408de1377bc29f3a9.pdf",
-    "territory_name": "Goiânia",
-    "state_code": "GO",
-    "excerpts": [],
-    "edition": "8231",
-    "is_extra_edition": false,
-    "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-02-20/d6a14923f908716e36dab88408de1377bc29f3a9.txt"
-  },
-  {
-    "territory_id": "5208707",
-    "date": "2024-02-19",
-    "scraped_at": "2024-02-20T23:44:32.494303",
-    "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-02-19/ccb0b1d55d946e5cdeab383a71afe91644946f02.pdf",
-    "territory_name": "Goiânia",
-    "state_code": "GO",
-    "excerpts": [],
-    "edition": "8230",
-    "is_extra_edition": false,
-    "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2024-02-19/ccb0b1d55d946e5cdeab383a71afe91644946f02.txt"
-  }
-]
+**Endpoint de Busca (Querido Diário):**
+`http://127.0.0.1:8000/api/v1/gazettes?territory_ids=5208707&published_since=2024-02-19&published_until=2024-03-11&size=5`
+
+-----
+
+## 🧪 Testando o Projeto
+
+O projeto usa `pytest` para testes de integração e unitários, e `pre-commit` para garantir a qualidade e formatação do código.
+
+### 1\. Dependências de Teste
+
+Todas as ferramentas necessárias (`pytest`, `pytest-mock`, `black`, `flake8`) já estão incluídas no arquivo `backend/requirements.txt`. A instalação no "Passo 2" já cuidou disso.
+
+Temos também um arquivo `backend/pytest.ini` para garantir que o plugin `pytest-mock` (que fornece a fixture `mocker`) seja carregado corretamente.
+
+### 2\. Executando os Testes
+
+Os testes são feitos para serem executados a partir da pasta `backend`.
+
+```bash
+# Certifique-se de que você está na pasta 'backend'
+# e que seu ambiente virtual (venv) está ativo.
+
+# Execute o pytest com verbosidade e mostrando os prints
+pytest -s -v
 ```
 
-> Se publicar o backend, troque `127.0.0.1:8000` pela URL do seu serviço (exemplo: `https://seu-backend.onrender.com`).
+Isso descobrirá e executará todos os testes nas pastas `backend/tests/` (testes de API) e `backend/tests/processing/` (testes unitários).
 
-https://fastapi.tiangolo.com/ 
+### 3\. Automação de Qualidade (Pre-commit)
+
+Nós usamos `pre-commit` com `Black` e `Flake8` para formatar e verificar seu código automaticamente *antes* de cada commit.
+
+**Como configurar (apenas uma vez):**
+
+```bash
+# 1. Certifique-se de que 'pre-commit' está instalado (feito no Passo 2)
+
+# 2. Navegue até a pasta RAIZ do projeto (Projeto-B.I.I.A)
+cd .. 
+# (Se você estava em 'backend', volte um nível)
+
+# 3. Instale os hooks do git
+pre-commit install
+```
+
+**Como funciona:**
+Agora, toda vez que você rodar `git commit`:
+
+1.  `black` será executado e formatará seus arquivos `.py` automaticamente.
+2.  `flake8` será executado e verificará se há erros de lógica ou estilo.
+3.  Se `black` formatar algum arquivo ou `flake8` encontrar um erro, o commit falhará.
+4.  **Para corrigir:** Simplesmente adicione os arquivos formatados (`git add .`) e rode `git commit` novamente.
+
+-----
+
+[https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)
 Este site contém todos os tutoriais iniciais para rodar o fastAPI.

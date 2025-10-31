@@ -3,6 +3,7 @@ import httpx # Importe httpx para simular erros
 from fastapi.testclient import TestClient
 from main import app
 
+
 # Cria um cliente de teste para fazer requisições à API
 client = TestClient(app)
 
