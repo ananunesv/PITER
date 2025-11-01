@@ -16,7 +16,8 @@ async def fetch_gazettes(territory_id: str, since: str, until: str) -> Optional[
         "territory_ids": territory_id,
         "since": since,
         "until": until,
-        "size": 5 # Apenas 5 para este exemplo
+        "size": 50,
+        "querystring": "prefeitura"
     }
     
     try:
