@@ -28,11 +28,15 @@ async def fetch_gazettes(territory_id: str, since: str, until: str) -> Optional[
             response.raise_for_status() 
             
             data = response.json()
-            print(f"Querido Diário: Encontrados {data.get('total_gazettes', 0)} diários.")
+            total = data.get('total_gazettes', 0)
+            print(f"Querido Diário: Encontrados {total} diários para {territory_id} entre {since} e {until}")
+            print(f"URL da requisição: {response.url}")
             return data
     
     except httpx.HTTPStatusError as e: # Captura erros de status (4xx, 5xx)
         print(f"Erro HTTP ao buscar dados do Querido Diário: Status {e.response.status_code}")
+        print(f"URL da requisição: {e.request.url}")
+        print(f"Resposta: {e.response.text}")
         return None
     except httpx.RequestError as e: # Captura erros de conexão, DNS, timeout, etc.
         print(f"Erro de CONEXÃO ao buscar dados do Querido Diário: {e}")
@@ -124,3 +128,16 @@ class QueridoDiarioClient:
         fixed_text = re.sub(r'[�]+', '', fixed_text)
 
         return fixed_text
+
+    async def search_gazettes(self, territory_id: str, start_date: str, end_date: str, keywords: list):
+        """Compatibility wrapper expected by RankingService.
+
+        The older RankingService calls `search_gazettes(...)`. Provide a
+        thin wrapper that delegates to the module-level `fetch_gazettes`
+        implementation (which performs the actual HTTP request).
+        """
+        # Currently we ignore `keywords` here because the simple
+        # Querido Diário client implementation does not use them in the
+        # request params. If needed, we can add mapping to the
+        # `querystring` parameter later.
+        return await fetch_gazettes(str(territory_id), str(start_date), str(end_date))

@@ -57,6 +57,12 @@ export interface RankingData {
       total: number;
       rank: number;
     }>;
+    by_investment?: Array<{
+      territory_id: string;
+      total_invested: number;
+      top_categories: Array<{ category: string; value: number }>;
+      rank: number;
+    }>;
     total_municipalities: number;
   };
 }
