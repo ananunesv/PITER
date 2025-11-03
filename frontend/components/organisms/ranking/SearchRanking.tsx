@@ -59,7 +59,9 @@ export default function SearchRanking() {
 
     // Call API through useRanking hook
     try {
+      console.log('📤 Chamando ranking.getRanking com params:', params);
       await ranking.getRanking(params);
+      console.log('✅ ranking.getRanking terminou. rankingData:', ranking.rankingData);
     } catch (err) {
       console.error('❌ Erro na busca:', err);
       setLocalError(err instanceof Error ? err.message : 'Erro ao realizar a busca');
@@ -122,7 +124,7 @@ export default function SearchRanking() {
               </h1>
               <p className="text-gray-600 mt-1">
                 {ranking.rankingData && ranking.rankingData.rankings.total_municipalities > 0
-                  ? `${ranking.rankingData.rankings.total_municipalities} municípios comparados`
+                  ? `${ranking.rankingData.rankings.total_municipalities} municípios comparados (ranking por investimento)`
                   : 'Nenhum resultado encontrado'}
               </p>
             </div>
@@ -154,30 +156,50 @@ export default function SearchRanking() {
                 </button>
               </div>
             </div>
-          ) : ranking.rankingData ? (
+              ) : ranking.rankingData ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h2 className="text-xl font-semibold mb-4">Município</h2>
+                <h2 className="text-xl font-semibold mb-4">Município (por investimento)</h2>
                 <div className="space-y-4">
-                  {ranking.rankingData.rankings.by_publications
+                  {ranking.rankingData.rankings.by_investment
                     .filter(item => item.territory_id === municipalitySearch?.filters?.territory_id)
                     .map(rankItem => (
                       <div key={rankItem.territory_id} className="bg-white p-4 rounded-lg shadow">
                         <h3 className="font-semibold">Posição no Ranking: {rankItem.rank}º</h3>
-                        <p>Total de Publicações: {rankItem.total}</p>
+                        <p>Total Investido: R$ {rankItem.total_invested.toLocaleString()}</p>
+                        {rankItem.top_categories && rankItem.top_categories.length > 0 ? (
+                          <div className="mt-2 text-sm text-gray-600">
+                            Principais categorias:
+                            <ul className="list-disc pl-5">
+                              {rankItem.top_categories.map((c: any) => (
+                                <li key={c.category}>{`${c.category} — R$ ${Number(c.value).toLocaleString()}`}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
                       </div>
                     ))}
                 </div>
               </div>
               <div>
-                <h2 className="text-xl font-semibold mb-4">Estado</h2>
+                <h2 className="text-xl font-semibold mb-4">Estado (por investimento)</h2>
                 <div className="space-y-4">
-                  {ranking.rankingData.rankings.by_publications
+                  {ranking.rankingData.rankings.by_investment
                     .filter(item => item.territory_id === stateSearch?.filters?.territory_id)
                     .map(rankItem => (
                       <div key={rankItem.territory_id} className="bg-white p-4 rounded-lg shadow">
                         <h3 className="font-semibold">Posição no Ranking: {rankItem.rank}º</h3>
-                        <p>Total de Publicações: {rankItem.total}</p>
+                        <p>Total Investido: R$ {rankItem.total_invested.toLocaleString()}</p>
+                        {rankItem.top_categories && rankItem.top_categories.length > 0 ? (
+                          <div className="mt-2 text-sm text-gray-600">
+                            Principais categorias:
+                            <ul className="list-disc pl-5">
+                              {rankItem.top_categories.map((c: any) => (
+                                <li key={c.category}>{`${c.category} — R$ ${Number(c.value).toLocaleString()}`}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
                       </div>
                     ))}
                 </div>

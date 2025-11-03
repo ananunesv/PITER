@@ -33,7 +33,9 @@ export const useGazetteSearch = () => {
       filters: {
         ...prev.filters,
         ...newFilters,
-        territory_id: municipality?.value || prev.filters.territory_id,
+        // Allow explicitly setting territory_id (used for state select). If not
+        // provided, fall back to resolved municipality value or previous value.
+        territory_id: (newFilters as any).territory_id || municipality?.value || prev.filters.territory_id,
         published_since: newFilters.dataInicio || prev.filters.published_since,
         published_until: newFilters.dataFim || prev.filters.published_until,
         querystring: newFilters.categoria || prev.filters.querystring,

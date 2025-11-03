@@ -39,8 +39,9 @@ export const SearchForm: React.FC<SearchFormProps> = ({
         <Select
           label="Estado"
           options={STATES}
-          value={rightFilters.municipio}
-          onChange={(value) => onRightChange({ municipio: value })}
+          // Store the selected state in territory_id so hooks/backend receive the expected field
+          value={rightFilters.territory_id || rightFilters.municipio}
+          onChange={(value) => onRightChange({ territory_id: value })}
           placeholder="Selecione um estado"
           required
           id="estado"
