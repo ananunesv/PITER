@@ -1,10 +1,13 @@
 print("Carregando main...")
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from services.integration.piter_api_orchestrator import PiterApiOrchestrator
-from services.api.clients.querido_diario_client import FilterParams
-from services.integration.piter_api_orchestrator import run_analysis_pipeline
-from services.api.ranking import ranking_router
+from backend.services.integration.piter_api_orchestrator import (
+    PiterApiOrchestrator,
+    run_analysis_pipeline,
+)
+from backend.services.api.clients.querido_diario_client import FilterParams
+from backend.services.api.ranking import ranking_router
+
 from typing import Dict, Any
 import uvicorn
 
