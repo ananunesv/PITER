@@ -1,25 +1,17 @@
-print("Carregando main...")
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from backend.services.integration.piter_api_orchestrator import (
-    PiterApiOrchestrator,
-    run_analysis_pipeline,
-)
-from backend.services.api.clients.querido_diario_client import FilterParams
-from backend.services.api.ranking import ranking_router
-
-from typing import Dict, Any
+from services.integration.piter_api_orchestrator import PiterApiOrchestrator
+from services.api.clients.querido_diario_client import FilterParams
+from pydantic import BaseModel, Field
+from typing import Optional, Dict, Any
+import logging
 import uvicorn
-
 
 app = FastAPI(
     title="P.I.T.E.R API",
     description="Plataforma de Integração e Transparência em Educação e Recursos",
     version="1.0.0"
 )
-
-# Inclui as rotas do ranking
-app.include_router(ranking_router, prefix="/api/v1", tags=["ranking"])
 
 # CORS para permitir frontend separado
 app.add_middleware(
@@ -31,6 +23,49 @@ app.add_middleware(
 )
 
 orchestrator = PiterApiOrchestrator()
+
+# logger básico (usado neste módulo)
+logger = logging.getLogger(__name__)
+if not logger.handlers:
+    # configura handler simples caso o logger ainda não possua
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    logger.setLevel(logging.INFO)
+
+# ===== Envio de dados do frontend (Issue #65) =====
+class EnvioDadosPayload(BaseModel):
+    titulo: str = Field(..., min_length=1)
+    descricao: Optional[str] = None
+    fonte: Optional[str] = None
+    metadados: Optional[Dict[str, Any]] = None  # flexível p/ extras (ex.: sprint, usuário, etc.)
+
+
+@app.post("/api/v1/enviar-dados", tags=["integração"])
+async def enviar_dados(payload: EnvioDadosPayload):
+    """
+    Recebe dados do frontend (Next.js) e confirma o recebimento.
+    Ponto de integração futura com o Orquestrador (persistência, filas, etc).
+    """
+    try:
+        logger.info(
+            "POST /api/v1/enviar-dados",
+            extra={"titulo": payload.titulo, "fonte": payload.fonte}
+        )
+
+        # 👉 Se/quando quiser integrar com o orquestrador:
+        # result = await orchestrator.process_submission(payload.model_dump())
+
+        return {
+            "status": "accepted",
+            "mensagem": "Dados recebidos com sucesso!",
+            "dados": payload.model_dump(),
+        }
+    except Exception as e:
+        logger.exception("Erro no /api/v1/enviar-dados")
+        raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
+# ===== fim Issue #65 =====
 
 @app.get("/")
 async def read_root():
@@ -70,26 +105,6 @@ async def get_gazettes(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
-    
-@app.get("/analyze", response_model=Dict[str, Any])
-async def analyze_gazettes(
-    territory_id: str = "5300108",  # Ex: Brasília (DF)
-    since: str = "2024-01-01",      # Data de início
-    until: str = "2024-01-05"       # Data de fim
-):
-    """
-    Dispara o pipeline de automação de IA para filtrar dados e criar estatísticas.
-    """
-    # 1. Chama o orquestrador (Tópico 1)
-    # O FastAPI vai "esperar" (await) o pipeline terminar
-    analysis_results = await run_analysis_pipeline(
-        territory_id=territory_id,
-        since=since,
-        until=until
-    )
-    
-    # 2. Retorna os resultados como JSON
-    return analysis_results
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

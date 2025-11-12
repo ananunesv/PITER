@@ -4,7 +4,7 @@ import React from 'react';
 import { Select } from '@/components/atoms/Select';
 import { Input } from '@/components/atoms/Input';
 import { Button } from '@/components/atoms/Button';
-import { MUNICIPALITIES, CATEGORIES, SearchFilters } from '@/types';
+import { MUNICIPALITIES, STATES, CATEGORIES, SearchFilters } from '@/types';
 
 interface SearchFormProps {
   leftFilters: SearchFilters;
@@ -31,17 +31,18 @@ export const SearchForm: React.FC<SearchFormProps> = ({
             options={MUNICIPALITIES}
             value={leftFilters.municipio}
             onChange={(value) => onLeftChange({ municipio: value })}
-            placeholder="Selecione o município"
+            placeholder="Selecione um município"
             required
             id="municipio"
           />
 
         <Select
           label="Estado"
-          options={MUNICIPALITIES}
-          value={rightFilters.municipio}
-          onChange={(value) => onRightChange({ municipio: value })}
-          placeholder="Selecione o município"
+          options={STATES}
+          // Store the selected state in territory_id so hooks/backend receive the expected field
+          value={rightFilters.territory_id || rightFilters.municipio}
+          onChange={(value) => onRightChange({ territory_id: value })}
+          placeholder="Selecione um estado"
           required
           id="estado"
         />
@@ -50,26 +51,35 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           type="date"
           label="De"
           value={leftFilters.dataInicio}
-          onChange={(value) => onLeftChange({ dataInicio: value })}
-          id="dataInicio_left"
+          onChange={(value) => {
+            onLeftChange({ dataInicio: value });
+            onRightChange({ dataInicio: value });
+          }}
+          id="dataInicio"
         />
 
         <Input
           type="date"
           label="Até"
           value={leftFilters.dataFim}
-          onChange={(value) => onLeftChange({ dataFim: value })}
-          id="dataFim_left"
+          onChange={(value) => {
+            onLeftChange({ dataFim: value });
+            onRightChange({ dataFim: value });
+          }}
+          id="dataFim"
         />
         
         <Select
           label="Categoria"
           options={CATEGORIES}
           value={leftFilters.categoria}
-          onChange={(value) => onLeftChange({ categoria: value as SearchFilters['categoria'] })}
+          onChange={(value) => {
+            onLeftChange({ categoria: value as SearchFilters['categoria'] });
+            onRightChange({ categoria: value as SearchFilters['categoria'] });
+          }}
           placeholder="Selecione a categoria"
           required
-          id="categoria_left"
+          id="categoria"
         />
       </div>
 
@@ -80,7 +90,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           size="lg"
           className="px-8"
         >
-          {loading ? 'Buscando...' : 'Rankear'}
+          {loading ? 'Processando...' : 'Rankear'}
         </Button>
       </div>
     </div>
