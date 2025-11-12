@@ -5,6 +5,17 @@ export interface SearchFilters {
   categoria: 'robotica' | 'software' | '';
   dataInicio: string;
   dataFim: string;
+  territory_id?: string;
+  published_since?: string;
+  published_until?: string;
+  querystring?: string;
+}
+
+export interface RankingFilters {
+  territory_id: string;
+  published_since: string;
+  published_until: string;
+  querystring: string;
 }
 
 export interface Gazette {
@@ -33,10 +44,37 @@ export interface SearchState {
   filters: SearchFilters;
 }
 
+export interface RankingData {
+  municipalities: {
+    [key: string]: {
+      total_gazettes: number;
+      statistics: any;
+    };
+  };
+  rankings: {
+    by_publications: Array<{
+      territory_id: string;
+      total: number;
+      rank: number;
+    }>;
+    by_investment?: Array<{
+      territory_id: string;
+      total_invested: number;
+      top_categories: Array<{ category: string; value: number }>;
+      rank: number;
+    }>;
+    total_municipalities: number;
+  };
+}
+
 // Opções para os selects
 export const MUNICIPALITIES = [
-  { value: 'goiania', label: 'Goiânia', ibge_code: '5208707' },
-  { value: 'aparecida', label: 'Aparecida de Goiânia', ibge_code: '5201405' },
+  { value: '5208707', label: 'Goiânia', state_code: 'GO' },
+  { value: '5201405', label: 'Aparecida de Goiânia', state_code: 'GO' },
+] as const;
+
+export const STATES = [
+  { value: '52', label: 'Goiás', state_code: 'GO' },
 ] as const;
 
 export const CATEGORIES = [
