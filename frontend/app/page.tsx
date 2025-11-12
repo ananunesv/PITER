@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navbar_second } from '@/components/atoms/Navbar_second';
-import { SearchForm } from '@/components/molecules/SearchForm';
+import Navbar_sec from '@/components/atoms/Navbar_sec';
+import { SearchForm } from '@/components/molecules/search/SearchForm';
 import { GazetteCard } from '@/components/molecules/GazetteCard';
 import { useGazetteSearch } from '@/hooks/useGazetteSearch';
 import SugestaoPesquisa from '@/components/atoms/Sugestão_pesquisa';
@@ -39,7 +39,7 @@ export default function Home() {
           // Página de busca inicial
           <div>
             <div className="w-full mx-auto bg-transparent p-6">
-              <Navbar_second />
+              <Navbar_sec />
             </div>
 
             <div className="text-center mb-8">
