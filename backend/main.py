@@ -1,14 +1,25 @@
+print("Carregando main...")
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from services.integration.piter_api_orchestrator import PiterApiOrchestrator
-from services.api.clients.querido_diario_client import FilterParams
+from backend.services.integration.piter_api_orchestrator import (
+    PiterApiOrchestrator,
+    run_analysis_pipeline,
+)
+from backend.services.api.clients.querido_diario_client import FilterParams
+from backend.services.api.ranking import ranking_router
+
+from typing import Dict, Any
 import uvicorn
+
 
 app = FastAPI(
     title="P.I.T.E.R API",
     description="Plataforma de Integração e Transparência em Educação e Recursos",
     version="1.0.0"
 )
+
+# Inclui as rotas do ranking
+app.include_router(ranking_router, prefix="/api/v1", tags=["ranking"])
 
 # CORS para permitir frontend separado
 app.add_middleware(
@@ -59,6 +70,26 @@ async def get_gazettes(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
+    
+@app.get("/analyze", response_model=Dict[str, Any])
+async def analyze_gazettes(
+    territory_id: str = "5300108",  # Ex: Brasília (DF)
+    since: str = "2024-01-01",      # Data de início
+    until: str = "2024-01-05"       # Data de fim
+):
+    """
+    Dispara o pipeline de automação de IA para filtrar dados e criar estatísticas.
+    """
+    # 1. Chama o orquestrador (Tópico 1)
+    # O FastAPI vai "esperar" (await) o pipeline terminar
+    analysis_results = await run_analysis_pipeline(
+        territory_id=territory_id,
+        since=since,
+        until=until
+    )
+    
+    # 2. Retorna os resultados como JSON
+    return analysis_results
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

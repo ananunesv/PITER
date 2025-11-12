@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Header } from '@/components/organisms/Header';
-import { SearchForm } from '@/components/molecules/SearchForm';
+import Navbar_sec from '@/components/atoms/Navbar_sec';
+import { SearchForm } from '@/components/molecules/search/SearchForm';
 import { GazetteCard } from '@/components/molecules/GazetteCard';
 import { useGazetteSearch } from '@/hooks/useGazetteSearch';
+import SugestaoPesquisa from '@/components/atoms/Sugestão_pesquisa';
 
 export default function Home() {
   const [showResults, setShowResults] = useState(false);
@@ -33,47 +34,40 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-
       <main className="max-w-5xl mx-auto px-6 py-12">
         {!showResults ? (
           // Página de busca inicial
           <div>
-              <div className="text-center mb-8 mt-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-5">
-                  Buscar Diários Oficiais
-                </h1>
-                <p className="text-gray-600">
-                  Encontre investimentos em tecnologia educacional nos diários oficiais de Goiás
-                </p>
-              </div>
+            <div className="w-full mx-auto bg-transparent p-6">
+              <Navbar_sec />
+            </div>
 
-              <div className="w-full max-w-4xl mx-auto">
-                <div className="bg-transparent p-6 mb-8">
-                  <SearchForm
-                    filters={filters}
-                    onFiltersChange={updateFilters}
-                    onSearch={handleSearch}
-                    loading={loading}
-                  />
-                </div>
-
-                <div className="flex justify-center">
-                  <div className="bg-gray-100 rounded-xl p-6 w-96 text-center">
-                    <div className="text-sm text-gray-700 mb-2">💡 Dicas de Busca 💡</div>
-                    <ul className="text-gray-700 text-sm list-none space-y-2">
-                      <li>Experimente um período de tempo mais amplo</li>
-                      <li>Teste outras categorias tecnológicas</li>
-                      <li>Verifique se há publicações recentes no município</li>
-                    </ul>
-                  </div>
-                </div>
+            <div className="text-center mb-8">
+              <h1 className="text-3xl text-[#01161E] font-bold text-gray-900 mb-5">
+                Buscar Diários Oficiais
+              </h1>
+              <p className="text-[#01161E]">
+                Encontre investimentos em tecnologia educacional nos diários oficiais de Goiás
+              </p>
+            </div>
+            
+            <div className="w-full max-w-4xl mx-auto">
+              <div className="bg-transparent p-6 mb-0">
+                <SearchForm
+                  filters={filters}
+                  onFiltersChange={updateFilters}
+                  onSearch={handleSearch}
+                  loading={loading}
+                />
               </div>
+              <SugestaoPesquisa />
+            </div>
           </div>
         ) : (
           // Página de resultados
           <div className="max-w-7xl mx-auto">
-            <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-              <div>
+            <div className="mb-6 flex flex-col items-center space-y-4">
+              <div className="text-center">
                 <h1 className="text-3xl font-bold text-gray-900">
                   Resultados da Busca
                 </h1>
