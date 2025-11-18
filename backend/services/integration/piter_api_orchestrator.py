@@ -3,10 +3,10 @@ from typing import Dict, Any
 from httpx import RequestError
 
 # --- Imports para a CLASSE e a FUNÇÃO ---
-from services.api.clients import querido_diario_client, spacy_api_client
-from services.api.clients.querido_diario_client import FilterParams, QueridoDiarioClient
-from services.processing import data_cleaner
-from services.processing.statistics_generator import StatisticsGenerator
+from backend.services.api.clients import querido_diario_client, spacy_api_client
+from backend.services.api.clients.querido_diario_client import FilterParams, QueridoDiarioClient
+from backend.services.processing import data_cleaner
+from backend.services.processing.statistics_generator import StatisticsGenerator
 
 # --- Definição da CLASSE ---
 class PiterApiOrchestrator:

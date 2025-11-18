@@ -7,17 +7,27 @@ from datetime import date
 
 QUERIDO_DIARIO_API_URL = "https://api.queridodiario.ok.org.br" # <-- Corrigido
 
-async def fetch_gazettes(territory_id: str, since: str, until: str) -> Optional[Dict[Any, Any]]:
+async def fetch_gazettes(territory_id: str, since: str, until: str, keywords: Optional[list] = None) -> Optional[Dict[Any, Any]]:
     """
     Busca diários oficiais de um território em um período.
+
+    Args:
+        territory_id: Código IBGE do território
+        since: Data inicial (YYYY-MM-DD)
+        until: Data final (YYYY-MM-DD)
+        keywords: Lista de palavras-chave para busca (opcional)
     """
     url = f"{QUERIDO_DIARIO_API_URL}/gazettes"
+
+    # Converte keywords em string para querystring, ou usa "prefeitura" como padrão
+    querystring = " ".join(keywords) if keywords else "prefeitura"
+
     params = {
         "territory_ids": territory_id,
         "since": since,
         "until": until,
         "size": 50,
-        "querystring": "prefeitura"
+        "querystring": querystring
     }
     
     try:
@@ -135,9 +145,12 @@ class QueridoDiarioClient:
         The older RankingService calls `search_gazettes(...)`. Provide a
         thin wrapper that delegates to the module-level `fetch_gazettes`
         implementation (which performs the actual HTTP request).
+
+        Args:
+            territory_id: Código IBGE do território
+            start_date: Data inicial (YYYY-MM-DD)
+            end_date: Data final (YYYY-MM-DD)
+            keywords: Lista de palavras-chave para filtrar os resultados
         """
-        # Currently we ignore `keywords` here because the simple
-        # Querido Diário client implementation does not use them in the
-        # request params. If needed, we can add mapping to the
-        # `querystring` parameter later.
-        return await fetch_gazettes(str(territory_id), str(start_date), str(end_date))
+        # Passa as keywords para fetch_gazettes para uso no querystring
+        return await fetch_gazettes(str(territory_id), str(start_date), str(end_date), keywords)
