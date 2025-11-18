@@ -17,11 +17,12 @@ export default function SearchRanking() {
 
   const handleSearch = useCallback(async () => {
     // Prepare keywords based on category
+    // Usando apenas termos simples e específicos (sem palavras compostas)
     const keywords = [];
     if (municipalitySearch?.filters?.categoria === 'robotica') {
-      keywords.push('robótica', 'educacional', 'tecnologia', 'ensino');
+      keywords.push('robótica');
     } else if (municipalitySearch?.filters?.categoria === 'software') {
-      keywords.push('software', 'aplicativo', 'tecnologia', 'digital', 'educação');
+      keywords.push('software');
     }
 
     // Clear any previous local errors
