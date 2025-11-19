@@ -2,7 +2,27 @@
 // Cliente para API do Querido Diário (dados públicos brasileiros)
 
 import axios, { AxiosResponse } from 'axios';
-import { SearchFilters, QueridoDiarioResponse } from '@/types';
+
+export interface SearchFilters {
+  categoria?: string;
+  municipio?: string;
+  dataInicio?: string; // ISO date string (e.g. "2023-01-01")
+  dataFim?: string;    // ISO date string
+}
+
+export interface QueridoDiarioResponse {
+  id: string;
+  territory_id: string | number;
+  territory_name?: string;
+  state_code?: string;
+  date: string;
+  url?: string;
+  content?: string;
+  txt_url?: string;
+  created_at?: string;
+  edition_number?: string | number;
+  is_extra_edition?: boolean;
+}
 
 export class QueridoDiarioApiClient {
   private readonly baseUrl = 'https://queridodiario.ok.org.br/api';
@@ -39,7 +59,7 @@ export class QueridoDiarioApiClient {
     try {
       // Mapear filtros para parâmetros da API
       const params = {
-        querystring: this.buildQueryString(filters.categoria),
+        querystring: this.buildQueryString(filters.categoria || ''),
         territory_name: filters.municipio,
         since: filters.dataInicio,
         until: filters.dataFim,

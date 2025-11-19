@@ -5,6 +5,46 @@ from pydantic import BaseModel
 from typing import Optional, Dict, Any
 from datetime import date
 
+QUERIDO_DIARIO_API_URL = "https://api.queridodiario.ok.org.br" # <-- Corrigido
+
+async def fetch_gazettes(territory_id: str, since: str, until: str) -> Optional[Dict[Any, Any]]:
+    """
+    Busca diários oficiais de um território em um período.
+    """
+    url = f"{QUERIDO_DIARIO_API_URL}/gazettes"
+    params = {
+        "territory_ids": territory_id,
+        "since": since,
+        "until": until,
+        "size": 50,
+        "querystring": "prefeitura"
+    }
+    
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, params=params)
+            
+            # Levanta um erro se a requisição falhar (ex: 404, 500)
+            response.raise_for_status() 
+            
+            data = response.json()
+            total = data.get('total_gazettes', 0)
+            print(f"Querido Diário: Encontrados {total} diários para {territory_id} entre {since} e {until}")
+            print(f"URL da requisição: {response.url}")
+            return data
+    
+    except httpx.HTTPStatusError as e: # Captura erros de status (4xx, 5xx)
+        print(f"Erro HTTP ao buscar dados do Querido Diário: Status {e.response.status_code}")
+        print(f"URL da requisição: {e.request.url}")
+        print(f"Resposta: {e.response.text}")
+        return None
+    except httpx.RequestError as e: # Captura erros de conexão, DNS, timeout, etc.
+        print(f"Erro de CONEXÃO ao buscar dados do Querido Diário: {e}")
+        return None
+    except Exception as e: # Captura outros erros inesperados
+        print(f"Erro inesperado no cliente do Querido Diário: {e}")
+        return None
+
 class FilterParams(BaseModel):
     """Modelo para os parâmetros de filtro da API do Querido Diário."""
     territory_ids: Optional[str] = None
@@ -14,7 +54,7 @@ class FilterParams(BaseModel):
     size: Optional[int] = 10
 
 class QueridoDiarioClient:
-    BASE_URL = "https://queridodiario.ok.org.br/api/gazettes"
+    BASE_URL = "https://api.queridodiario.ok.org.br/gazettes" # <-- Corrigido
 
     async def fetch_gazettes(self, filters: FilterParams) -> Dict[str, Any]:
         # Converte o modelo Pydantic para um dicionário, removendo valores nulos
@@ -88,3 +128,16 @@ class QueridoDiarioClient:
         fixed_text = re.sub(r'[�]+', '', fixed_text)
 
         return fixed_text
+
+    async def search_gazettes(self, territory_id: str, start_date: str, end_date: str, keywords: list):
+        """Compatibility wrapper expected by RankingService.
+
+        The older RankingService calls `search_gazettes(...)`. Provide a
+        thin wrapper that delegates to the module-level `fetch_gazettes`
+        implementation (which performs the actual HTTP request).
+        """
+        # Currently we ignore `keywords` here because the simple
+        # Querido Diário client implementation does not use them in the
+        # request params. If needed, we can add mapping to the
+        # `querystring` parameter later.
+        return await fetch_gazettes(str(territory_id), str(start_date), str(end_date))
