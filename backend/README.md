@@ -238,7 +238,17 @@ Isso garante que todo commit seja verificado pelo **Black** (formatação) e **R
 
 ## 📜 Histórico de Mudanças Relevantes
 
-### v1.3.0 - Novembro 2025 (Atual)
+### v1.3.1 - 19 Novembro 2025
+
+#### **Correções de CI/CD e Estabilidade**
+
+  * **CI/CD:** Atualização do workflow de integração contínua para Python 3.12
+  * **Dependências:** Correção de versões pinadas (spacy 3.7.6, google-generativeai 0.8.5)
+  * **Testes:** Adição de pytest-asyncio e correção de testes falhando
+  * **Statistics Generator:** Correção do retorno de `total_entities` nas estatísticas
+  * **Build:** Resolução de problemas de build causados por versões yanked do PyPI
+
+### v1.3.0 - Novembro 2025
 
 #### **Implementação de Inteligência Híbrida**
 
