@@ -155,7 +155,7 @@ class StatisticsGenerator:
 
     def calculate_entity_statistics(self, entities: List[Dict[str, str]]) -> Dict[str, Any]:
         if not entities:
-            return {"entity_counts_by_type": {}, "top_entities": {}}
+            return {"entity_counts_by_type": {}, "top_entities": {}, "total_entities": 0}
 
         if pd is not None:
             df = pd.DataFrame(entities)
@@ -169,7 +169,8 @@ class StatisticsGenerator:
 
         return {
             "entity_counts_by_type": counts,
-            "top_entities": top
+            "top_entities": top,
+            "total_entities": sum(counts.values())
         }
     
     def _extract_entities(self, gazette_data: List[Dict[str, Any]]) -> List[Dict[str, str]]:
