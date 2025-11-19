@@ -5,7 +5,7 @@ import Navbar_sec from '@/components/atoms/Navbar_sec';
 import { SearchForm } from '@/components/molecules/search/SearchForm';
 import { GazetteCard } from '@/components/molecules/GazetteCard';
 import { useGazetteSearch } from '@/hooks/useGazetteSearch';
-import SugestaoPesquisa from '@/components/atoms/Sugestão_pesquisa';
+import SugestaoPesquisa from '@/components/atoms/SugestaoPesquisa';
 
 export default function Home() {
   const [showResults, setShowResults] = useState(false);
