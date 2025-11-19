@@ -71,18 +71,18 @@ export default function SearchRanking() {
   return (
     <div className="w-full">
       {!showResults ? (
-        <div className="flex flex-col items-center mt-0">
+        <div className="flex flex-col items-center mt-8">
           <div className="w-full mx-auto bg-transparent p-6">
             <Navbar_sec />
           </div>
           <div className="text-center mb-8">
             <h1 className="text-3xl font-semibold mb-5">Ranking</h1>
-            <p className="text-gray-600">
+            <p className="text-[#01161E]">
               Compare investimentos em tecnologia educacional no seu município com o seu estado
             </p>
           </div>
 
-          <div className="bg-transparent p-6 mb-6">
+          <div className="max-w-4xl bg-transparent p-6 mb-6">
             <div className="space-y-6">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mx-auto w-full">
@@ -102,19 +102,22 @@ export default function SearchRanking() {
                 </div>
               </div>
 
-              <div className="bg-gray-100 rounded-lg p-4">
-                <div className="text-sm font-medium text-gray-700 mb-2">
-                  💡 Dicas de Busca
-                </div>
-                <ul className="text-sm text-gray-700 list-disc pl-5 space-y-1">
-                  <li>Experimente um período de tempo mais amplo</li>
-                  <li>Teste outras categorias tecnológicas</li>
-                  <li>Verifique se há publicações recentes no município</li>
-                </ul>
+              <div className="flex justify-center">
+                  <div className="bg-[#EFF6E0] rounded-xl p-6 w-96 mt-14">
+                      <div className="text-center">
+                          <div className="text-sm font-medium text-[#01161E] mb-2">
+                              💡 Dicas de Busca 💡
+                          </div>
+                          <ul className="text-sm text-[#01161E] list-disc text-left pl-6 space-y-1">
+                              <li>Experimente um período de tempo mais amplo</li>
+                              <li>Teste outras categorias tecnológicas</li>
+                              <li>Verifique se há publicações recentes no município</li>
+                          </ul>
+                      </div>
+                  </div>
               </div>
             </div>
           </div>
-          <SugestaoPesquisa />
         </div>
       ) : (
         <div className="max-w-7xl mx-auto px-4 py-8">
