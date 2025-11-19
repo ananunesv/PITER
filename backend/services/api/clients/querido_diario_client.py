@@ -5,53 +5,46 @@ from pydantic import BaseModel
 from typing import Optional, Dict, Any
 from datetime import date
 
-QUERIDO_DIARIO_API_URL = "https://api.queridodiario.ok.org.br" # <-- Corrigido
+QUERIDO_DIARIO_API_URL = "https://api.queridodiario.ok.org.br/api" # <-- Corrigido
 
-async def fetch_gazettes(territory_id: str, since: str, until: str, keywords: Optional[list] = None) -> Optional[Dict[Any, Any]]:
+async def fetch_gazettes(territory_id: str, since: str, until: str, keywords: str = None) -> Optional[Dict[Any, Any]]:
     """
-    Busca diários oficiais de um território em um período.
-
-    Args:
-        territory_id: Código IBGE do território
-        since: Data inicial (YYYY-MM-DD)
-        until: Data final (YYYY-MM-DD)
-        keywords: Lista de palavras-chave para busca (opcional)
+    Busca diários oficiais com palavras-chave específicas.
     """
     url = f"{QUERIDO_DIARIO_API_URL}/gazettes"
-
-    # Converte keywords em string para querystring, ou usa "prefeitura" como padrão
-    querystring = " ".join(keywords) if keywords else "prefeitura"
-
+    
+    # Se não passar keyword, usa uma padrão focada em gastos para garantir resultados
+    query_term = keywords if keywords else "educação tecnologia informática"
+    
     params = {
         "territory_ids": territory_id,
         "since": since,
         "until": until,
-        "size": 50,
-        "querystring": querystring
+        "size": 50, # Pode aumentar para 100 para ter mais dados
+        "querystring": query_term # <-- Usa a variável dinâmica aqui
     }
     
     try:
-        async with httpx.AsyncClient() as client:
+        # --- CORREÇÃO: follow_redirects=True segue o link novo automaticamente ---
+        async with httpx.AsyncClient(timeout=60.0, follow_redirects=True) as client:
+            print(f"Buscando em: {url} (com redirecionamento automático)")
             response = await client.get(url, params=params)
             
-            # Levanta um erro se a requisição falhar (ex: 404, 500)
+            # Se der erro 404 ou 500, vai cair aqui
             response.raise_for_status() 
             
             data = response.json()
-            total = data.get('total_gazettes', 0)
-            print(f"Querido Diário: Encontrados {total} diários para {territory_id} entre {since} e {until}")
-            print(f"URL da requisição: {response.url}")
+            print(f"Querido Diário: Encontrados {data.get('total_gazettes', 0)} diários.")
             return data
     
-    except httpx.HTTPStatusError as e: # Captura erros de status (4xx, 5xx)
+    except httpx.HTTPStatusError as e:
         print(f"Erro HTTP ao buscar dados do Querido Diário: Status {e.response.status_code}")
-        print(f"URL da requisição: {e.request.url}")
-        print(f"Resposta: {e.response.text}")
+        print(f"Detalhes: {e.response.text[:200]}...") # Mostra o início do erro para ajudar no debug
         return None
-    except httpx.RequestError as e: # Captura erros de conexão, DNS, timeout, etc.
+    except httpx.RequestError as e:
         print(f"Erro de CONEXÃO ao buscar dados do Querido Diário: {e}")
         return None
-    except Exception as e: # Captura outros erros inesperados
+    except Exception as e:
         print(f"Erro inesperado no cliente do Querido Diário: {e}")
         return None
 
@@ -64,13 +57,12 @@ class FilterParams(BaseModel):
     size: Optional[int] = 10
 
 class QueridoDiarioClient:
-    BASE_URL = "https://api.queridodiario.ok.org.br/gazettes" # <-- Corrigido
+    BASE_URL = "https://api.queridodiario.ok.org.br/api/gazettes" # <-- Corrigido
 
     async def fetch_gazettes(self, filters: FilterParams) -> Dict[str, Any]:
-        # Converte o modelo Pydantic para um dicionário, removendo valores nulos
         params = filters.dict(exclude_none=True)
-
-        async with httpx.AsyncClient() as client:
+        # Adiciona follow_redirects aqui também
+        async with httpx.AsyncClient(timeout=60.0, follow_redirects=True) as client:
             response = await client.get(self.BASE_URL, params=params)
             response.raise_for_status()
 

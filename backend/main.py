@@ -1,16 +1,11 @@
-print("Carregando main...")
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from backend.services.integration.piter_api_orchestrator import (
-    PiterApiOrchestrator,
-    run_analysis_pipeline,
-)
-from backend.services.api.clients.querido_diario_client import FilterParams
-from backend.services.api.ranking import ranking_router
-
 from typing import Dict, Any
 import uvicorn
 
+# Imports dos serviços
+from services.integration.piter_api_orchestrator import PiterApiOrchestrator, run_analysis_pipeline
+from services.api.clients.querido_diario_client import FilterParams
 
 app = FastAPI(
     title="P.I.T.E.R API",
@@ -18,13 +13,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Inclui as rotas do ranking
-app.include_router(ranking_router, prefix="/api/v1", tags=["ranking"])
-
-# CORS para permitir frontend separado
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "https://your-frontend-domain.com"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -34,11 +25,7 @@ orchestrator = PiterApiOrchestrator()
 
 @app.get("/")
 async def read_root():
-    return {
-        "project": "P.I.T.E.R",
-        "status": "Online",
-        "description": "API para consulta de diários oficiais municipais"
-    }
+    return {"project": "P.I.T.E.R", "status": "Online"}
 
 @app.get("/health")
 async def health_check():
@@ -47,15 +34,11 @@ async def health_check():
 @app.get("/api/v1/gazettes")
 async def get_gazettes(
     territory_ids: str = Query(..., description="Código IBGE do município"),
-    published_since: str = Query(None, description="Data inicial (YYYY-MM-DD)"),
-    published_until: str = Query(None, description="Data final (YYYY-MM-DD)"),
-    querystring: str = Query(None, description="Palavra-chave para busca"),
-    size: int = Query(5, description="Quantidade de resultados", ge=1, le=100),
+    published_since: str = Query(None, description="Data inicial"),
+    published_until: str = Query(None, description="Data final"),
+    querystring: str = Query(None, description="Palavra-chave"),
+    size: int = Query(5, description="Quantidade"),
 ):
-    """
-    Endpoint principal para buscar e enriquecer diários oficiais.
-    Retorna dados do Querido Diário com possível análise NLP.
-    """
     try:
         filters = FilterParams(
             territory_ids=territory_ids,
@@ -64,32 +47,30 @@ async def get_gazettes(
             querystring=querystring,
             size=size
         )
-
-        enriched_gazettes = await orchestrator.get_enriched_gazette_data(filters)
-        return enriched_gazettes
-
+        return await orchestrator.get_enriched_gazette_data(filters)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
-    
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/analyze", response_model=Dict[str, Any])
 async def analyze_gazettes(
-    territory_id: str = "5300108",  # Ex: Brasília (DF)
-    since: str = "2024-01-01",      # Data de início
-    until: str = "2024-01-05"       # Data de fim
+    territory_id: str = "5300108",
+    since: str = "2024-01-01",
+    until: str = "2024-01-05",
+    # --- CORREÇÃO AQUI: Usamos Query(None) explicitamente ---
+    keywords: str = Query(None, description="Palavra-chave para filtro")
 ):
     """
-    Dispara o pipeline de automação de IA para filtrar dados e criar estatísticas.
+    Dispara o pipeline de automação de IA.
     """
-    # 1. Chama o orquestrador (Tópico 1)
-    # O FastAPI vai "esperar" (await) o pipeline terminar
-    analysis_results = await run_analysis_pipeline(
+    # Garante que keywords seja None se não for passado (evita Ellipsis)
+    kw_value = keywords if keywords and keywords is not ... else None
+    
+    return await run_analysis_pipeline(
         territory_id=territory_id,
         since=since,
-        until=until
+        until=until,
+        keywords=kw_value
     )
-    
-    # 2. Retorna os resultados como JSON
-    return analysis_results
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
