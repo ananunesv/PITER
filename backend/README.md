@@ -10,7 +10,7 @@ Guia de configuração, arquitetura e execução do ambiente de desenvolvimento 
 
 ---
 
-##  Índice
+## 📋 Índice
 
 - [Tecnologias](#️-tecnologias)
 - [Arquitetura do Sistema](#-arquitetura-do-sistema)
@@ -24,7 +24,7 @@ Guia de configuração, arquitetura e execução do ambiente de desenvolvimento 
 
 ---
 
-##  Tecnologias
+## 🛠️ Tecnologias
 
 - **Linguagem:** Python 3.12
 - **Framework Web:** FastAPI
@@ -33,202 +33,111 @@ Guia de configuração, arquitetura e execução do ambiente de desenvolvimento 
 - **Cliente HTTP:** HTTPX (async)
 - **Análise de Dados:** Pandas
 - **NLP:** spaCy (modelo `pt_core_news_sm`)
+- **IA Generativa:** Google Gemini (via Google Gen AI SDK)
 - **Testes:** Pytest, Pytest-Mock
 - **Qualidade de Código:** Pre-commit, Black, Ruff
 
-> AVISO: **Requisito:** Python **3.12** (spaCy não é compatível com Python 3.13+)
+> ⚠️ **AVISO:** Requisito: Python **3.12** (spaCy não é compatível com Python 3.13+)
 
 ---
 
-##  Arquitetura do Sistema
+## 🧠 Arquitetura do Sistema
 
-O backend segue uma **arquitetura em camadas** baseada no padrão **P.I.T.E.R** (inspirado em Clean Architecture):
+O backend segue uma **arquitetura em camadas** baseada no padrão **P.I.T.E.R** (inspirado em Clean Architecture), utilizando uma abordagem de **Inteligência Híbrida** (NLP Clássico + IA Generativa).
 
-```
-
-┌─────────────────────────────────────────────────────────────┐
-│                     CAMADA DE APRESENTAÇÃO                  │
-│                      (FastAPI Routes)                       │
-│                         main.py                             │
-└─────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────┐
-│                    CAMADA DE INTEGRAÇÃO                     │
-│               (services/integration/)                       │
-│          PiterApiOrchestrator + run\_analysis\_pipeline       │
-│          • Orquestra chamadas entre serviços                │
-│          • Coordena pipeline completo de análise            │
-└─────────────────────────────────────────────────────────────┘
-│
-┌─────────┴─────────┐
-▼                   ▼
-┌────────────────────────────┐  ┌──────────────────────────┐
-│   CAMADA DE CLIENTES API   │  │  CAMADA DE PROCESSAMENTO │
-│    (services/api/clients)  │  │   (services/processing)  │
-│                            │  │                          │
-│ • QueridoDiarioClient      │  │ • data\_cleaner           │
-│ • spacy\_api\_client         │  │ • statistics\_generator   │
-│                            │  │                          │
-│ Integração com APIs        │  │ Limpeza e análise        │
-│ externas                   │  │ de texto                 │
-└────────────────────────────┘  └──────────────────────────┘
-│                   │
-└─────────┬─────────┘
-▼
-┌─────────────────────┐
-│    CAMADA DE DADOS  │
-│   (APIs Externas)   │
-│                     │
-│ • Querido Diário    │
-│ • spaCy API         │
-└─────────────────────┘
-
-```
+```mermaid
+graph TD
+    A[Client / Frontend] -->|HTTP Request| B(Camada de Apresentação<br>FastAPI Routes)
+    B --> C{Camada de Integração<br>PiterApiOrchestrator}
+    C -->|Coleta| D[Camada de Clientes API]
+    C -->|Processamento| E[Camada de Processamento]
+    D -->|Busca| F[Querido Diário]
+    D -->|Contexto| G[Google Gemini AI]
+    E -->|Limpeza| H[Data Cleaner]
+    E -->|Estatísticas| I[Statistics Generator]
+    E -->|NLP| J[spaCy]
+````
 
 ### Princípios Arquiteturais
 
-1. **Separação de Responsabilidades**: Cada camada tem uma responsabilidade única e bem definida
-2. **Inversão de Dependências**: Camadas superiores não dependem de implementações de camadas inferiores
-3. **Orquestração Centralizada**: `PiterApiOrchestrator` coordena a comunicação entre serviços
-4. **Processamento Assíncrono**: Uso extensivo de `async/await` para melhor performance
-5. **Validação de Dados**: Pydantic garante integridade dos dados em todas as camadas
+1.  **Inteligência Híbrida**:
+      * **Quantitativo (Exatidão):** Regex e Python puro para somar valores e categorizar gastos (evita alucinação de IA).
+      * **Qualitativo (Contexto):** IA Generativa (Gemini) para resumir, justificar e explicar os gastos.
+2.  **Separação de Responsabilidades**: Cada serviço tem uma função única.
+3.  **Orquestração Centralizada**: O `PiterApiOrchestrator` coordena o fluxo de dados.
+4.  **Persistência em Arquivo**: Resultados salvos em JSON para consumo desacoplado pelo Frontend.
 
----
+-----
 
-##  Estrutura de Diretórios
+## 📂 Estrutura de Diretórios
 
 ```
-
 backend/
-├── main.py                         \# Ponto de entrada da aplicação FastAPI
-├── requirements.txt                \# Dependências do projeto
-├── .env.example                    \# Exemplo de variáveis de ambiente
+├── main.py                         # Ponto de entrada da aplicação FastAPI
+├── requirements.txt                # Dependências do projeto
+├── .env.example                    # Exemplo de variáveis de ambiente
 │
-├── services/                       \# Lógica de negócio e serviços
+├── services/                       # Lógica de negócio e serviços
 │   │
-│   ├── integration/                \#  CAMADA DE INTEGRAÇÃO
-│   │   ├── **init**.py
-│   │   └── piter\_api\_orchestrator.py
+│   ├── integration/                # 🧠 CAMADA DE INTEGRAÇÃO
+│   │   ├── __init__.py
+│   │   └── piter_api_orchestrator.py
 │   │       ├── PiterApiOrchestrator (classe)
-│   │       │   └── get\_enriched\_gazette\_data()
-│   │       └── run\_analysis\_pipeline() (função)
-│   │           • Pipeline completo: Coleta → Limpeza → IA → Estatísticas
+│   │       └── run_analysis_pipeline() (função)
+│   │           • Pipeline completo: Coleta → Limpeza → IA → Estatísticas → Persistência
 │   │
-│   ├── api/                        \#  CAMADA DE API
-│   │   ├── clients/                \# Clientes para APIs externas
-│   │   │   ├── **init**.py
-│   │   │   ├── querido\_diario\_client.py
-│   │   │   │   ├── fetch\_gazettes()          \# Busca diários (com keywords\!)
-│   │   │   │   └── QueridoDiarioClient
-│   │   │   │       ├── fetch\_gazettes()
-│   │   │   │       └── search\_gazettes()     \# Wrapper com keywords
-│   │   │   └── spacy\_api\_client.py
-│   │   │       └── extract\_entities()        \# Extração NER
-│   │   │
-│   │   └── ranking/                  \# Sistema de ranking
-│   │       ├── **init**.py
-│   │       ├── routes.py             \# POST /api/v1/ranking/state
-│   │       └── ranking\_service.py
-│   │           └── get\_state\_municipalities\_ranking()
+│   ├── api/                        # 🔌 CAMADA DE API (CLIENTES)
+│   │   ├── clients/
+│   │   │   ├── querido_diario_client.py   # Coleta dados oficiais
+│   │   │   ├── spacy_api_client.py        # NLP (Entidades)
+│   │   │   └── gemini_client.py           # IA Generativa (Resumos)
 │   │
-│   └── processing/                  \#  CAMADA DE PROCESSAMENTO
-│       ├── **init**.py
-│       ├── data\_cleaner.py
-│       │   ├── clean\_text\_for\_ia()          \# Limpeza básica
-│       │   └── pre\_filter\_spacy\_input()     \# Pré-filtragem avançada
-│       └── statistics\_generator.py
-│           └── StatisticsGenerator
-│               ├── calculate\_entity\_statistics()
-│               └── generate\_statistics()
+│   └── processing/                 # ⚙️ CAMADA DE PROCESSAMENTO
+│       ├── data_cleaner.py            # Limpeza e Pré-filtragem (Regex)
+│       └── statistics_generator.py    # Categorização Financeira (Radar de Tech)
 │
-└── tests/                           \# Testes automatizados
-├── **init**.py
-├── test\_main\_api.py
-├── processing/
-│   ├── test\_data\_cleaner.py
-│   └── test\_statistics\_generator.py
-└── conftest.py
-
+└── tests/                          # 🧪 Testes automatizados
+    ├── test_main_api.py               # Testes de Integração
+    └── processing/                    # Testes Unitários
 ```
 
----
+-----
 
-##  Pipeline de Dados
+## 🔄 Pipeline de Dados (`/analyze`)
 
-### 1. **Pipeline de Busca Simples** (`/api/v1/gazettes`)
+Quando o endpoint de análise é chamado, o seguinte fluxo acontece:
 
-```
+1.  **Busca (Input):** O sistema busca no *Querido Diário* usando keywords estratégicas (ex: "robótica", "computador").
+2.  **Agregação:** Baixa até 50 diários e concatena os trechos relevantes.
+3.  **Pré-Filtragem:** O `DataCleaner` remove cabeçalhos, rodapés e ruído visual.
+4.  **Análise Quantitativa:**
+      * O `StatisticsGenerator` identifica valores monetários (R$).
+      * Cruza o contexto com categorias de **Tecnologia Educacional** (Hardware, Software, Robótica).
+5.  **Análise Qualitativa (IA):**
+      * Se houver investimento, o texto é enviado ao **Gemini**.
+      * Retorna: Resumo do Objeto, Justificativa e Fornecedor.
+6.  **Persistência:** Salva o JSON em `frontend/public/data/latest_analysis.json`.
 
-1.  Requisição HTTP (FastAPI)
-    ↓
-2.  PiterApiOrchestrator.get\_enriched\_gazette\_data()
-    ↓
-3.  QueridoDiarioClient.fetch\_gazettes()
-    • Aplica keywords para filtrar resultados
-    • Faz requisição à API do Querido Diário
-    ↓
-4.  Retorna JSON com diários oficiais
+-----
 
-<!-- end list -->
-
-```
-
-### 2. **Pipeline de Análise Completa** (`/analyze`)
-
-```
-
-1.  Requisição HTTP (FastAPI)
-    ↓
-2.  run\_analysis\_pipeline()
-    ↓
-3.  COLETA: querido\_diario\_client.fetch\_gazettes()
-    • Busca 50 diários do período especificado (com keyword fixa)
-    ↓
-4.  AGREGAÇÃO: Loop por todos os diários + excerpts
-    • Junta todos os segmentos de texto de todos os diários
-    ↓
-5.  LIMPEZA: data\_cleaner.pre\_filter\_spacy\_input()
-    • Remove ruído (cabeçalhos, rodapés, regex)
-    ↓
-6.  PROCESSAMENTO IA: spacy\_api\_client.extract\_entities()
-    • Extração de entidades nomeadas (NER) localmente
-    ↓
-7.  ESTATÍSTICAS: StatisticsGenerator.calculate\_entity\_statistics()
-    • Calcula métricas, frequências, top entities
-    ↓
-8.  Retorna JSON com análise completa
-
-<!-- end list -->
-
-````
-
----
-
-##  Como Rodar o Projeto Localmente
+## 🚀 Como Rodar o Projeto Localmente
 
 ### 1️⃣ Pré-requisitos
 
-Garanta que você tenha o básico instalado:
-
-- Windows, macOS ou Linux (no Windows, PowerShell recomendado)
-- [Git](https://git-scm.com)
-- [Python 3.12](https://www.python.org/downloads/)
-- [pip](https://pip.pypa.io/en/stable/)
-
----
+  - Python 3.12 instalado
+  - Chave de API do Google Gemini (Obtenha no [Google AI Studio](https://aistudio.google.com/))
 
 ### 2️⃣ Instalação
 
 ```bash
-# Clone o projeto e entre na pasta principal
+# 1. Clone o projeto e entre na pasta principal
 git clone [https://github.com/unb-mds/Projeto-P.I.T.E.R.git](https://github.com/unb-mds/Projeto-P.I.T.E.R.git)
 cd Projeto-P.I.T.E.R
 
-# (Opcional) Troque para a branch de desenvolvimento
+# 2. (Opcional) Troque para a branch de desenvolvimento
 git checkout enviodadosapi
 
-# Crie e ative o ambiente virtual (na raiz do projeto)
+# 3. Crie e ative o ambiente virtual (na raiz do projeto)
 python3 -m venv venv  # Ou 'py -3.12 -m venv venv' no Windows
 
 # Ativar no Windows (PowerShell):
@@ -236,22 +145,20 @@ python3 -m venv venv  # Ou 'py -3.12 -m venv venv' no Windows
 # Ativar no Linux/Mac:
 # source venv/bin/activate
 
-# Instale as dependências (apontando para a pasta backend)
+# 4. Instale as dependências (apontando para a pasta backend)
 pip install -r backend/requirements.txt
 
-# Baixe o modelo do spaCy (pt-BR) - Versão Small
-# NOTA: Usamos o link direto para evitar erros 404 comuns
+# 5. Instale o modelo do spaCy (Link direto para evitar erros 404)
 pip install [https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.7.0/pt_core_news_sm-3.7.0.tar.gz](https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.7.0/pt_core_news_sm-3.7.0.tar.gz)
-````
+```
 
 ### 3️⃣ Configuração de Ambiente
 
-Se necessário, crie o arquivo `.env` dentro da pasta `backend/`:
+Crie um arquivo `.env` dentro da pasta `backend/` com suas chaves:
 
 ```bash
 # backend/.env
-# (Opcional) Se usar serviço externo. O padrão agora é rodar local (embutido).
-SPACY_API_URL=http://localhost:8001 
+GEMINI_API_KEY="sua_chave_AIzaSy_aqui..."
 ```
 
 ### 4️⃣ Execução do Servidor
@@ -263,105 +170,85 @@ SPACY_API_URL=http://localhost:8001
 python -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Acesse a documentação interativa em:
-**http://127.0.0.1:8000/docs** (Swagger UI)
+Acesse a documentação interativa em: **http://127.0.0.1:8000/docs**
 
 -----
 
-## Endpoints Principais
+## 📡 Endpoints Principais
 
-| Método | Endpoint | Descrição | Status |
-|--------|----------|-----------|--------|
-| `GET` | `/` | Status geral da API |  |
-| `GET` | `/health` | Healthcheck básico |  |
-| `GET` | `/api/v1/gazettes` | Consulta diários oficiais filtrados |  |
-| `GET` | `/analyze` | Pipeline completo de IA (NLP + estatísticas) |  |
-| `POST` | `/api/v1/ranking/state` | Ranking de municípios por investimento |  |
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/analyze` | **Pipeline Principal.** Dispara coleta, IA e atualiza o frontend. |
+| `GET` | `/api/v1/gazettes` | Busca simples de diários (sem análise profunda). |
+| `GET` | `/health` | Healthcheck básico. |
+
+### Exemplo de Uso (Radar de Robótica)
+
+Para analisar investimentos em robótica em Brasília (padrão):
+
+```bash
+GET [http://127.0.0.1:8000/analyze?keywords=robótica](http://127.0.0.1:8000/analyze?keywords=robótica)
+```
+
+**Resposta (JSON gerado):**
+
+```json
+{
+  "data": {
+    "total_invested": 150000.00,
+    "investments_by_category": {
+      "Robótica & Maker": 150000.00
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Aquisição de laboratórios móveis de robótica.",
+      "fornecedor": "TechEduca LTDA"
+    }
+  }
+}
+```
 
 -----
 
-## Testes e Qualidade
-
-O projeto usa `pytest` para testes unitários e de integração, e `pre-commit` para automação de qualidade.
+## 🧪 Testes e Qualidade
 
 ### 1\. Executar Testes
 
-Os testes devem ser executados a partir da pasta `backend` para que os imports relativos funcionem corretamente.
+Os testes devem ser executados a partir da pasta `backend`.
 
 ```bash
-# 1. Entre na pasta do backend
 cd backend
-
-# 2. Garanta que o venv está ativo
-
-# 3. Rode os testes
 pytest -s -v
 ```
 
 Isso executará:
 
-  * **Testes de Integração:** (`tests/test_main_api.py`) - Verificam se os endpoints da API funcionam (com mocks).
-  * **Testes Unitários:** (`tests/processing/`) - Verificam a lógica de limpeza de dados e cálculo de estatísticas.
+  * **Testes de Integração:** Verificam se a API responde e se conecta (com mocks).
+  * **Testes Unitários:** Verificam a lógica de limpeza de dados e cálculo financeiro.
 
 ### 2\. Qualidade de Código (Pre-commit)
 
-Utilizamos `Black` (formatação) e `Ruff` (linting) via pre-commit.
-
-**Instalação (uma vez):**
-
 ```bash
-# Na raiz do projeto
+# Instalar hooks (na raiz)
 pre-commit install
 ```
 
-**Uso:**
-Toda vez que você fizer `git commit`, as ferramentas rodarão automaticamente. Se houver erros ou formatações, o commit será bloqueado. Corrija (ou adicione os arquivos formatados com `git add`) e tente comitar novamente.
+Isso garante que todo commit seja verificado pelo **Black** (formatação) e **Ruff** (linting).
 
 -----
 
-## Histórico de Mudanças
+## 📜 Histórico de Mudanças Relevantes
 
-### v1.2.0 - Novembro 2025 (Ana)
+### v1.3.0 - Novembro 2025 (Atual)
 
-#### **Implementação de Suporte a Keywords**
+#### **Implementação de Inteligência Híbrida**
 
-  * Modificado `fetch_gazettes()` para aceitar parâmetro `keywords`.
-  * Resultado: Redução de **99.4%** no ruído.
-
-### v1.1.0 - Novembro 2025 (Gulia, Morais, Rodrigo)
-
-#### **Implementação Inicial do Sistema de Ranking**
-
-  * Sistema de Ranking de Municípios.
-  * Integração com Querido Diário.
-  * Geração de Estatísticas e Pipeline de IA.
-
-### v1.0.0 - Outubro 2025 (Equipe)
-
-#### **Implementação Inicial do Backend**
-
-  * Estrutura base FastAPI, spaCy, Pytest.
+  * **IA Generativa:** Integração com Google Gemini para análise qualitativa.
+  * **Radar de Tecnologia:** Novos filtros para detectar Hardware, Software e Robótica.
+  * **Persistência:** Geração automática de arquivos JSON para o Frontend.
+  * **Correção de Coleta:** Ajuste no cliente HTTP para seguir redirecionamentos da API oficial.
 
 -----
 
-## Troubleshooting
+**Desenvolvido com ☕ e 🤖 pela equipe do Projeto P.I.T.E.R - UnB/FGA**
 
-### Erro: `ModuleNotFoundError: No module named 'backend'`
-
-**Solução:** Execute o servidor a partir da **raiz do projeto**:
-`python -m uvicorn backend.main:app --reload`
-
-### Erro: `spaCy model not found` (Erro 404)
-
-**Solução:** O comando automático pode falhar. Instale via link direto:
-`pip install https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.7.0/pt_core_news_sm-3.7.0.tar.gz`
-
------
-
-## Licença
-
-Este projeto está sob a licença definida no arquivo LICENSE na raiz do repositório.
-
------
-
-**Desenvolvido com  pela equipe do Projeto P.I.T.E.R - UnB/FGA**
+```
