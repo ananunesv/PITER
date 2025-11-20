@@ -165,7 +165,7 @@ export default function SearchRanking() {
               <div>
                 <h2 className="text-xl font-semibold mb-4">Município (por investimento)</h2>
                 <div className="space-y-4">
-                  {ranking.rankingData.rankings.by_investment
+                  {(ranking.rankingData.rankings.by_investment || [])
                     .filter(item => item.territory_id === municipalitySearch?.filters?.territory_id)
                     .map(rankItem => (
                       <div key={rankItem.territory_id} className="bg-white p-4 rounded-lg shadow">
@@ -188,7 +188,7 @@ export default function SearchRanking() {
               <div>
                 <h2 className="text-xl font-semibold mb-4">Estado (por investimento)</h2>
                 <div className="space-y-4">
-                  {ranking.rankingData.rankings.by_investment
+                  {(ranking.rankingData.rankings.by_investment || [])
                     .filter(item => item.territory_id === stateSearch?.filters?.territory_id)
                     .map(rankItem => (
                       <div key={rankItem.territory_id} className="bg-white p-4 rounded-lg shadow">
