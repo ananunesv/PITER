@@ -26,7 +26,7 @@ def test_analyze_endpoint_with_empty_text(mocker):
                 "territory_id": "5300108",
                 "date": "2024-01-01",
                 "url": "http://example.com/gazette.pdf",
-                "excerpt": "", # <-- O ponto chave: texto vazio
+                "excerpts": [], # <-- O ponto chave: lista vazia (sem texto)
                 "edition_number": "1",
                 "is_extra_edition": False,
                 "power": "executive"
@@ -87,8 +87,8 @@ def test_analyze_endpoint_success(mocker):
                 "territory_id": "5300108",
                 "date": "2024-01-01",
                 "url": "http://example.com/gazette.pdf",
-                # Texto de exemplo que será processado
-                "excerpt": "A Prefeitura de Brasília informa sobre licitação.",
+                # Texto de exemplo que será processado (note: 'excerpts' é uma lista)
+                "excerpts": ["A Prefeitura de Brasília informa sobre licitação."],
                 "edition_number": "1",
                 "is_extra_edition": False,
                 "power": "executive"
@@ -176,7 +176,7 @@ def test_analyze_endpoint_spacy_failure(mocker):
     # --- Simulação (Mocks) ---
     # 1. Mock do QD com sucesso (igual ao teste de sucesso)
     mock_gazette_data_with_text = {
-        "total_gazettes": 1, "gazettes": [{"excerpt": "Texto válido aqui."}]
+        "total_gazettes": 1, "gazettes": [{"excerpts": ["Texto válido aqui."]}]
     }
     mocker.patch(
         "services.api.clients.querido_diario_client.fetch_gazettes",
