@@ -18,7 +18,7 @@ const navItems: NavItem[] = [
   { label: "Ranking", href: "/ranking", icon: Award },
 ];
 
-const Navbar_sec = () => {
+export const Navbar_second: React.FC = () => {
   const pathname = usePathname();
 
   const isActive = (path: string) =>
@@ -35,8 +35,8 @@ const Navbar_sec = () => {
               const baseStyle =
                 "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 text-sm font-medium";
               const activeStyle = active
-                ? "bg-[#1D2D44]/90 text-white shadow"
-                : "text-gray-800 hover:bg-blue-50/80 hover:text-[#1D2D44]";
+                ? "bg-blue-600/90 text-white shadow"
+                : "text-gray-800 hover:bg-blue-50/80 hover:text-blue-600";
               const linkClass = `${baseStyle} ${activeStyle}`;
 
               return (
@@ -62,4 +62,4 @@ const Navbar_sec = () => {
   );
 };
 
-export default Navbar_sec;
+export default Navbar_second;

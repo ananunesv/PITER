@@ -51,8 +51,8 @@ export const Navbar: React.FC = () => {
               const baseStyle =
                 "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 text-sm font-medium";
               const activeStyle = active
-                ? "bg-blue-600/90 text-white shadow"
-                : "text-gray-800 hover:bg-blue-50/80 hover:text-blue-600";
+                ? "bg-[#1D2D44]/90 text-white shadow"
+                : "text-gray-800 hover:bg-blue-50/80 hover:text-[#1D2D44]";
               const linkClass = `${baseStyle} ${activeStyle}`;
 
               return (
