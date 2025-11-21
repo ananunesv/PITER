@@ -194,7 +194,7 @@ vercel --prod
 ## Estrutura do Projeto
 
 ```bash
-B.I.I.A/
+Projeto-P.I.T.E.R/
 ├── frontend/                 # Aplicação Next.js
 │   ├── app/                 # App Router do Next.js
 │   │   ├── page.tsx         # Página principal
