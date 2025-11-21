@@ -57,7 +57,7 @@ Se você receber o erro `"Failed to fetch"` no frontend, verifique se:
 #### 1. Clone o repositório:
 ```bash
 git clone <url-do-repositorio>
-cd B.I.I.A
+cd Projeto-P.I.T.E.R
 ```
 
 #### 2. Inicie o Backend (Terminal 1):
@@ -194,7 +194,7 @@ vercel --prod
 ## Estrutura do Projeto
 
 ```bash
-B.I.I.A/
+Projeto-P.I.T.E.R/
 ├── frontend/                 # Aplicação Next.js
 │   ├── app/                 # App Router do Next.js
 │   │   ├── page.tsx         # Página principal
