@@ -81,21 +81,24 @@ def test_stats_gen_top_10_limite(stats_gen):
 
 def test_stats_gen_com_dados_mal_formados(stats_gen):
     """Testa como a função lida com dicionários sem as chaves 'label' ou 'text'."""
-    # O código atual (com pandas) deve ser robusto a isso
+    # O código refatorado agora filtra dados mal-formados
     entities = [
         {"text": "Prefeitura", "label": "ORG"},
-        {"foo": "bar"}, # Dicionário mal formado
-        {"text": "Brasília", "label": None}, # Label ausente
-        {"label": "PER"} # Texto ausente
+        {"foo": "bar"}, # Dicionário mal formado - será filtrado
+        {"text": "Brasília", "label": None}, # Label ausente - será filtrado
+        {"label": "PER"} # Texto ausente - será filtrado
     ]
-    
+
     statistics = stats_gen.calculate_entity_statistics(entities)
-    
-    # O total_entities ainda deve ser 4, pois o pandas cria a linha
-    assert statistics["total_entities"] == 4
-    
-    # A contagem de 'label' deve ignorar o None e o ausente
+
+    # total_entities é calculado pela soma dos counts de labels válidos
+    # Pandas conta ORG (1) + PER (1) = 2
+    assert statistics["total_entities"] == 2
+
+    # Pandas conta labels válidos (não-None), mesmo sem texto associado
+    # ORG (Prefeitura) e PER (sem texto) são contados
     assert statistics["entity_counts_by_type"] == {"ORG": 1, "PER": 1}
-    
-    # A contagem de 'text' deve ignorar o None e o ausente
+
+    # value_counts() em 'text' conta apenas textos válidos (não-None)
+    # "Prefeitura" e "Brasília" têm texto válido
     assert statistics["top_entities"] == {"Prefeitura": 1, "Brasília": 1}

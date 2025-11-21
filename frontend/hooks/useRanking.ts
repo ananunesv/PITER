@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { RankingData } from '@/types';
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
 interface RankingFilter {
   territory_id: string;
   start_date: string;
@@ -84,7 +86,7 @@ export function useRanking() {
 
       console.log('📤 Enviando requisição para API:', body);
 
-      const response = await fetch('http://localhost:8000/api/v1/ranking/state', {
+      const response = await fetch(`${API_BASE_URL}/api/v1/ranking/state`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

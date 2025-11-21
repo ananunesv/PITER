@@ -79,10 +79,11 @@ export const useGazetteSearch = () => {
       });
 
       // Adicionar filtro de categoria como palavra-chave
+      // Usando apenas termos simples e específicos (sem palavras compostas)
       if (categoria === 'robotica') {
-        params.append('querystring', 'robótica educacional tecnologia ensino');
+        params.append('querystring', 'robótica');
       } else if (categoria === 'software') {
-        params.append('querystring', 'software aplicativo tecnologia digital educação');
+        params.append('querystring', 'software');
       }
 
       // Adicionar filtros de data se fornecidos
