@@ -114,16 +114,131 @@ python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ---
 
-### Opção Docker (Alternativa)
+## Execução com Docker (Recomendado para Iniciantes)
+
+### Por que usar Docker?
+- Instala todas as dependências automaticamente
+- Funciona em qualquer sistema operacional
+- Backend e Frontend rodando juntos
+- Não precisa instalar Python, Node.js, etc
+
+### 1. Instalar Docker
+
+#### Windows
+1. Baixe o Docker Desktop: https://www.docker.com/products/docker-desktop
+2. Execute o instalador
+3. Reinicie o computador se solicitado
+4. Abra o Docker Desktop para iniciar o serviço
+
+#### macOS
+1. Baixe o Docker Desktop: https://www.docker.com/products/docker-desktop
+2. Arraste o Docker.app para a pasta Aplicativos
+3. Abra o Docker Desktop
+4. Autorize as permissões solicitadas
+
+#### Linux (Ubuntu/Debian)
 ```bash
-# Rodar tudo junto
+# Atualizar pacotes
+sudo apt-get update
+
+# Instalar dependências
+sudo apt-get install ca-certificates curl gnupg
+
+# Adicionar chave GPG do Docker
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Adicionar repositório
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Instalar Docker
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Adicionar seu usuário ao grupo docker (opcional, evita usar sudo)
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+#### Verificar instalação
+```bash
+docker --version
+docker-compose --version
+```
+
+### 2. Rodar o Projeto
+
+#### Primeira vez (Instala tudo automaticamente)
+```bash
+# Clone o repositório
+git clone <url-do-repositorio>
+cd Projeto-P.I.T.E.R
+
+# Construir e iniciar os serviços
+docker-compose up --build
+```
+
+**Aguarde 5-10 minutos na primeira vez** enquanto o Docker:
+- Baixa as imagens base (Python 3.12 e Node 18)
+- Instala todas as dependências do backend
+- Baixa o modelo do spaCy para NLP
+- Instala todas as dependências do frontend
+
+#### Próximas vezes (Instantâneo)
+```bash
+# Iniciar serviços
 docker-compose up
 
-# Acessar:
-# Frontend: http://localhost:3000
-# Backend API: http://localhost:8000
-# Docs: http://localhost:8000/docs
+# Ou iniciar em background (sem ver logs)
+docker-compose up -d
 ```
+
+### 3. Acessar a Aplicação
+
+Após os containers iniciarem:
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8000
+- **Documentação API**: http://localhost:8000/docs
+
+### 4. Comandos Úteis
+
+```bash
+# Ver logs em tempo real
+docker-compose logs -f
+
+# Ver logs apenas do backend
+docker-compose logs -f backend
+
+# Ver logs apenas do frontend
+docker-compose logs -f frontend
+
+# Parar os serviços (mantém containers)
+docker-compose stop
+
+# Parar e remover containers
+docker-compose down
+
+# Parar e limpar tudo (incluindo volumes)
+docker-compose down -v
+
+# Reconstruir após mudar dependências
+docker-compose up --build
+
+# Ver status dos containers
+docker-compose ps
+```
+
+### 5. Desenvolvimento com Docker
+
+As mudanças no código são refletidas automaticamente:
+- **Backend**: Hot reload ativado (muda .py e recarrega)
+- **Frontend**: Hot reload ativado (salva componente e atualiza browser)
+
+Seus arquivos locais estão sincronizados com os containers!
 
 ---
 

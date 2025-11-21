@@ -1,25 +1,21 @@
-FROM node:18-alpine AS builder
+FROM node:18-alpine
 
 WORKDIR /app
 
+# Copiar arquivos de dependências
 COPY package*.json ./
+
+# Instalar dependências
 RUN npm ci
 
+# Copiar código da aplicação
 COPY . .
-RUN npm run build
-
-FROM node:18-alpine AS runner
-
-WORKDIR /app
-
-ENV NODE_ENV production
-
-COPY --from=builder /app/package*.json ./
-RUN npm ci --only=production
-
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# Healthcheck para verificar se frontend está rodando
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+
+# Rodar em modo desenvolvimento com hot reload
+CMD ["npm", "run", "dev"]
