@@ -123,13 +123,18 @@ def test_analyze_endpoint_success(mocker):
     # 2. Verifica a estrutura geral da resposta
     data = response.json()
     assert isinstance(data, dict)
-    assert "source_territory" in data
-    assert "period" in data
-    assert "analysis_stats" in data
+    assert "meta" in data
+    assert "data" in data
     assert "error" not in data # Garante que não houve erro
 
-    # 3. Verifica as estatísticas calculadas (baseadas nos mocks)
-    stats = data["analysis_stats"]
+    # 3. Verifica a estrutura do meta
+    meta = data["meta"]
+    assert "source_territory" in meta
+    assert "period" in meta
+    assert meta["source_territory"] == "5300108"
+
+    # 4. Verifica as estatísticas calculadas (baseadas nos mocks)
+    stats = data["data"]
     assert isinstance(stats, dict)
     assert stats["total_entities"] == 2 # Esperamos 2 entidades do mock do Spacy
     assert stats["entity_counts_by_type"] == {"ORG": 1, "MISC": 1} # Contagem por tipo
@@ -203,10 +208,11 @@ def test_analyze_endpoint_spacy_failure(mocker):
     data = response.json()
     assert isinstance(data, dict)
     assert "error" not in data
-    assert "analysis_stats" in data
+    assert "meta" in data
+    assert "data" in data
 
     # 3. Verifica se as estatísticas refletem zero entidades
-    stats = data["analysis_stats"]
+    stats = data["data"]
     assert stats["total_entities"] == 0
     assert stats["entity_counts_by_type"] == {}
     assert stats["top_entities"] == {}
