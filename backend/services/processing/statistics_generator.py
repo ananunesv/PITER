@@ -5,56 +5,65 @@ from typing import List, Dict, Any
 try:
     import pandas as pd
 except Exception:
-    pd = None  # pandas is optional; we use it when available
+    pd = None
 
-# Common categories keywords to try to detect investment destinations
-CATEGORY_KEYWORDS = [
-    'tablet', 'tablets', 'computador', 'computadores', 'notebook', 'notebooks', 'laptop',
-    'infraestrutura', 'obra', 'obras', 'reforma', 'mobiliario', 'mobiliário', 'móveis',
-    'software', 'sistema', 'equipamento', 'equipamentos', 'robótica', 'robotica',
-    'internet', 'conectividade', 'rede', 'servidor', 'mobiliario'
-]
-
+# --- MAPEAMENTO DE OURO: RADAR DE TECNOLOGIA EDUCACIONAL ---
+# Estas são as palavras-chave que categorizam o investimento.
+CATEGORY_MAP = {
+    "Hardware & Equipamentos": [
+        "computador", "computadores", "notebook", "notebooks", "laptop", 
+        "tablet", "tablets", "chromebook", "desktop", "impressora", 
+        "projetor", "datashow", "lousa digital", "monitor", "tela interativa",
+        "nobreak", "estabilizador", "servidor", "laboratório de informática"
+    ],
+    "Conectividade & Rede": [
+        "internet", "wi-fi", "wifi", "banda larga", "fibra óptica", 
+        "link de dados", "roteador", "switch", "cabeamento", "rede lógica", 
+        "acesso à internet", "ponto de acesso", "access point"
+    ],
+    "Software & Licenças": [
+        "licença de software", "sistema de gestão", "aplicativo", "app", 
+        "plataforma digital", "ambiente virtual", "ava", "google workspace", 
+        "microsoft office", "antivírus", "sistema acadêmico", "software educativo",
+        "jogos digitais", "gamificação"
+    ],
+    "Infraestrutura Tecnológica": [
+        "ar condicionado", "refrigeração", "climatização", # <-- Adicionado
+        "instalação elétrica", "adequação de sala", "cabeamento",
+        "segurança eletrônica", "cftv", "câmeras", "monitoramento" # <-- Adicionado
+    ],
+    "Robótica & Cultura Maker": [
+        "robótica", "kit de robótica", "arduino", "lego education", "cultura maker", 
+        "impressora 3d", "filamento", "cortadora a laser", "programação", 
+        "componentes eletrônicos", "scratch", "micro:bit"
+    ],
+    "Infraestrutura Tecnológica": [
+        "ar condicionado para laboratório", "instalação elétrica", "adequação de sala",
+        "segurança da informação", "suporte técnico", "manutenção de computadores",
+        "formação tecnológica", "capacitação em tecnologia"
+    ]
+}
 
 class StatisticsGenerator:
     """
-    Gerador de estatísticas para dados dos diários oficiais.
+    Gerador de estatísticas focado em Tecnologia Educacional.
     """
 
     def __init__(self):
-        """Inicializa o gerador de estatísticas."""
         pass
 
     def generate_statistics(self, gazette_data: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """
-        Gera estatísticas a partir dos dados dos diários oficiais.
-
-        Args:
-            gazette_data: Lista de diários oficiais para análise (ou dict retornado pela API)
-
-        Returns:
-            Dict contendo estatísticas calculadas
-        """
-        # Aceita tanto uma lista de gazettes quanto um dicionário com chave 'gazettes'
         if isinstance(gazette_data, dict) and 'gazettes' in gazette_data:
             gazettes_list = gazette_data.get('gazettes') or []
         else:
             gazettes_list = gazette_data or []
 
         if not gazettes_list:
-            return {
-                "total_gazettes": 0,
-                "total_entities": 0,
-                "entity_counts_by_type": {},
-                "top_entities": {},
-                "total_invested": 0.0,
-                "top_categories": {}
-            }
+            return self._get_empty_stats()
 
-        # Converte para DataFrame quando possível (facilita algumas operações)
+        # Metadados básicos
         df = pd.DataFrame(gazettes_list) if pd is not None else None
-
-        stats: Dict[str, Any] = {
+        stats = {
             "total_gazettes": len(gazettes_list),
             "date_range": {
                 "start": (df['date'].min() if df is not None and 'date' in df.columns else None),
@@ -62,11 +71,11 @@ class StatisticsGenerator:
             }
         }
 
-        # Estatísticas de entidades (extraídas pelo pipeline de NLP, se houver)
+        # 1. Estatísticas de Entidades (NLP do Spacy)
         entities_stats = self.calculate_entity_statistics(self._extract_entities(gazettes_list))
         stats.update(entities_stats)
 
-        # Estatísticas financeiras (investimentos detectados)
+        # 2. Estatísticas Financeiras (Foco em EdTech)
         investment_stats = self.extract_investment_statistics(gazettes_list)
         stats.update(investment_stats)
 
@@ -74,106 +83,109 @@ class StatisticsGenerator:
 
     def extract_investment_statistics(self, gazettes: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
-        Extrai valores monetários e categorias dos textos dos diários.
-
-        Retorna:
-            - total_invested: soma de todos os valores encontrados
-            - top_categories: mapeamento categoria -> soma dos valores
+        Extrai valores monetários e categoriza em áreas de tecnologia educacional.
         """
-        total = 0.0
-        categories_counter: Dict[str, float] = {}
+        total_invested = 0.0
+        category_totals = {cat: 0.0 for cat in CATEGORY_MAP.keys()}
+        category_totals["Outros (Não categorizado)"] = 0.0
 
-        # regex para capturar valores em formatos comuns (R$ 1.234,56 ou 1234,56 ou 1.234.567,89)
-        money_re = re.compile(r"R\$\s?[0-9\.]{1,20},[0-9]{2}|[0-9]{1,3}(?:\.[0-9]{3})*,[0-9]{2}")
+        # Regex para capturar valores monetários (R$ 1.000,00 ou 1.000,00)
+        money_re = re.compile(r"(?:R\$\s?)?(\d{1,3}(?:\.\d{3})*,\d{2})")
 
         for gazette in gazettes:
-            # Concatenar campos de texto possíveis
-            text_candidates: List[str] = []
-            for f in ('excerpts', 'text', 'content'):
-                if f in gazette and gazette[f]:
-                    if isinstance(gazette[f], list):
-                        text_candidates.extend([str(x) for x in gazette[f] if x])
-                    else:
-                        text_candidates.append(str(gazette[f]))
-
-            combined = "\n".join(text_candidates)
-            if not combined:
+            text_content = ""
+            # Prioriza excerpts (onde a busca encontrou os termos)
+            if "excerpts" in gazette and gazette["excerpts"]:
+                if isinstance(gazette["excerpts"], list):
+                    text_content = "\n".join([str(e) for e in gazette["excerpts"] if e])
+                else:
+                    text_content = str(gazette["excerpts"])
+            elif "excerpt" in gazette:
+                 text_content = str(gazette["excerpt"])
+            
+            if not text_content:
                 continue
 
-            # Buscar valores monetários
-            for raw in money_re.findall(combined):
-                # Normaliza: remove R$, pontos de milhar, substitui vírgula por ponto decimal
-                normalized = raw.replace('R$', '').replace('R', '').strip()
-                normalized = normalized.replace('.', '').replace(',', '.')
-                cleaned = re.sub(r'[^0-9\.]', '', normalized)
-                if not cleaned:
-                    continue
+            matches = money_re.finditer(text_content)
+            
+            for match in matches:
+                value_str = match.group(1)
+                
+                # Limpeza do valor
                 try:
-                    value = float(cleaned)
-                except Exception:
+                    clean_value = float(value_str.replace('.', '').replace(',', '.'))
+                except ValueError:
                     continue
 
-                total += value
+                # Filtro de valor: Ignora valores irrisórios (< 100) ou astronômicos (> 50 milhões)
+                # Isso ajuda a filtrar erros de leitura ou valores irrelevantes.
+                if clean_value < 100 or clean_value > 50000000: 
+                    continue
 
-                # Determinar categoria buscando palavras-chave próximas ao valor
-                idx = combined.find(raw)
-                window = combined[max(0, idx - 120): idx + len(raw) + 120]
-                found_cat = None
-                lower_window = window.lower()
-                for kw in CATEGORY_KEYWORDS:
-                    if kw in lower_window:
-                        found_cat = kw
+                # --- Categorização ---
+                # Pega 200 caracteres antes e depois do valor para contexto
+                start_index = match.start()
+                end_index = match.end()
+                context_window = text_content[max(0, start_index - 200) : min(len(text_content), end_index + 200)].lower()
+                
+                found_category = "Outros (Não categorizado)"
+                
+                for category, keywords in CATEGORY_MAP.items():
+                    for keyword in keywords:
+                        if keyword in context_window:
+                            found_category = category
+                            break 
+                    if found_category != "Outros (Não categorizado)":
                         break
 
-                if not found_cat:
-                    found_cat = 'outros'
+                # Só somamos ao total se foi categorizado em Tecnologia OU se quisermos rastrear tudo
+                # Aqui, somamos tudo, mas você verá claramente o que é Tech e o que é resto.
+                total_invested += clean_value
+                category_totals[found_category] += clean_value
 
-                categories_counter[found_cat] = categories_counter.get(found_cat, 0.0) + value
-
-        # Ordenar categorias por valor decrescente
-        sorted_cats = dict(sorted(categories_counter.items(), key=lambda x: x[1], reverse=True))
+        # Formatação final
+        total_invested = round(total_invested, 2)
+        category_totals = {k: round(v, 2) for k, v in category_totals.items() if v > 0}
+        sorted_categories = dict(sorted(category_totals.items(), key=lambda item: item[1], reverse=True))
 
         return {
-            'total_invested': round(total, 2),
-            'top_categories': sorted_cats
+            "total_invested": total_invested,
+            "investments_by_category": sorted_categories
         }
 
     def calculate_entity_statistics(self, entities: List[Dict[str, str]]) -> Dict[str, Any]:
-        """
-        Calcula estatísticas a partir das entidades extraídas pelo Spacy.
-        """
         if not entities:
-            return {
-                "total_entities": 0,
-                "entity_counts_by_type": {},
-                "top_entities": {}
-            }
+            return {"entity_counts_by_type": {}, "top_entities": {}, "total_entities": 0}
 
-        # Usa Pandas para facilitar a agregação quando disponível
         if pd is not None:
             df = pd.DataFrame(entities)
-            total_entities = len(df)
-            entity_counts_by_type = df['label'].value_counts().to_dict() if 'label' in df.columns else {}
-            top_entities = df['text'].value_counts().head(10).to_dict() if 'text' in df.columns else {}
+            # Conta tipos (ORG, LOC, PER)
+            counts = df['label'].value_counts().to_dict() if 'label' in df.columns else {}
+            # Conta entidades mais frequentes (Ex: "Secretaria de Educação")
+            top = df['text'].value_counts().head(10).to_dict() if 'text' in df.columns else {}
         else:
-            total_entities = len(entities)
-            entity_counts_by_type = {}
-            top_entities = {}
+            counts = {}
+            top = {}
 
-        stats = {
-            "total_entities": total_entities,
-            "entity_counts_by_type": entity_counts_by_type,
-            "top_entities": top_entities
+        return {
+            "entity_counts_by_type": counts,
+            "top_entities": top,
+            "total_entities": sum(counts.values())
         }
-
-        return stats
-
+    
     def _extract_entities(self, gazette_data: List[Dict[str, Any]]) -> List[Dict[str, str]]:
-        """
-        Extrai todas as entidades dos diários para análise.
-        """
-        all_entities: List[Dict[str, str]] = []
+        all_entities = []
         for gazette in gazette_data:
-            if 'entities' in gazette and gazette['entities']:
-                all_entities.extend(gazette['entities'])
-        return all_entities
+            # Tenta pegar entidades pré-processadas se houver, ou ignora se não
+            # (O processamento real do Spacy acontece no Orchestrator antes de chamar isso)
+            pass 
+        return all_entities # Placeholder, pois o orchestrator passa as entidades separadamente
+
+    def _get_empty_stats(self):
+        return {
+            "total_gazettes": 0,
+            "total_invested": 0.0,
+            "investments_by_category": {},
+            "entity_counts_by_type": {},
+            "top_entities": {}
+        }

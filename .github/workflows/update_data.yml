@@ -1,0 +1,53 @@
+name: 🤖 P.I.T.E.R Data Updater
+
+on:
+  # Roda todo dia às 06:00 UTC
+  schedule:
+    - cron: '0 6 * * *'
+  # Permite rodar manualmente clicando num botão na aba "Actions"
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: 📦 Instalar Dependências
+        run: |
+          pip install -r backend/requirements.txt
+          # Instala o modelo do Spacy explicitamente
+          pip install https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.7.0/pt_core_news_sm-3.7.0.tar.gz
+
+      - name: 🚀 Rodar Pipeline de IA
+        env:
+          # O Segredo da API Key deve ser configurado no GitHub
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Configura o PYTHONPATH para o script achar os módulos
+          PYTHONPATH: ${{ github.workspace }}/backend
+        run: |
+          cd backend
+          python scripts/run_pipeline_automation.py
+
+      - name: 💾 Commitar Novos Dados
+        run: |
+          # Configura o git
+          git config --global user.name "P.I.T.E.R Robot"
+          git config --global user.email "robot@piter.project"
+          
+          # Adiciona os arquivos JSON gerados
+          git add frontend/public/data/
+          
+          # Commita apenas se houver mudanças
+          git commit -m "🤖 Dados atualizados automaticamente: $(date +'%Y-%m-%d')" || echo "Nenhuma mudança nos dados hoje"
+          
+          # Envia para o repositório
+          git push
