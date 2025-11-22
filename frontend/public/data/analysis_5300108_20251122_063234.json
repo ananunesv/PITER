@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-23 a 2025-11-22",
+    "search_keywords": "tablet",
+    "generated_at": "2025-11-22T06:32:34.027050"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 48,
+      "MISC": 39,
+      "ORG": 19,
+      "PER": 9
+    },
+    "top_entities": {
+      "Distrito Federal": 5,
+      "Edital": 4,
+      "Tablet": 4,
+      "VII": 3,
+      "Secretaria": 3,
+      "TIC": 3,
+      "Termo de Referência": 2,
+      "Anexos": 2,
+      "Estudantes do Ensino Fundamental": 2,
+      "Ensino Fundamental": 2
+    },
+    "total_entities": 115,
+    "total_invested": 1137216.3,
+    "investments_by_category": {
+      "Hardware & Equipamentos": 1080816.3,
+      "Outros (Não categorizado)": 56400.0
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto menciona a aquisição e registro de preços para diversos itens, com destaque para equipamentos de tecnologia como computadores, notebooks, tablets, switches, storage e servidores, além de materiais para piscinas e serviços de vistoria veicular.",
+      "justificativa": "Os investimentos em tecnologia visam suprir o retorno ao trabalho presencial, novas contratações e garantir acessibilidade tecnológica à população de baixa renda; outros investimentos são para manutenção/limpeza urbana e projetos sociais.",
+      "fornecedor": "MICROSENS S/A, VHDS LTDA, J C TECNOLOGIAS E INFORMÁTICA LTDA (Empresas citadas em extratos de contratos ou atas de registro, não necessariamente vencedoras do mesmo pregão).",
+      "marca_modelo": "Sim: Tablet (SANSUNG S9 FE 5G) foi adquirido em um contrato específico."
+    }
+  }
+}

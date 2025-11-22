@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-23 a 2025-11-22",
+    "search_keywords": "robótica",
+    "generated_at": "2025-11-22T06:32:28.626104"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 101,
+      "MISC": 91,
+      "ORG": 41,
+      "PER": 15
+    },
+    "top_entities": {
+      "Robótica": 27,
+      "Ar Condicionado Asa Sul": 16,
+      "Refrigeração": 15,
+      "Sistemas Eletrônicos de Segurança": 11,
+      "Asa Sul": 10,
+      "CFTV": 10,
+      "Projeto": 5,
+      "Operador de Computador": 4,
+      "Barbeiro": 3,
+      "Costureiro Industrial do Vestuário": 3
+    },
+    "total_entities": 248,
+    "total_invested": 369721.65,
+    "investments_by_category": {
+      "Robótica & Cultura Maker": 369721.65
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Diversos equipamentos e materiais relacionados a robótica (Drones, Câmeras IP, Projetores, Óculos VR, Placas Arduino/Raspberry Pi, Impressora 3D, Kits diversos) e serviços de capacitação profissional (Cursos de Qualificação).",
+      "justificativa": "Apoio à realização de projetos como 'COMPETIÇÃO ROBÓTICA CERRADO DO FUTURO' e 'QUALIFICATECH', implantação de laboratório de robótica de acesso público e oferta de cursos de qualificação profissional.",
+      "fornecedor": "INSTITUTO SARANDO AS NAÇÕES; INSTITUTO BRASIL SAPIENS (mencionados em Termos de Fomento, mas sem indicação de vitória em licitação para os itens específicos de equipamentos).",
+      "marca_modelo": "Não identificado"
+    }
+  }
+}
