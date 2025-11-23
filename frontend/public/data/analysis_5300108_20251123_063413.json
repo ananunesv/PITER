@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-24 a 2025-11-23",
+    "search_keywords": "tablet",
+    "generated_at": "2025-11-23T06:34:13.131649"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 48,
+      "MISC": 39,
+      "ORG": 19,
+      "PER": 9
+    },
+    "top_entities": {
+      "Distrito Federal": 5,
+      "Edital": 4,
+      "Tablet": 4,
+      "VII": 3,
+      "Secretaria": 3,
+      "TIC": 3,
+      "Termo de Referência": 2,
+      "Anexos": 2,
+      "Estudantes do Ensino Fundamental": 2,
+      "Ensino Fundamental": 2
+    },
+    "total_entities": 115,
+    "total_invested": 1137216.3,
+    "investments_by_category": {
+      "Hardware & Equipamentos": 1080816.3,
+      "Outros (Não categorizado)": 56400.0
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto menciona aquisições e registros de preços para diversos itens, incluindo produtos químicos para piscinas, equipamentos de informática (computadores, notebooks, tablets, servidores, switches, storage) e serviços de vistoria veicular com coleta de dados via tablet.",
+      "justificativa": "Os investimentos visam suprir o retorno ao trabalho presencial e novas contratações (TICs), atender demandas de secretarias (SETRAB/DF, SEDET), apoiar o Projeto Territórios Amigos das Crianças e dos Adolescentes, e equipar órgãos como o SLU/DF e a SEE/DF (em contextos de concurso ou programas educacionais).",
+      "fornecedor": "MICROSENS S/A, VHDS LTDA, J C TECNOLOGIAS E INFORMÁTICA LTDA",
+      "marca_modelo": "Sim, há menção a Tablet (SANSUNG S9 FE 5G) no contexto de um contrato específico."
+    }
+  }
+}

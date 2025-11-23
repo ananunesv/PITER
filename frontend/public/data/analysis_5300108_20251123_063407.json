@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-24 a 2025-11-23",
+    "search_keywords": "robótica",
+    "generated_at": "2025-11-23T06:34:07.705835"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 101,
+      "MISC": 91,
+      "ORG": 41,
+      "PER": 15
+    },
+    "top_entities": {
+      "Robótica": 27,
+      "Ar Condicionado Asa Sul": 16,
+      "Refrigeração": 15,
+      "Sistemas Eletrônicos de Segurança": 11,
+      "Asa Sul": 10,
+      "CFTV": 10,
+      "Projeto": 5,
+      "Operador de Computador": 4,
+      "Barbeiro": 3,
+      "Costureiro Industrial do Vestuário": 3
+    },
+    "total_entities": 248,
+    "total_invested": 369721.65,
+    "investments_by_category": {
+      "Robótica & Cultura Maker": 369721.65
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Investimentos em equipamentos para robótica e capacitação profissional, incluindo cursos de qualificação e projetos de robótica educacional.",
+      "justificativa": "Provimento de vagas em cursos de qualificação profissional, implantação de laboratório de robótica de acesso público e realização de projetos como 'COMPETIÇÃO ROBÓTICA CERRADO DO FUTURO' e 'Robótica para todos'.",
+      "fornecedor": "INSTITUTO SARANDO AS NAÇÕES, INSTITUTO BRASIL SAPIENS (mencionados em termos de fomento/parceria)",
+      "marca_modelo": "Sim, há menção de equipamentos específicos como Drones Robótica, Câmera Wireless IP Robótica, Projetor led Robótica, Óculo de realidade virtual Robótica, Placas arduino, Placa Raspberry Pi, Photoboard Robótica, Jumpers Robótica, Leds e motores Robótica, Impressora 3D + Controladora LDC."
+    }
+  }
+}
