@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-25 a 2025-11-24",
+    "search_keywords": "tecnologia educação",
+    "generated_at": "2025-11-24T06:37:08.925339"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 83,
+      "MISC": 38,
+      "ORG": 28,
+      "PER": 11
+    },
+    "top_entities": {
+      "Secretaria": 34,
+      "Vice-Governadora Secretário de Estado Chefe": 4,
+      "Mobilidade": 3,
+      "Estado de Educação": 3,
+      "DISTRITO FEDERAL": 3,
+      "Lei Orgânica do Distrito Federal": 3,
+      "Estado de Saúde": 3,
+      "VII": 3,
+      "Lei": 3,
+      "GOVERNADOR": 3
+    },
+    "total_entities": 160,
+    "total_invested": 48818682.0,
+    "investments_by_category": {
+      "Outros (Não categorizado)": 48818682.0
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Abertura de crédito suplementar destinado a investimentos em assistência social, saúde, educação, desenvolvimento institucional, habitação ou urbanização, saneamento básico e mobilidade social.",
+      "justificativa": "Reforço de dotações orçamentárias para investimentos em áreas estratégicas do Governo do Distrito Federal, incluindo ações de combate a arboviroses como dengue, chikungunya e zika, além de investimentos em Tecnologia da Informação.",
+      "fornecedor": "Não identificado",
+      "marca_modelo": "Não identificado"
+    }
+  }
+}

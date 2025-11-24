@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-25 a 2025-11-24",
+    "search_keywords": "computador",
+    "generated_at": "2025-11-24T06:37:03.826144"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 39,
+      "MISC": 31,
+      "ORG": 17,
+      "PER": 15
+    },
+    "top_entities": {
+      "TIC": 5,
+      "ICMS": 5,
+      "Cebraspe": 3,
+      "Brasília": 3,
+      "Decreto": 3,
+      "DIFAL": 3,
+      "Distrito Federal": 2,
+      "Secretaria": 2,
+      "Lei Complementar": 2,
+      "pecúnia": 2
+    },
+    "total_entities": 102,
+    "total_invested": 156865168.86,
+    "investments_by_category": {
+      "Outros (Não categorizado)": 156865168.86
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto menciona vagas em Cursos de Qualificação Profissional (Operador de Computador, Assistente Administrativo e Auxiliar de Cozinha) e discute atividades de gestão de redes de computadores e contratação de serviços de Tecnologia da Informação.",
+      "justificativa": "Qualificação profissional e atividades de gestão de projetos lógicos e físicos de redes de computadores e suporte técnico.",
+      "fornecedor": "Não identificado",
+      "marca_modelo": "Não"
+    }
+  }
+}

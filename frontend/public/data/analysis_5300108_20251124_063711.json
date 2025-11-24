@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-25 a 2025-11-24",
+    "search_keywords": "robótica",
+    "generated_at": "2025-11-24T06:37:11.679043"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 101,
+      "MISC": 91,
+      "ORG": 41,
+      "PER": 15
+    },
+    "top_entities": {
+      "Robótica": 27,
+      "Ar Condicionado Asa Sul": 16,
+      "Refrigeração": 15,
+      "Sistemas Eletrônicos de Segurança": 11,
+      "Asa Sul": 10,
+      "CFTV": 10,
+      "Projeto": 5,
+      "Operador de Computador": 4,
+      "Marceneiro": 3,
+      "CNPJ": 3
+    },
+    "total_entities": 248,
+    "total_invested": 369721.65,
+    "investments_by_category": {
+      "Robótica & Cultura Maker": 369721.65
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "O investimento foca na aquisição de equipamentos para robótica, como Drones, Câmeras IP, Projetores, Óculos VR, Placas Arduino/Raspberry Pi, Impressoras 3D e componentes eletrônicos, além da oferta de cursos de qualificação profissional.",
+      "justificativa": "Apoio à realização do projeto 'COMPETIÇÃO ROBÓTICA CERRADO DO FUTURO', implantação de laboratório de robótica de acesso público, e oferta de cursos de qualificação profissional (incluindo robótica e programação) para a comunidade e estudantes da Educação Básica.",
+      "fornecedor": "Não identificado",
+      "marca_modelo": "Sim, há menção a Placas arduino e Placa Raspberry Pi."
+    }
+  }
+}
