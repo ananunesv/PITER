@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-26 a 2025-11-25",
+    "search_keywords": "robótica",
+    "generated_at": "2025-11-25T06:37:49.600030"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 101,
+      "MISC": 91,
+      "ORG": 41,
+      "PER": 15
+    },
+    "top_entities": {
+      "Robótica": 27,
+      "Ar Condicionado Asa Sul": 16,
+      "Refrigeração": 15,
+      "Sistemas Eletrônicos de Segurança": 11,
+      "Asa Sul": 10,
+      "CFTV": 10,
+      "Projeto": 5,
+      "Operador de Computador": 4,
+      "Barbeiro": 3,
+      "Costureiro Industrial do Vestuário": 3
+    },
+    "total_entities": 248,
+    "total_invested": 369721.65,
+    "investments_by_category": {
+      "Robótica & Cultura Maker": 369721.65
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Kits de robótica educacional, drones, câmeras IP, projetores, óculos VR, placas Arduino/Raspberry Pi, e equipamentos para cursos de qualificação profissional.",
+      "justificativa": "Implantação de laboratório de robótica de acesso público, realização de competições de robótica, oferta de cursos de qualificação profissional (incluindo robótica, programação, e outras áreas) e a Olimpíada Brasileira de Robótica.",
+      "fornecedor": "INSTITUTO SARANDO AS NAÇÕES, INSTITUTO BRASIL SAPIENS (ambos mencionados em Termos de Fomento, mas sem indicação de serem os vencedores da licitação dos equipamentos listados)",
+      "marca_modelo": "Sim, Placas arduino, Placa Raspberry Pi, Impressora 3D + Controladora LDC"
+    }
+  }
+}

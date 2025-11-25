@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-26 a 2025-11-25",
+    "search_keywords": "computador",
+    "generated_at": "2025-11-25T06:37:51.636404"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 39,
+      "MISC": 31,
+      "ORG": 17,
+      "PER": 15
+    },
+    "top_entities": {
+      "ICMS": 5,
+      "TIC": 5,
+      "Brasília": 3,
+      "Decreto": 3,
+      "DIFAL": 3,
+      "Cebraspe": 3,
+      "Secretaria": 2,
+      "Distrito Federal": 2,
+      "Lei Complementar": 2,
+      "“.png": 2
+    },
+    "total_entities": 102,
+    "total_invested": 156865168.86,
+    "investments_by_category": {
+      "Outros (Não categorizado)": 156865168.86
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto menciona a realização de um Processo Seletivo para provimento de vagas em Cursos de Qualificação Profissional (Operador de Computador, Assistente Administrativo e Auxiliar de Cozinha) e descreve atividades de gestão de redes de computadores e conversão de Licença-Prêmio em pecúnia.",
+      "justificativa": "Qualificação profissional em cursos específicos e gestão de recursos humanos/financeiros do Distrito Federal.",
+      "fornecedor": "Não identificado",
+      "marca_modelo": "Não identificado"
+    }
+  }
+}
