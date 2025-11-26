@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-27 a 2025-11-26",
+    "search_keywords": "computador",
+    "generated_at": "2025-11-26T06:37:06.570031"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 39,
+      "MISC": 31,
+      "ORG": 17,
+      "PER": 15
+    },
+    "top_entities": {
+      "ICMS": 5,
+      "TIC": 5,
+      "Brasília": 3,
+      "Decreto": 3,
+      "DIFAL": 3,
+      "Cebraspe": 3,
+      "Secretaria": 2,
+      "Distrito Federal": 2,
+      "Lei Complementar": 2,
+      "“.png": 2
+    },
+    "total_entities": 102,
+    "total_invested": 156865168.86,
+    "investments_by_category": {
+      "Outros (Não categorizado)": 156865168.86
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Investimento na área de Educação Profissional e Tecnológica, incluindo cursos de qualificação profissional e provisão de serviços e infraestrutura de Tecnologia da Informação e Comunicação (TIC).",
+      "justificativa": "Provimento de vagas em Cursos de Qualificação Profissional (Operador de Computador, Assistente Administrativo, Auxiliar de Cozinha) e garantia de suporte, gestão de redes, bancos de dados e uso institucional de computadores e internet.",
+      "fornecedor": "Não identificado",
+      "marca_modelo": "Não identificado"
+    }
+  }
+}
