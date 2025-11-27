@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-28 a 2025-11-27",
+    "search_keywords": "robótica",
+    "generated_at": "2025-11-27T06:37:55.701929"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 101,
+      "MISC": 91,
+      "ORG": 41,
+      "PER": 15
+    },
+    "top_entities": {
+      "Robótica": 27,
+      "Ar Condicionado Asa Sul": 16,
+      "Refrigeração": 15,
+      "Sistemas Eletrônicos de Segurança": 11,
+      "Asa Sul": 10,
+      "CFTV": 10,
+      "Projeto": 5,
+      "Operador de Computador": 4,
+      "Barbeiro": 3,
+      "Costureiro Industrial do Vestuário": 3
+    },
+    "total_entities": 248,
+    "total_invested": 369721.65,
+    "investments_by_category": {
+      "Robótica & Cultura Maker": 369721.65
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Diversos equipamentos de robótica, como Drones, Câmeras Wireless IP, Projetores LED, Óculos de Realidade Virtual, placas Arduino e Raspberry Pi, além de serviços de capacitação profissional.",
+      "justificativa": "Apoio à realização de competições de robótica, implantação de laboratórios de robótica de acesso público, oferta de cursos de qualificação profissional e aquisição de kits de robótica educacional para a Educação Básica.",
+      "fornecedor": "INSTITUTO SARANDO AS NAÇÕES e INSTITUTO BRASIL SAPIENS (parceiros em projetos financiados), além de menção a projetos vencedores como JOÃO VICTOR PINHEIRO DA CRUZ (Robótica para todos).",
+      "marca_modelo": "Sim: Drones, Câmera Wireless IP, Projetor led, Óculo de realidade virtual, Placas arduino, Placa Raspberry Pi, Photoboard, Jumpers, Leds e motores, Impressora 3D + Controladora LDC, LED RGB Difuso, LED Verde Difuso."
+    }
+  }
+}
