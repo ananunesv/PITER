@@ -47,12 +47,12 @@ export default function CompareClient() {
         </div>
       ) : (
         <div className="max-w-7xl mx-auto">
-          <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-            <div>
+          <div className="mb-6 grid grid-cols-1 justify-center items-center sm:items-center space-y-4 sm:space-y-0">
+            <div className='mt-12'>
               <h1 className="text-3xl font-bold text-gray-900">
                 Resultados da Busca
               </h1>
-              <p className="text-gray-600 mt-1">
+              <p className="text-gray-600 mt-1 text-center mb-5">
                 {first.total + second.total > 0 
                   ? `${first.total + second.total} diários oficiais encontrados` 
                   : 'Nenhum resultado encontrado'}
@@ -64,7 +64,7 @@ export default function CompareClient() {
                 first.clearResults();
                 second.clearResults();
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 rounded-md transition-colors"
             >
               Nova Busca
             </button>
