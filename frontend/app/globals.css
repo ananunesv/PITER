@@ -8,8 +8,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --piter-grad-start: 174, 195, 176; /* purple */
-  --piter-grad-end: 89, 131, 146; /* lighter purple */
+  --piter-grad-start: 153, 171, 194; /* light blue */
+  --piter-grad-end: 70, 105, 134; /* darker blue */
   --card-bg: 255, 255, 255;
 }
 
@@ -22,7 +22,7 @@ body {
 
 /* Helper background specifically for the app area */
 .bg-piter-100 {
-  background: linear-gradient(180deg, rgba(var(--piter-grad-start),0.91) 15%, rgba(var(--piter-grad-end), 0.81) 85%);
+  background: linear-gradient(180deg, rgba(var(--piter-grad-start),0.85) 10%, rgba(var(--piter-grad-end), 0.77) 90%);
 }
 
 /* Card style used by the search form and tips */
@@ -47,6 +47,53 @@ footer {
 .loading-spinner {
   @apply animate-spin rounded-full h-4 w-4 border-b-2 border-current;
 }
+
+/* Estilos para inputs de data */
+input[type="date"],
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  background-color: #F0EBD8 !important;
+  color: #06080F !important;
+  caret-color: #06080F !important;
+}
+
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #F0EBD8 !important;
+  color: #06080F !important;
+  caret-color: #06080F !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px #06080F !important;
+}
+
+/* Remove o azul padrão do seletor de data */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: transparent;
+  cursor: pointer;
+  filter: invert(1) brightness(0.3);
+  opacity: 0.8;
+}
+
+input[type="date"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remover highlight azul ao selecionar */
+input[type="date"]::selection,
+input[type="email"]::selection,
+input[type="text"]::selection,
+input[type="password"]::selection {
+  background-color: #06080F;
+  color: #F0EBD8;
+}
+
+
 
 /* Estilos para o gráfico */
 .chart-container canvas {

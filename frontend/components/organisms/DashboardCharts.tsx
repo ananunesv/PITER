@@ -6,9 +6,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { InvestmentPieChart } from '@/components/organisms/charts/InvestmentPieChart';
-import { InvestmentBarChart } from '@/components/organisms/charts/InvestmentBarChart';
-import { InvestmentLineChart } from '@/components/organisms/charts/InvestmentLineChart';
+import { InvestmentPieChart } from '@/components/organisms/charts_pesquisa/InvestmentPieChart';
+import { InvestmentBarChart } from '@/components/organisms/charts_pesquisa/InvestmentBarChart';
+import { InvestmentLineChart } from '@/components/organisms/charts_pesquisa/InvestmentLineChart';
 
 interface ChartData {
   territoryId: string;
@@ -121,34 +121,34 @@ export default function DashboardCharts() {
   }
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-6 mt-12 bg-transparent">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg">
+      <div className="bg-gradient-to-r from-[#466986]/50 to-[#1D2D44]/50 text-[#F0EBD8] p-8 rounded-lg">
         <h1 className="text-3xl font-bold mb-2">Dashboard de Análise</h1>
-        <p className="text-blue-100">Visualização de dados de investimentos em diários oficiais</p>
+        <p className="text-[#F0EBD8]">Visualização de dados de investimentos em diários oficiais</p>
       </div>
 
       {/* Estatísticas */}
       {statistics && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+          <div className="bg-[#F0EBD8]/80 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
             <p className="text-gray-600 text-sm font-semibold">Total de Arquivos</p>
             <p className="text-2xl font-bold text-gray-900 mt-2">{statistics.totalFiles}</p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-600">
+          <div className="bg-[#F0EBD8]/80 p-6 rounded-lg shadow-md border-l-4 border-green-600">
             <p className="text-gray-600 text-sm font-semibold">Total de Territórios</p>
             <p className="text-2xl font-bold text-gray-900 mt-2">{statistics.totalTerritories}</p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+          <div className="bg-[#F0EBD8]/80 p-6 rounded-lg shadow-md border-l-4 border-purple-600">
             <p className="text-gray-600 text-sm font-semibold">Total Investido</p>
             <p className="text-2xl font-bold text-gray-900 mt-2">
               R$ {(statistics.totalInvestment / 1000000).toFixed(1)}M
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-600">
+          <div className="bg-[#F0EBD8]/80 p-6 rounded-lg shadow-md border-l-4 border-orange-600">
             <p className="text-gray-600 text-sm font-semibold">Média por Arquivo</p>
             <p className="text-2xl font-bold text-gray-900 mt-2">
               R$ {(statistics.averageInvestmentPerFile / 1000).toFixed(0)}K
@@ -158,7 +158,7 @@ export default function DashboardCharts() {
       )}
 
       {/* Filtro por Território */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-[#F0EBD8]/80 p-6 rounded-lg shadow-md">
         <label className="block text-sm font-semibold text-gray-700 mb-3">
           Filtrar por Território:
         </label>
@@ -200,7 +200,7 @@ export default function DashboardCharts() {
       />
 
       {/* Tabela de Dados */}
-      <div className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
+      <div className="bg-[#F0EBD8]/80 p-6 rounded-lg shadow-md overflow-x-auto">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Detalhes dos Dados</h3>
         <table className="w-full text-sm">
           <thead>

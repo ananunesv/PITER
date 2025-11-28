@@ -29,8 +29,8 @@ export const Select: React.FC<SelectProps> = ({
   id,
 }) => {
   const selectClasses = [
-    'w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm',
-    'bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
+    'w-full px-3 py-2.5 border border-transparent rounded-md shadow-lg',
+    'bg-[#F0EBD8] focus:outline-none focus:ring-2 focus:ring-[#06080F]/80 focus:border-[#06080F]/80',
     'disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200',
     className,
   ].join(' ');
@@ -38,7 +38,7 @@ export const Select: React.FC<SelectProps> = ({
   return (
     <div className="space-y-1">
       {label && (
-        <label htmlFor={id} className="block text-sm font-medium text-[#01161E] ">
+        <label htmlFor={id} className="block text-sm font-medium text-[#01161E] text-center">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>

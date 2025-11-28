@@ -24,16 +24,20 @@ export const Input: React.FC<InputProps> = ({
   id,
 }) => {
   const inputClasses = [
-    'w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm',
-    'placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
-    'disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200',
+    'w-full px-3 py-2 border border-transparent rounded-md shadow-lg',
+    'bg-[#F0EBD8] text-[#06080F]',
+    'placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-[#06080F] focus:border-[#06080F]',
+    'focus:bg-[#F0EBD8]',
+    'disabled:bg-[#F0EBD8] disabled:text-gray-500 disabled:border-gray-200',
+    '[&::-webkit-calendar-picker-indicator]:cursor-pointer',
+    '[&::-webkit-outer-spin-button]:[-webkit-appearance:none] [&::-webkit-inner-spin-button]:[-webkit-appearance:none]',
     className,
   ].join(' ');
 
   return (
     <div className="space-y-1">
       {label && (
-        <label htmlFor={id} className="block text-sm font-medium text-[#01161E]">
+        <label htmlFor={id} className="block text-sm font-medium text-[#06080F] text-center">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>

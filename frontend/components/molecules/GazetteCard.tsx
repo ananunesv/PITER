@@ -22,7 +22,7 @@ export const GazetteCard: React.FC<GazetteCardProps> = ({ gazette }) => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-[#F0EBD8] border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
       <div className="space-y-3">
         <div className="flex justify-between items-start">
           <h3 className="font-semibold text-lg text-gray-900">

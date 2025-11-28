@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
     pathname === path || pathname.startsWith(path + "/");
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-[#EFF6E0]/50 backdrop-blur-xl shadow-md">
+    <header className="w-full fixed top-0 left-0 z-50 bg-[#F0EBD8] backdrop-blur-xl shadow-md">
       <div className="container mx-auto flex items-center justify-between py-3 px-6">
         {/* Logo */}
         <a
@@ -51,8 +51,8 @@ export const Navbar: React.FC = () => {
               const baseStyle =
                 "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 text-sm font-medium";
               const activeStyle = active
-                ? "bg-[#1D2D44]/90 text-white shadow"
-                : "text-gray-800 hover:bg-blue-50/80 hover:text-[#1D2D44]";
+                ? "bg-[#06080F]/70 text-[#F0EBD8] shadow"
+                : "text-gray-800 hover:bg-[#06080F]/80 hover:text-[#F0EBD8]";
               const linkClass = `${baseStyle} ${activeStyle}`;
 
               return (
