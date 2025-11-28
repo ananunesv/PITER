@@ -6,6 +6,7 @@ import { SearchForm } from '@/components/molecules/search/SearchForm';
 import { GazetteCard } from '@/components/molecules/GazetteCard';
 import { useGazetteSearch } from '@/hooks/useGazetteSearch';
 import SugestaoPesquisa from '@/components/atoms/SugestaoPesquisa';
+import DashboardPesquisa from '@/components/pages/dashboard-pesquisa';
 
 export default function Home() {
   const [showResults, setShowResults] = useState(false);
@@ -82,6 +83,14 @@ export default function Home() {
               >
                 Nova Busca
               </button>
+
+              <a
+                href="/dashboard_pesquisa"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+              >
+                Gerar Relatório
+              </a>
+
             </div>
 
             {loading ? (
@@ -106,6 +115,7 @@ export default function Home() {
                 {results.map((gazette, index) => (
                   <GazetteCard key={`${gazette.territory_id}-${gazette.date}-${index}`} gazette={gazette} />
                 ))}
+                <DashboardPesquisa />
               </div>
             ) : (
               <div className="text-center py-12">
