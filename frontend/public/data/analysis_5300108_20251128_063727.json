@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-29 a 2025-11-28",
+    "search_keywords": "computador",
+    "generated_at": "2025-11-28T06:37:27.495945"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 39,
+      "MISC": 31,
+      "ORG": 17,
+      "PER": 15
+    },
+    "top_entities": {
+      "ICMS": 5,
+      "TIC": 5,
+      "Brasília": 3,
+      "Decreto": 3,
+      "DIFAL": 3,
+      "Cebraspe": 3,
+      "Secretaria": 2,
+      "Distrito Federal": 2,
+      "Lei Complementar": 2,
+      "“.png": 2
+    },
+    "total_entities": 102,
+    "total_invested": 156865168.86,
+    "investments_by_category": {
+      "Outros (Não categorizado)": 156865168.86
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto menciona o provimento de vagas em Cursos de Qualificação Profissional (Operador de Computador, Assistente Administrativo e Auxiliar de Cozinha) e descreve atividades relacionadas a redes de computadores, suporte técnico e contratação de serviços de TIC.",
+      "justificativa": "Capacitação profissionalizante, gestão de infraestrutura de redes de computadores e suporte a serviços de Tecnologia da Informação (TIC) para a Secretaria de Estado de Economia do Distrito Federal (SEEDF) e outras entidades.",
+      "fornecedor": "Não identificado",
+      "marca_modelo": "Não identificado"
+    }
+  }
+}

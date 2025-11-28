@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-29 a 2025-11-28",
+    "search_keywords": "robótica",
+    "generated_at": "2025-11-28T06:37:34.279228"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 101,
+      "MISC": 91,
+      "ORG": 41,
+      "PER": 15
+    },
+    "top_entities": {
+      "Robótica": 27,
+      "Ar Condicionado Asa Sul": 16,
+      "Refrigeração": 15,
+      "Sistemas Eletrônicos de Segurança": 11,
+      "Asa Sul": 10,
+      "CFTV": 10,
+      "Projeto": 5,
+      "Operador de Computador": 4,
+      "Barbeiro": 3,
+      "Costureiro Industrial do Vestuário": 3
+    },
+    "total_entities": 248,
+    "total_invested": 369721.65,
+    "investments_by_category": {
+      "Robótica & Cultura Maker": 369721.65
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "Investimentos em equipamentos para robótica (drones, câmeras, projetores, óculos VR, placas Arduino/Raspberry Pi, impressoras 3D, LEDs) e oferta de cursos de qualificação profissional (incluindo robótica, programação e informática).",
+      "justificativa": "Apoio à realização de projetos de robótica, implantação de laboratório de robótica de acesso público e oferta de cursos de qualificação profissional para a comunidade.",
+      "fornecedor": "INSTITUTO SARANDO AS NAÇÕES, INSTITUTO BRASIL SAPIENS (Parceiros em projetos de fomento)",
+      "marca_modelo": "Sim, há menção a equipamentos específicos como Drones, Câmera Wireless IP, Projetor led, Óculos de realidade virtual, Placas arduino, Placa Raspberry Pi, Photoboard, Jumpers, Leds e motores, Impressora 3D + Controladora LDC, LED RGB Difuso e LED Verde Difuso."
+    }
+  }
+}
