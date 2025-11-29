@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-30 a 2025-11-29",
+    "search_keywords": "tablet",
+    "generated_at": "2025-11-29T06:34:28.995215"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 48,
+      "MISC": 39,
+      "ORG": 19,
+      "PER": 9
+    },
+    "top_entities": {
+      "Distrito Federal": 5,
+      "Edital": 4,
+      "Tablet": 4,
+      "VII": 3,
+      "Secretaria": 3,
+      "TIC": 3,
+      "Termo de Referência": 2,
+      "Anexos": 2,
+      "Estudantes do Ensino Fundamental": 2,
+      "Ensino Fundamental": 2
+    },
+    "total_entities": 115,
+    "total_invested": 1137216.3,
+    "investments_by_category": {
+      "Hardware & Equipamentos": 1080816.3,
+      "Outros (Não categorizado)": 56400.0
+    },
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto menciona a aquisição, registro de preços ou contratação de diversos itens, com forte ênfase em equipamentos de Tecnologia da Informação como computadores, notebooks e tablets, além de insumos químicos para piscinas e equipamentos de vistoria veicular.",
+      "justificativa": "As justificativas variam, incluindo suprir o retorno ao trabalho presencial e novas contratações, atender demandas de Secretarias (como a de Trabalho e a de Desenvolvimento Econômico) e suprir necessidades do Serviço de Limpeza Urbana (SLU/DF). Também há menção a um projeto de inclusão digital para população de baixa renda.",
+      "fornecedor": "MICROSENS S/A, VHDS LTDA, J C TECNOLOGIAS E INFORMÁTICA LTDA (Empresas citadas em extratos de contrato ou dispensa, não necessariamente a vencedora de todos os pregões mencionados).",
+      "marca_modelo": "Sim: Tablet (SANSUNG S9 FE 5G) é mencionado especificamente em um contrato."
+    }
+  }
+}
