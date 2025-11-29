@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2025-10-30 a 2025-11-29",
+    "search_keywords": "computador",
+    "generated_at": "2025-11-29T06:33:11.306791"
+  },
+  "data": {
+    "entity_counts_by_type": {
+      "LOC": 39,
+      "MISC": 31,
+      "ORG": 17,
+      "PER": 15
+    },
+    "top_entities": {
+      "TIC": 5,
+      "ICMS": 5,
+      "Cebraspe": 3,
+      "Brasília": 3,
+      "Decreto": 3,
+      "DIFAL": 3,
+      "Distrito Federal": 2,
+      "Secretaria": 2,
+      "Lei Complementar": 2,
+      "pecúnia": 2
+    },
+    "total_entities": 102,
+    "total_invested": 156865168.86,
+    "investments_by_category": {
+      "Outros (Não categorizado)": 156865168.86
+    },
+    "qualitative_analysis": {
+      "error": "API Key não configurada"
+    }
+  }
+}
