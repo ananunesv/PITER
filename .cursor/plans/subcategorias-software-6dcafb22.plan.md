@@ -46,3 +46,9 @@ O gráfico de pizza mostrará:
 
 - **Gestão**: 60% (R$ 2.627.859 - transportes coletivos)
 - **Infraestrutura**: 40% (R$ 1.800.000 - sistema de saúde com hospedagem)
+
+### To-dos
+
+- [ ] Atualizar CATEGORY_MAP com subcategorias Gestão e Infraestrutura
+- [ ] Atualizar mapeamento de nomes no DashboardCharts.tsx
+- [ ] Recalcular dados do arquivo de teste e verificar resultado
