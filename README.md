@@ -1,363 +1,311 @@
 # P.I.T.E.R - Plataforma de Integração e Transparência em Educação e Recursos
 
-**Procurador de Investimentos em Tecnologia na Educação e Recursos**
+**Procurador de Investimentos em Tecnologia na Educacao e Recursos**
 
-Plataforma para busca e análise de diários oficiais municipais com foco em investimentos educacionais em tecnologia e robótica.
+Plataforma para busca e analise de diarios oficiais municipais com foco em investimentos educacionais em tecnologia e robotica.
 
-##  Links Importantes
+## Links Importantes
 
-- ** Documentação**: [https://unb-mds.github.io/Projeto-P.I.T.E.R/](https://unb-mds.github.io/Projeto-P.I.T.E.R/)
-- ** Design (Figma)**: [https://www.figma.com/design/SrD9XAdENSImL4DVWmEZD5/Organização-MDS](https://www.figma.com/design/SrD9XAdENSImL4DVWmEZD5/Organiza%C3%A7%C3%A3o-MDS?node-id=0-1&t=0wOi8rZ1ZfIk7Juu-1)
+- Documentacao: https://unb-mds.github.io/Projeto-P.I.T.E.R/
+- Design (Figma): https://www.figma.com/design/SrD9XAdENSImL4DVWmEZD5/Organizacao-MDS
 
 ---
 
 ## Arquitetura do Projeto
 
 ```
-frontend/          # Next.js React Application
-├── app/              # Next.js App Router
-├── components/       # React Components (Atomic Design)
-│   ├── atoms/        # Componentes básicos
-│   ├── molecules/    # Componentes compostos
-│   └── organisms/    # Componentes complexos
-├── hooks/            # Custom React Hooks
-├── types/            # TypeScript Types
-├── package.json      # Frontend Dependencies
-└── tailwind.config.js # Configuração TailwindCSS
-
-backend/           # FastAPI Python API
-├── services/         # Business Logic & External APIs
-│   ├── api/clients/  # Clientes para APIs externas
-│   └── integration/  # Orquestradores de integração
-├── main.py           # FastAPI Application
-├── requirements.txt  # Python Dependencies
-└── venv/             # Virtual Environment
-
-docker-compose.yml # Orquestração Local
+Projeto-P.I.T.E.R/
+├── frontend/                 # Aplicacao Next.js
+│   ├── app/                  # App Router do Next.js
+│   │   ├── page.tsx          # Pagina principal
+│   │   ├── dashboard_pesquisa/  # Dashboard de analise
+│   │   ├── compare/          # Comparacao de municipios
+│   │   └── ranking/          # Ranking de investimentos
+│   ├── components/           # Componentes React (Atomic Design)
+│   │   ├── atoms/            # Componentes basicos
+│   │   ├── molecules/        # Componentes compostos
+│   │   └── organisms/        # Componentes complexos
+│   ├── hooks/                # Custom React Hooks
+│   ├── services/             # Servicos de integracao
+│   └── types/                # Definicoes TypeScript
+│
+├── backend/                  # API FastAPI
+│   ├── services/             # Logica de negocio
+│   │   ├── api/clients/      # Clientes para APIs externas
+│   │   │   ├── querido_diario_client.py  # API Querido Diario
+│   │   │   ├── gemini_client.py          # Google Gemini (IA)
+│   │   │   └── spacy_api_client.py       # Processamento NLP
+│   │   ├── processing/       # Processamento de dados
+│   │   └── integration/      # Orquestradores
+│   ├── data_output/          # Dados salvos das analises
+│   ├── main.py               # Aplicacao principal
+│   └── requirements.txt      # Dependencias Python
+│
+└── docker-compose.yml        # Orquestracao Docker
 ```
 
 ---
 
-## Como Executar o Projeto
+## Pre-requisitos
 
-### Pré-requisitos
-- **Node.js** 18+ e **npm**
-- **Python** 3.10+
-- **Git**
+- Node.js 18+ e npm
+- Python 3.10+
+- Git
+- Docker (opcional, para execucao simplificada)
 
-### Importante
-**AMBOS os servidores (Backend e Frontend) precisam estar rodando simultaneamente para a aplicação funcionar corretamente!**
+---
 
-Se você receber o erro `"Failed to fetch"` no frontend, verifique se:
-1. O backend está rodando na porta 8000
-2. Ambos os servidores foram iniciados
+## Como Executar (Manual)
 
-### Execução Rápida (Recomendado)
+### 1. Clone o repositorio
 
-#### 1. Clone o repositório:
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/unb-mds/Projeto-P.I.T.E.R.git
 cd Projeto-P.I.T.E.R
 ```
 
-#### 2. Inicie o Backend (Terminal 1):
+### 2. Configure o Backend (Terminal 1)
+
 ```bash
 cd backend
+
+# Criar ambiente virtual
 python -m venv venv
+
+# Ativar ambiente virtual
 source venv/bin/activate          # Linux/Mac
 # ou venv\Scripts\activate        # Windows
+
+# Instalar dependencias
 pip install -r requirements.txt
-python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+# Configurar chave do Gemini (opcional, para analise por IA)
+echo "GEMINI_API_KEY=sua_chave_aqui" > .env
+
+# Iniciar servidor
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8001
 ```
 
-#### 3. Em outro terminal, inicie o Frontend (Terminal 2):
+### 3. Configure o Frontend (Terminal 2)
+
 ```bash
 cd frontend
+
+# Instalar dependencias
 npm install
-npm install lucide-react
-npm install recharts
-cd ..
+
+# Iniciar servidor
 npm run dev
 ```
 
-#### 4. Acesse a aplicação:
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **Documentação API**: http://localhost:8000/docs
+### 4. Acesse a aplicacao
+
+| Servico | URL |
+|---------|-----|
+| Frontend | http://localhost:3000 |
+| Backend API | http://localhost:8001 |
+| Documentacao API | http://localhost:8001/docs |
 
 ---
 
-## Problemas Comuns
+## Como Executar (Docker)
 
-### Frontend mostrando versão antiga após atualização
-Se após fazer alterações no código o frontend continuar mostrando a versão antiga:
-
-```bash
-# Pare o servidor (Ctrl+C) e execute:
-lsof -ti:3000 | xargs kill -9  # Mata processo na porta 3000
-cd frontend
-rm -rf .next                    # Remove cache do Next.js
-npm run dev                     # Reinicia o servidor
-```
-
-### Erro "Failed to fetch" ao fazer busca
-Certifique-se que o backend está rodando:
-
-```bash
-# Verifique se a porta 8000 está em uso
-lsof -ti:8000
-
-# Se não estiver, inicie o backend:
-cd backend
-source venv/bin/activate
-python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
----
-
-## Execução com Docker (Recomendado para Iniciantes)
-
-### Por que usar Docker?
-- Instala todas as dependências automaticamente
-- Funciona em qualquer sistema operacional
-- Backend e Frontend rodando juntos
-- Não precisa instalar Python, Node.js, etc
+Docker instala todas as dependencias automaticamente e funciona em qualquer sistema operacional.
 
 ### 1. Instalar Docker
 
-#### Windows
-1. Baixe o Docker Desktop: https://www.docker.com/products/docker-desktop
-2. Execute o instalador
-3. Reinicie o computador se solicitado
-4. Abra o Docker Desktop para iniciar o serviço
+- Windows/macOS: Baixe o Docker Desktop em https://www.docker.com/products/docker-desktop
+- Linux (Ubuntu/Debian):
 
-#### macOS
-1. Baixe o Docker Desktop: https://www.docker.com/products/docker-desktop
-2. Arraste o Docker.app para a pasta Aplicativos
-3. Abra o Docker Desktop
-4. Autorize as permissões solicitadas
-
-#### Linux (Ubuntu/Debian)
 ```bash
-# Atualizar pacotes
 sudo apt-get update
-
-# Instalar dependências
 sudo apt-get install ca-certificates curl gnupg
-
-# Adicionar chave GPG do Docker
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-# Adicionar repositório
 echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Instalar Docker
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Adicionar seu usuário ao grupo docker (opcional, evita usar sudo)
+# Adicionar usuario ao grupo docker (evita usar sudo)
 sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-#### Verificar instalação
+Verificar instalacao:
 ```bash
 docker --version
 docker-compose --version
 ```
 
-### 2. Rodar o Projeto
+### 2. Executar o Projeto
 
-#### Primeira vez (Instala tudo automaticamente)
 ```bash
-# Clone o repositório
-git clone <url-do-repositorio>
-cd Projeto-P.I.T.E.R
-
-# Construir e iniciar os serviços
+# Primeira vez (constroi as imagens)
 docker-compose up --build
-```
 
-**Aguarde 5-10 minutos na primeira vez** enquanto o Docker:
-- Baixa as imagens base (Python 3.12 e Node 18)
-- Instala todas as dependências do backend
-- Baixa o modelo do spaCy para NLP
-- Instala todas as dependências do frontend
-
-#### Próximas vezes (Instantâneo)
-```bash
-# Iniciar serviços
+# Proximas vezes
 docker-compose up
 
-# Ou iniciar em background (sem ver logs)
+# Executar em background
 docker-compose up -d
 ```
 
-### 3. Acessar a Aplicação
+A primeira execucao pode levar 5-10 minutos para baixar as imagens e instalar dependencias.
 
-Após os containers iniciarem:
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **Documentação API**: http://localhost:8000/docs
-
-### 4. Comandos Úteis
+### 3. Comandos Uteis do Docker
 
 ```bash
 # Ver logs em tempo real
 docker-compose logs -f
 
-# Ver logs apenas do backend
+# Ver logs de um servico especifico
 docker-compose logs -f backend
-
-# Ver logs apenas do frontend
 docker-compose logs -f frontend
 
-# Parar os serviços (mantém containers)
+# Parar servicos
 docker-compose stop
 
 # Parar e remover containers
 docker-compose down
 
-# Parar e limpar tudo (incluindo volumes)
-docker-compose down -v
-
-# Reconstruir após mudar dependências
+# Reconstruir apos mudar dependencias
 docker-compose up --build
 
 # Ver status dos containers
 docker-compose ps
 ```
 
-### 5. Desenvolvimento com Docker
-
-As mudanças no código são refletidas automaticamente:
-- **Backend**: Hot reload ativado (muda .py e recarrega)
-- **Frontend**: Hot reload ativado (salva componente e atualiza browser)
-
-Seus arquivos locais estão sincronizados com os containers!
-
----
-
-## Deploy
-
-### Backend (Vercel)
-```bash
-cd backend
-vercel --prod
-```
-
-### Frontend (Vercel)
-```bash
-cd frontend
-# Atualizar BACKEND_URL no vercel.json
-vercel --prod
-```
-
 ---
 
 ## Funcionalidades
 
-### Busca de Diários Oficiais
-- **Filtros Avançados**: Busca por município, categoria, período
-- **Municípios de Goiás**: Foco em Goiânia e região metropolitana
-- **Categorias**: Robótica educacional e software educativo
-- **Integração**: API do Querido Diário para dados oficiais
+### Busca de Diarios Oficiais
+- Filtros por municipio, categoria e periodo
+- Municipios de Goias (Goiania, Aparecida de Goiania, Anapolis, Brasilia)
+- Categorias: Robotica educacional e Software
+- Integracao com API do Querido Diario
 
-### Análise Inteligente
-- **Processamento NLP**: Análise de texto com spaCy (em desenvolvimento)
-- **Extração de Dados**: Identificação automática de investimentos
-- **Métricas**: Valores, programas e projetos educacionais
+### Dashboard de Analise
+- Graficos de investimentos por periodo (mes ou ano)
+- Grafico de pizza por subcategoria
+- Visualizacao de total investido
 
-### Interface Moderna
-- **Design Responsivo**: TailwindCSS com componentes atômicos
-- **UX Otimizada**: Feedback visual e estados de carregamento
-- **Acessibilidade**: Seguindo padrões web modernos
+### Comparacao de Municipios
+- Comparativo lado a lado de dois municipios
+- Grafico de barras comparativo
+- Diferenca percentual de investimentos
+
+### Ranking de Subcategorias
+- Top 3 subcategorias mais investidas
+- Grafico horizontal de investimentos
+- Links para fontes oficiais
+
+### Analise por IA (Gemini)
+- Geracao de relatorio em PDF
+- Analise qualitativa do contexto
+- Identificacao de objeto, justificativa, fornecedor e marca/modelo
 
 ---
 
 ## Tecnologias Utilizadas
 
-### Frontend (Next.js)
-- **Next.js 14** com App Router
-- **React 18** + TypeScript
-- **TailwindCSS** para estilização
-- **Atomic Design** para componentes
-- **Custom Hooks** para lógica de estado
+### Frontend
+- Next.js 14 com App Router
+- React 18 + TypeScript
+- TailwindCSS
+- Recharts (graficos)
+- Lucide React (icones)
 
-### Backend (FastAPI)
-- **FastAPI** + Uvicorn
-- **Python 3.10+**
-- **Pydantic** para validação
-- **httpx** para requisições HTTP
-- **Integração** com Querido Diário API
+### Backend
+- FastAPI + Uvicorn
+- Python 3.10+
+- Google Gemini API (analise por IA)
+- spaCy (processamento NLP)
+- httpx (requisicoes HTTP)
 
----
-
-## Fluxo de Dados
-
-1. **Frontend** coleta filtros do usuário
-2. **Backend** processa requisição e consulta Querido Diário API
-3. **Orquestrador** enriquece dados com análise NLP (futuro)
-4. **Frontend** exibe resultados formatados
+### APIs Externas
+- Querido Diario: Dados de diarios oficiais
+- Google Gemini: Analise qualitativa por IA
 
 ---
 
-## Estrutura do Projeto
-
-```bash
-Projeto-P.I.T.E.R/
-├── frontend/                 # Aplicação Next.js
-│   ├── app/                 # App Router do Next.js
-│   │   ├── page.tsx         # Página principal
-│   │   └── globals.css      # Estilos globais
-│   ├── components/          # Componentes React
-│   │   ├── atoms/           # Botões, inputs básicos
-│   │   ├── molecules/       # Forms, cards
-│   │   └── organisms/       # Header, seções completas
-│   ├── hooks/               # React Hooks customizados
-│   │   └── useGazetteSearch.ts
-│   └── types/               # Definições TypeScript
-├── backend/                 # API FastAPI
-│   ├── services/            # Lógica de negócio
-│   │   ├── api/clients/     # Clientes para APIs externas
-│   │   └── integration/     # Orquestradores
-│   └── main.py             # Aplicação principal
-└── docker-compose.yml      # Configuração Docker
-```
-
----
-
-## Configuração de Ambiente
+## Configuracao de Ambiente
 
 ### Backend (.env)
+
 ```bash
-# Copie o arquivo de exemplo
-cp backend/.env.example backend/.env
+# Criar arquivo .env no diretorio backend
+GEMINI_API_KEY=sua_chave_do_google_ai_studio
 ```
 
-### Frontend (.env.local)
-```bash
-# Copie o arquivo de exemplo
-cp frontend/.env.local.example frontend/.env.local
+Para obter a chave do Gemini:
+1. Acesse https://aistudio.google.com/
+2. Clique em "Get API Key"
+3. Crie uma nova chave ou use uma existente
 
-# Configure a URL do backend
-NEXT_PUBLIC_API_URL=http://localhost:8000
+### Frontend (.env.local)
+
+```bash
+# Criar arquivo .env.local no diretorio frontend
+NEXT_PUBLIC_API_URL=http://localhost:8001
 ```
 
 ---
 
-## Deploy em Produção
+## Problemas Comuns
 
-O projeto está configurado para deploy independente:
+### Erro "Failed to fetch" ao fazer busca
 
-- **Frontend**: Vercel
-- **Backend**: Vercel, Railway, Heroku
-- **Docker**: Qualquer plataforma que suporte containers
+Verifique se o backend esta rodando:
+```bash
+lsof -ti:8001
+```
+
+Se nao estiver, inicie o backend conforme as instrucoes acima.
+
+### Frontend mostrando versao antiga
+
+```bash
+# Pare o servidor e limpe o cache
+cd frontend
+rm -rf .next
+npm run dev
+```
+
+### Porta ja em uso
+
+```bash
+# Matar processo na porta especifica
+lsof -ti:3000 | xargs kill -9  # Frontend
+lsof -ti:8001 | xargs kill -9  # Backend
+```
+
+---
+
+## Deploy
+
+O projeto pode ser deployado em:
+
+- Frontend: Vercel, Netlify
+- Backend: Railway, Render, Heroku
+- Docker: Qualquer plataforma que suporte containers
+
+Para deploy no Vercel:
+```bash
+# Frontend
+cd frontend
+vercel --prod
+
+# Backend (Railway recomendado)
+cd backend
+railway up
+```
 
 ---
 
@@ -365,18 +313,18 @@ O projeto está configurado para deploy independente:
 
 1. Fork o projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
+3. Commit suas mudancas (`git commit -m 'Adiciona nova feature'`)
 4. Push para a branch (`git push origin feature/nova-feature`)
 5. Abra um Pull Request
 
 ---
 
-## Licença
+## Licenca
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para detalhes.
+Este projeto esta sob a licenca MIT. Veja o arquivo `LICENSE` para detalhes.
 
 ---
 
 ## Equipe
 
-Desenvolvido como parte do projeto de Métodos de Desenvolvimento de Software (MDS) da Universidade de Brasília (UnB).
+Desenvolvido como parte do projeto de Metodos de Desenvolvimento de Software (MDS) da Universidade de Brasilia (UnB).
