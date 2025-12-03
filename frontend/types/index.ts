@@ -84,3 +84,41 @@ export const CATEGORIES = [
 
 export type Municipality = typeof MUNICIPALITIES[number];
 export type Category = typeof CATEGORIES[number];
+
+// Tipos para respostas de análise
+export interface AnalysisResponse {
+  meta: {
+    source_territory: string;
+    period: string;
+    search_keywords: string;
+    generated_at: string;
+  };
+  data: {
+    total_invested: number;
+    investments_by_category: Record<string, number>;
+    investments_by_period?: Record<string, number>;
+    publications_by_period?: Record<string, number>;
+    period_grouping?: 'month' | 'year';
+    total_entities?: number;
+    total_gazettes?: number;
+    qualitative_analysis?: any;
+  };
+}
+
+export interface ComparisonResponse {
+  meta: {
+    territory_a: string;
+    territory_b: string;
+    period_a: string;
+    period_b: string;
+    generated_at: string;
+  };
+  data: {
+    analysis_a: AnalysisResponse;
+    analysis_b: AnalysisResponse;
+    difference: {
+      total_invested: number;
+      by_category: Record<string, number>;
+    };
+  };
+}

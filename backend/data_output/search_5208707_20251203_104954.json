@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "source_territory": "5208707",
+    "period": "2025-06-03 a 2025-12-03",
+    "search_keywords": "software",
+    "generated_at": "2025-12-03T10:49:54.631416"
+  },
+  "data": {
+    "total_entities": 130,
+    "entity_counts_by_type": {
+      "MISC": 50,
+      "LOC": 37,
+      "ORG": 29,
+      "PER": 14
+    },
+    "top_entities": {
+      "Secretaria": 7,
+      "Goiânia": 4,
+      "Município": 3,
+      "Suporte Técnico": 3,
+      "Contratante": 3,
+      "MUNICÍPIO": 2,
+      "Assinatura": 2,
+      "Serviço de Manutenção": 2,
+      "Serviços Ltda": 2,
+      "Lei Complementar": 2
+    },
+    "total_invested": 14235391.18,
+    "investments_by_category": {
+      "Educação": 0.0,
+      "Capacitação": 0.0,
+      "Servidor": 0.0,
+      "Cloud/Nuvem": 62250.0,
+      "Hospedagem": 1800000.0,
+      "Rede": 1160000.0,
+      "Backup": 0.0,
+      "Data Center": 2030000.0,
+      "Gestão": 7299754.01,
+      "ERP": 0.0,
+      "Financeiro": 0.0,
+      "Robótica": 0.0,
+      "Outros": 1883387.17
+    },
+    "investments_by_period": {
+      "2025-06": 1427825.41,
+      "2025-07": 1800000.0,
+      "2025-08": 181641.76,
+      "2025-09": 5152864.0,
+      "2025-10": 2483060.01,
+      "2025-11": 3190000.0
+    },
+    "publications_by_period": {
+      "2025-06": 7,
+      "2025-07": 3,
+      "2025-08": 5,
+      "2025-09": 11,
+      "2025-10": 5,
+      "2025-11": 6
+    },
+    "period_grouping": "month",
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto descreve múltiplos investimentos em licenciamento de software por assinatura com manutenção e suporte, contratações emergenciais de software e hardware (tela LED, catracas), além de serviços de Engenharia Clínica com software de gestão.",
+      "justificativa": "As aquisições são destinadas a diversas secretarias municipais, incluindo Inovação e Transformação Digital (SIT), Saúde, e o Instituto de Previdência (GOIANIAPREV), visando modernização, suporte a sistemas de gestão, atendimento de pacientes e controle de acesso.",
+      "fornecedor": "SOFTWARE AG INFORMÁTICA E SERVIÇOS LTDA; CELK Sistemas Ltda; MARCOS OLIVEIRA DA SILVA; Congres - Consultoria em Gestão Empresarial Ltda; IBM Brasil – Indústria Máquinas e Serviços Ltda.",
+      "marca_modelo": "Sim. Menciona TELAS EM LEDS PH03, PH 6.67, IBM Mainframe Z15 BC RMKT."
+    }
+  }
+}

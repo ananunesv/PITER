@@ -1,97 +1,113 @@
- 'use client';
+'use client';
 
 import React from 'react';
-import { Select } from '@/components/atoms/Select';
-import { Input } from '@/components/atoms/Input';
-import { Button } from '@/components/atoms/Button';
-import { MUNICIPALITIES, STATES, CATEGORIES, SearchFilters } from '@/types';
+import { MUNICIPALITIES, CATEGORIES, SearchFilters } from '@/types';
+import { MapPin, Tag, Calendar, Trophy, Loader2 } from 'lucide-react';
 
 interface SearchFormProps {
-  leftFilters: SearchFilters;
-  rightFilters: SearchFilters;
-  onLeftChange: (filters: Partial<SearchFilters>) => void;
-  onRightChange: (filters: Partial<SearchFilters>) => void;
+  filters: SearchFilters;
+  onFiltersChange: (filters: Partial<SearchFilters>) => void;
   onSearch: () => void;
   loading?: boolean;
 }
 
 export const SearchForm: React.FC<SearchFormProps> = ({
-  leftFilters,
-  rightFilters,
-  onLeftChange,
-  onRightChange,
+  filters,
+  onFiltersChange,
   onSearch,
   loading = false,
 }) => {
   return (
-    <div className="bg-[#F0EBD8] p-6 rounded-lg shadow-md space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-4">
-          <Select
-            label="Município"
-            options={MUNICIPALITIES}
-            value={leftFilters.municipio}
-            onChange={(value) => onLeftChange({ municipio: value })}
-            placeholder="Selecione um município"
-            required
-            id="municipio"
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Municipio */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <MapPin size={16} className="text-indigo-500" />
+            Município
+          </label>
+          <select
+            value={filters.municipio}
+            onChange={(e) => onFiltersChange({ municipio: e.target.value, territory_id: e.target.value })}
+            className="select-modern w-full"
+          >
+            <option value="">Selecione o municipio</option>
+            {MUNICIPALITIES.map((mun) => (
+              <option key={mun.value} value={mun.value}>
+                {mun.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Categoria */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Tag size={16} className="text-indigo-500" />
+            Categoria
+          </label>
+          <select
+            value={filters.categoria}
+            onChange={(e) => onFiltersChange({ categoria: e.target.value as SearchFilters['categoria'] })}
+            className="select-modern w-full"
+          >
+            <option value="">Selecione a categoria</option>
+            {CATEGORIES.map((cat) => (
+              <option key={cat.value} value={cat.value}>
+                {cat.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Data Inicio */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Calendar size={16} className="text-indigo-500" />
+            Data Inicial
+          </label>
+          <input
+            type="date"
+            value={filters.dataInicio}
+            onChange={(e) => onFiltersChange({ dataInicio: e.target.value })}
+            className="input-modern"
           />
+        </div>
 
-        <Select
-          label="Estado"
-          options={STATES}
-          // Store the selected state in territory_id so hooks/backend receive the expected field
-          value={rightFilters.territory_id || rightFilters.municipio}
-          onChange={(value) => onRightChange({ territory_id: value })}
-          placeholder="Selecione um estado"
-          required
-          id="estado"
-        />
-
-        <Input
-          type="date"
-          label="De"
-          value={leftFilters.dataInicio}
-          onChange={(value) => {
-            onLeftChange({ dataInicio: value });
-            onRightChange({ dataInicio: value });
-          }}
-          id="dataInicio"
-        />
-
-        <Input
-          type="date"
-          label="Até"
-          value={leftFilters.dataFim}
-          onChange={(value) => {
-            onLeftChange({ dataFim: value });
-            onRightChange({ dataFim: value });
-          }}
-          id="dataFim"
-        />
-        
-        <Select
-          label="Categoria"
-          options={CATEGORIES}
-          value={leftFilters.categoria}
-          onChange={(value) => {
-            onLeftChange({ categoria: value as SearchFilters['categoria'] });
-            onRightChange({ categoria: value as SearchFilters['categoria'] });
-          }}
-          placeholder="Selecione a categoria"
-          required
-          id="categoria"
-        />
+        {/* Data Fim */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Calendar size={16} className="text-indigo-500" />
+            Data Final
+          </label>
+          <input
+            type="date"
+            value={filters.dataFim}
+            onChange={(e) => onFiltersChange({ dataFim: e.target.value })}
+            className="input-modern"
+          />
+        </div>
       </div>
 
-      <div className="flex justify-center pt-4">
-        <Button
+      {/* Botao */}
+      <div className="flex justify-center pt-2">
+        <button
           onClick={onSearch}
           disabled={loading}
-          size="lg"
-          className="px-8"
+          className={`btn-primary flex items-center gap-3 min-w-[200px] justify-center ${loading ? 'opacity-80 cursor-wait' : ''}`}
         >
-          {loading ? 'Processando...' : 'Rankear'}
-        </Button>
+          {loading ? (
+            <>
+              <Loader2 size={20} className="animate-spin" />
+              Processando...
+            </>
+          ) : (
+            <>
+              <Trophy size={20} />
+              Gerar Ranking
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

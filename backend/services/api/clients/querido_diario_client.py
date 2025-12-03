@@ -16,12 +16,13 @@ async def fetch_gazettes(territory_id: str, since: str, until: str, keywords: st
     # Se não passar keyword, usa uma padrão focada em gastos para garantir resultados
     query_term = keywords if keywords else "educação tecnologia informática"
     
+    # CORRIGIDO: A API espera 'published_since' e 'published_until', não 'since' e 'until'
     params = {
         "territory_ids": territory_id,
-        "since": since,
-        "until": until,
-        "size": 50, # Pode aumentar para 100 para ter mais dados
-        "querystring": query_term # <-- Usa a variável dinâmica aqui
+        "published_since": since,
+        "published_until": until,
+        "size": 50,
+        "querystring": query_term
     }
     
     try:

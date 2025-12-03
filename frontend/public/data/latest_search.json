@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "source_territory": "5300108",
+    "period": "2024-01-01 a 2024-06-01",
+    "search_keywords": "software",
+    "generated_at": "2025-12-03T07:52:11.748292"
+  },
+  "data": {
+    "total_entities": 113,
+    "entity_counts_by_type": {
+      "MISC": 49,
+      "ORG": 26,
+      "LOC": 25,
+      "PER": 13
+    },
+    "top_entities": {
+      "Diretoria de Tecnologia da Informação e Comunicação": 3,
+      "Distrito Federal": 2,
+      "DODF": 2,
+      "Dirtec": 2,
+      "I. Integração": 2,
+      "Detran/": 2,
+      "Detran": 2,
+      "I e II": 2,
+      "Instrução": 2,
+      "Casa Civil do Distrito Federal": 2
+    },
+    "total_invested": 265925289.63,
+    "investments_by_category": {
+      "Educação": 15238.93,
+      "Capacitação": 22770310.16,
+      "Servidor": 28532720.99,
+      "Cloud/Nuvem": 18125.0,
+      "Hospedagem": 4320.0,
+      "Rede": 0.0,
+      "Backup": 0.0,
+      "Data Center": 0.0,
+      "Gestão": 123746394.35,
+      "ERP": 0.0,
+      "Financeiro": 80539033.38,
+      "Robótica": 15238.93,
+      "Outros": 10283907.89
+    },
+    "investments_by_period": {
+      "2024-01": 39322540.62,
+      "2024-02": 170620519.22,
+      "2024-03": 24429906.9,
+      "2024-04": 22622550.09,
+      "2024-05": 8929772.8
+    },
+    "publications_by_period": {
+      "2024-01": 13,
+      "2024-02": 8,
+      "2024-03": 9,
+      "2024-04": 8,
+      "2024-05": 12
+    },
+    "period_grouping": "month",
+    "qualitative_analysis": {
+      "resumo_objeto": "O texto menciona contratações para digitalização, desenvolvimento de software, aquisição de licenças de software (Office 365, sistemas operacionais), serviços de impressão, manutenção de balanceadores de carga e sistema informatizado SaaS.",
+      "justificativa": "Investimentos visam a gestão documental (SEL), modernização de TI (Detran/DF), suporte a infraestrutura de rede (Casa Civil/órgãos vinculados), manutenção de sistemas de comunicação (Casa Militar/SECONTI) e aquisição de estações de trabalho (SEDES/DF).",
+      "fornecedor": "SOFTWARE AG BRASIL INFORMÁTICA E SERVIÇOS LTDA; POSITIVO TECNOLOGIA S/A; BLACKBULL COMÉRCIO E SERVIÇOS DE INFORMÁTICA LTDA; AGÊNCIA CLIC SOLUÇÕES EM TECNOLOGIA E MÍDIA SOCIAL LTDA; 3CORP TECHNOLOGY INFRAESTRUTURA DE TELECOM LTDA",
+      "marca_modelo": "Sim: Windows 10 Pro 64 Bits OEM, Microsoft Solução Office 365 Enterprise E1, A10 modelo 3350S"
+    }
+  }
+}

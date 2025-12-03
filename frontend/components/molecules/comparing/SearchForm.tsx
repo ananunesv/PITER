@@ -1,10 +1,8 @@
- 'use client';
+'use client';
 
 import React from 'react';
-import { Select } from '@/components/atoms/Select';
-import { Input } from '@/components/atoms/Input';
-import { Button } from '@/components/atoms/Button';
 import { MUNICIPALITIES, CATEGORIES, SearchFilters } from '@/types';
+import { MapPin, Tag, Calendar, GitCompare, Loader2 } from 'lucide-react';
 
 interface SearchFormProps {
   leftFilters: SearchFilters;
@@ -24,62 +22,119 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   loading = false,
 }) => {
   return (
-    <div className="bg-[#F0EBD8] p-6 rounded-lg shadow-md space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-4">
-          <Select
-            label="Município 1"
-            options={MUNICIPALITIES}
+    <div className="space-y-6">
+      {/* Municipios */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <MapPin size={16} className="text-indigo-500" />
+            Municipio 1
+          </label>
+          <select
             value={leftFilters.municipio}
-            onChange={(value) => onLeftChange({ municipio: value })}
-            placeholder="Selecione o município"
-            required
-            id="municipio1"
-          />
+            onChange={(e) => onLeftChange({ municipio: e.target.value })}
+            className="select-modern w-full"
+          >
+            <option value="">Selecione o municipio</option>
+            {MUNICIPALITIES.map((mun) => (
+              <option key={mun.value} value={mun.value}>{mun.label}</option>
+            ))}
+          </select>
+        </div>
 
-        <Select
-          label="Município 2"
-          options={MUNICIPALITIES}
-          value={rightFilters.municipio}
-          onChange={(value) => onRightChange({ municipio: value })}
-          placeholder="Selecione o município"
-          required
-          id="municipio2"
-        />
-
-        <Input
-          type="date"
-          label="De"
-          value={leftFilters.dataInicio}
-          onChange={(value) => onLeftChange({ dataInicio: value })}
-          id="dataInicio_left"
-        />
-
-        <Input
-          type="date"
-          label="Até"
-          value={leftFilters.dataFim}
-          onChange={(value) => onLeftChange({ dataFim: value })}
-          id="dataFim_left"
-        />
-        <Select
-            label="Categoria"
-            options={CATEGORIES}
-            value={leftFilters.categoria}
-            onChange={(value) => onLeftChange({ categoria: value as SearchFilters['categoria'] })}
-            placeholder="Selecione a categoria"
-            required
-            id="categoria_left"
-          />
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <MapPin size={16} className="text-emerald-500" />
+            Municipio 2
+          </label>
+          <select
+            value={rightFilters.municipio}
+            onChange={(e) => onRightChange({ municipio: e.target.value })}
+            className="select-modern w-full"
+          >
+            <option value="">Selecione o municipio</option>
+            {MUNICIPALITIES.map((mun) => (
+              <option key={mun.value} value={mun.value}>{mun.label}</option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className="flex justify-center pt-4">
-        <Button
+
+      {/* Periodo e Categoria */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Calendar size={16} className="text-indigo-500" />
+            Data Inicial
+          </label>
+          <input
+            type="date"
+            value={leftFilters.dataInicio}
+            onChange={(e) => {
+              onLeftChange({ dataInicio: e.target.value });
+              onRightChange({ dataInicio: e.target.value });
+            }}
+            className="input-modern"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Calendar size={16} className="text-indigo-500" />
+            Data Final
+          </label>
+          <input
+            type="date"
+            value={leftFilters.dataFim}
+            onChange={(e) => {
+              onLeftChange({ dataFim: e.target.value });
+              onRightChange({ dataFim: e.target.value });
+            }}
+            className="input-modern"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Tag size={16} className="text-indigo-500" />
+            Categoria
+          </label>
+          <select
+            value={leftFilters.categoria}
+            onChange={(e) => {
+              const value = e.target.value as SearchFilters['categoria'];
+              onLeftChange({ categoria: value });
+              onRightChange({ categoria: value });
+            }}
+            className="select-modern w-full"
+          >
+            <option value="">Selecione a categoria</option>
+            {CATEGORIES.map((cat) => (
+              <option key={cat.value} value={cat.value}>{cat.label}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Botao */}
+      <div className="flex justify-center pt-2">
+        <button
           onClick={onSearch}
           disabled={loading}
-          size="lg"
-          className="px-8"
+          className={`btn-primary flex items-center gap-3 min-w-[200px] justify-center ${loading ? 'opacity-80 cursor-wait' : ''}`}
         >
-          {loading ? 'Buscando...' : 'Comparar'}
-        </Button>
+          {loading ? (
+            <>
+              <Loader2 size={20} className="animate-spin" />
+              Comparando...
+            </>
+          ) : (
+            <>
+              <GitCompare size={20} />
+              Comparar
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

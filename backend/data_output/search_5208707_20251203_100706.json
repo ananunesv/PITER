@@ -1,0 +1,774 @@
+{
+  "meta": {
+    "source_territory": "5208707",
+    "period": "2025-01-03 a 2025-07-03",
+    "search_keywords": "software",
+    "generated_at": "2025-12-03T10:07:06.506798",
+    "type": "search_with_stats",
+    "date_range_start": "2025-01-03",
+    "date_range_end": "2025-07-03"
+  },
+  "data": {
+    "total_gazettes": 50,
+    "total_invested": 12268911.22,
+    "total_entities": 0,
+    "investments_by_category": {
+      "Educação": 2589571.5,
+      "Capacitação": 5148440.0,
+      "Servidor": 2948600.0,
+      "Cloud/Nuvem": 0.0,
+      "Hospedagem": 0.0,
+      "Rede": 112775.9,
+      "Backup": 0.0,
+      "Data Center": 0.0,
+      "Gestão": 90100.0,
+      "ERP": 0.0,
+      "Financeiro": 0.0,
+      "Robótica": 0.0,
+      "Outros": 1379423.82
+    },
+    "investments_by_period": {
+      "1995": 28359.0,
+      "1996": 4750.0,
+      "1997": 3000.0,
+      "1998": 41045.0,
+      "1999": 958052.42,
+      "2000": 492753.5,
+      "2003": 694.4,
+      "2005": 13300.0,
+      "2006": 90100.0,
+      "2010": 112775.9,
+      "2014": 65260.0,
+      "2015": 9840195.0,
+      "2018": 350700.0,
+      "2025": 267926.0
+    },
+    "publications_by_period": {
+      "1994": 2,
+      "1995": 2,
+      "1996": 1,
+      "1997": 1,
+      "1998": 3,
+      "1999": 10,
+      "2000": 2,
+      "2002": 1,
+      "2003": 2,
+      "2004": 1,
+      "2005": 2,
+      "2006": 3,
+      "2007": 3,
+      "2008": 1,
+      "2010": 1,
+      "2011": 2,
+      "2013": 1,
+      "2014": 2,
+      "2015": 4,
+      "2018": 3,
+      "2021": 2,
+      "2025": 1
+    },
+    "period_grouping": "year"
+  },
+  "gazettes": [
+    {
+      "territory_id": "5208707",
+      "date": "1994-11-10",
+      "scraped_at": "2020-11-26T19:46:46.860617",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1994-11-10/63dea62cc5a128bb1be0fa9eab49088ef082eae7.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "hardware, e concessão de licença de uso \ngratuito do software, ambos durante a vigên-\ncia do presente Convênio, e respectivamente \ndiscriminados nos ANEXOS I e II, podendo  \n\nos mesmos serem substituídos, acrescenta-\ndos ou subtraídos, de comum acordo entre \nas partes, visando o efetivo cumprimento dos \nobjetivos constantes do projeto deste Convê-\nnio. \n\nb. Oferecer treinamento técnico-peda-\ngógico e literatura referentes aos equipa-\nmentos e \"software\" acima mencionados \ncompatíveis com os objetivos"
+      ],
+      "edition": "1286",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1994-11-10/63dea62cc5a128bb1be0fa9eab49088ef082eae7.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1994-10-27",
+      "scraped_at": "2020-11-26T19:46:50.470547",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1994-10-27/d4c104566bd41fa4f27569d3bb18b3f064b89f95.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "hardware, e concessão de licença de uso \ngratuito do software, ambos durante a vigên-\ncia do presente Convênio, e respectivamente \ndiscriminados nos ANEXOS I e II, podendo \nos mesmos serem substituídos, acrescenta-\ndos ou subtraídos, de comum acordo entre \nas partes, visando o efetivo cumprimento dos \nobjetivos constantes do projeto deste Convê-\nnio. \n\nb. Oferecer treinamento técnico-peda-\ngógico e literatura referentes aos equipa-\nmentos e \"software\" acima mencionados \ncompatíveis com os objetivos deste"
+      ],
+      "edition": "1278",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1994-10-27/d4c104566bd41fa4f27569d3bb18b3f064b89f95.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2008-02-26",
+      "scraped_at": "2020-11-26T20:36:44.740727",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2008-02-26/865094de6e8da77e74e11f37f36b6bcb4c193b93.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "por um período mínimo de 1440h (mil quatrocentos e quarenta \nhoras) na ausência e energia elétrica de alimentação;\n\nc) - dispositivo único semicondutor de memória não \nvolátil, sem recursos de pagamento por sinais elétricos, para \narmazenamento do software básico, afixado à placa controladora \nfiscal mediante soquete ou conector;\n\nd) - dispositivo de relógio de tempo-real, com capacidade \nde funcionamento ininterrupto por um período mínimo de 1440h \n(mil quatrocentos e quarenta horas) na ausência de"
+      ],
+      "edition": "4312",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2008-02-26/865094de6e8da77e74e11f37f36b6bcb4c193b93.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2000-09-06",
+      "scraped_at": "2020-11-26T19:47:06.153042",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2000-09-06/462373904be04da0a8918cdb2ad1b9b3879b16c2.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "COMPUTAÇÃO LTDA \n\nLOCAL E DATA: Lavrado e assinado \nem 21 de Agosto de 2000, em Goiânia, \nCapital do Estado de Goiás, na COMDA-\nTA, sito na Av, \"A\", n° 490, Setor Oeste. \n\nFUNDAMENTO: Este TERMO DE \nREPACTUAÇÃO refere-se ao de CON-\nTRATO DE AQUISIÇÃO DO SOFTWARE \nSQE- SISTEMA DE QUALIDADE NA ES-\nCOLA E DE PRESTAÇÃO DE SERVIÇOS \n- CTJR2199, decorrente da autorização \ndo Diretor Presidente da COMDATA no uso \nde suas atribuições legais, fundamentan-\ndo-se na inexigibilidade do procedimen-\nto licitatório, de"
+      ],
+      "edition": "2577",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2000-09-06/462373904be04da0a8918cdb2ad1b9b3879b16c2.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1997-10-15",
+      "scraped_at": "2020-11-26T19:46:53.852058",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1997-10-15/936dff4c74c841196981218b8a21fca1207f06e2.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "pecifico da prestação de serviços de \n\ninformática ao Município de Goiânia, \n\nem face da \"Declaração de Exclusi-\n\nvidade\" acostada nos autos, emitida \n\npela ASSESPRO - Associação das \n\nEmpresas Brasileiras de Software \n\ne Serviços de Informática, de que é \n\ndetentora a. Empresa MSD Software \n\nComércio, Importação e Exportação \n\nLtda, com sede à SAS, Quadra 5, Blo-\n\nco \"N\", Edifício OAB, salas 413/422, \n\nBrasília-DF fulcrado no que dispõe a \n\nLei Federal n° 8.666/93, e suas altera-\n\nções, baseado"
+      ],
+      "edition": "1971",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1997-10-15/936dff4c74c841196981218b8a21fca1207f06e2.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2006-01-12",
+      "scraped_at": "2020-11-26T20:40:08.864208",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2006-01-12/720e71986a1c0687500d0298137326597fe1b4f4.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "de indústria de software, relativo aos serviços de:\n\nI - Manutenção de software;\n\nII - Customização de software;\n\nIII - Implementação de software;\n\nIV - Implantação de software;\n\nV - Adequação de software;\n\nVI - Venda de licenciamento de software;\n\nVII - Locação de Software;\n\nVIII - Hospedagem de soluções de dados;\n\nIX - Manutenção de hospedagens e de soluções de dados;\n\nX - Implantação de rede de comunicação de dados;\n\nXI - Manutenção de rede de comunicação de dados;\n\nXII - Software proprietário embarcado"
+      ],
+      "edition": "3800",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2006-01-12/720e71986a1c0687500d0298137326597fe1b4f4.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2015-02-04",
+      "scraped_at": "2020-11-26T20:47:31.337630",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-02-04/bdf54ce8aebe8bd027eb6c75d06bd69f6307ec17.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "ânia \n\nRua 07, n° 178, Centro  – Goiânia – GO. \nCEP: 74023‐020  ‐ Tel.: 55 62 3524‐2307 \nimaspresidencia@gmail.com \n\nCONTRATO Nº 009/2015 \n\nContrato de insumos e serviços necessários para \n\naquisição e implantação do Software de Gestão de \n\nAssistência Médica (Consultoria, Software, Hardware, \n\nImplementação e Treinamento), para atender o Instituto \n\nde Assistência à Saúde e Social dos Servidores Municipais \n\nde Goiânia - IMAS, que entre si celebram o IMAS e a \n\nempresa Asert Serviços e Tecnologia"
+      ],
+      "edition": "6017",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-02-04/bdf54ce8aebe8bd027eb6c75d06bd69f6307ec17.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1998-10-13",
+      "scraped_at": "2020-11-26T19:46:57.534301",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1998-10-13/e354b3ac178d98c3df323315bae5e7819e3175ff.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "- ACIEG, \n\nacostada nos autos, de que é a em-\n\npresa CODES CONSULTORIA E DE- \n\nSENVOLVIMENTO DE SISTEMAS \n\nLTDA. é a única no desenvolvimento, \n\ncomercialização, treinamento e \n\nconsultoria do software SGPT for \n\nWindows e da Metodologia de Gestão \n\nde Processo de Trabalho - MGPT as-\n\nsociada a este software, para o Esta-\n\ndo de Goiás; fulcrado no que dispõe a \n\nLei Federal n° 8.666 de 21 de junho de \n\n1993 e alterações posteriores, e ba-\n\nseado na EXPOSIÇÃO DE MOTIVOS \n\nE FUNDAMENTAÇÃO LEGAL PARA"
+      ],
+      "edition": "2195",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1998-10-13/e354b3ac178d98c3df323315bae5e7819e3175ff.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2007-08-29",
+      "scraped_at": "2020-11-26T20:07:58.582606",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2007-08-29/6207ee27536f25627ea8cb0d1c14de5762fecac0.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "sistemas de informática do Poder Legislativo, inclusive quanto a \nequipamentos de informática (cpu, impressora, etc) e instalação \nde software; \n\nCONSIDERANDO, finalmente, a necessidade de se es-\ntabelecer critérios de segurança para a proteção das informações \ndo Poder Legislativo veiculadas pela Internet. \n\nRESOLVE: \n\nArt. 1º Toda e qualquer instalação de software nos equi-\npamentos de informática da Câmara Municipal de Goiânia deve \nser realizada pelas equipes técnicas da Divisão de Processamento"
+      ],
+      "edition": "4193",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2007-08-29/6207ee27536f25627ea8cb0d1c14de5762fecac0.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2006-09-27",
+      "scraped_at": "2020-11-26T20:07:39.369375",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2006-09-27/46a8f19aa2685fe48206a034327d877da7f2cf00.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "desenvolvimento, teste, documentação, \n\nimplementação e controle de sistemas de informação e de \nplataforma tecnológica;\n\n- realização de manutenções preventivas e corretivas nos \nsistemas de informação;\n\n- instalação e configuração de hardware, de software básicos e \nde aplicativos de sistemas operacionais;\n\n- projeto, suporte e administração de banco de dados e de redes \nde computadores;\n\n- administração de dados;\n- estabelecimento e monitoramento da utilização de normas e \n\nde padrões de tecnologia"
+      ],
+      "edition": "3971",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2006-09-27/46a8f19aa2685fe48206a034327d877da7f2cf00.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2002-08-21",
+      "scraped_at": "2020-11-26T20:07:44.763675",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2002-08-21/afeb9061f14d30e450b61a8a9b494cde8dc7097a.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "de terminal adquirido 40% COMDATA \nSoftware dc destrivoMmento (linguagem dc \nprogramação) adquirido \n\n40% \n\nSoftware dc integração Micro a Malfratne adquirida 40% \nSoftware paru ixintrole d2 versões dos sistemas \nprogramas para mainframe e micro adquirido \n\n40% \n\nSoftware de automação de escritório adquirido (lieença5 40% \nSoftware para geração dc programas (sistema) \nexecutáveis adquiridos \n\n40% \n\nPacotes de Software de segui:~ de rede de informática 60% \nSoftware para teste de programas adquiri 40%"
+      ],
+      "edition": "2986",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2002-08-21/afeb9061f14d30e450b61a8a9b494cde8dc7097a.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2018-01-18",
+      "scraped_at": "2020-11-26T21:33:30.947662",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2018-01-18/a1d023db8c2ce1e305ddeaa0b289dcb811f57b42.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Contrato, observadas as \ndisposições da Lei nº 10.520/2002 e subsidiariamente pela Lei 8.666/1993, mediante as \nseguintes cláusulas e condições: \n\nCLÁUSULA PRIMEIRA – DO OBJETO: \n\n1.1. O presente instrumento tem por objeto a aquisição de licenças de software, para atender \nas necessidades da Secretaria Municipal de Planejamento Urbano e Habitação, conforme \nquantidades e descrições abaixo: \n\nITEM DA \nATA \n\nDESCRIÇÃO DO OBJETO QTDE VALOR \nUNITÁRIO \n\nVALOR \nTOTAL \n\n1 \n\nAutodesk Building Design Suíte \nPremium:"
+      ],
+      "edition": "6735",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2018-01-18/a1d023db8c2ce1e305ddeaa0b289dcb811f57b42.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2025-09-22",
+      "scraped_at": "2025-09-23T03:39:07.897688",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2025-09-22/267dda725d2eb4fea7051df4216886190232e10c.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Secretaria Municipal de Inovação e Transformação Digital\n\nChefia da Advocacia Setorial\n\nEXTRATO DO CONTRATO 05/2025\n\nContrato de Licenciamento de Software por Assinatura, com Serviço de Manutenção e Suporte Técnico, que\nentre si celebram ao MUNICÍPIO DE GOIÂNIA, por intermédio da SECRETARIA MUNICIPAL DE INOVAÇÃO E\nTRANSFORMAÇÃO DIGITAL – SIT e a empresa SOFTWARE AG INFORMÁTICA E SERVIÇOS LTDA.\n\nO MUNICÍPIO DE GOIÂNIA, pessoa jurídica jurídica de direito público, com sede na Avenida do Cerrado, n° 999"
+      ],
+      "edition": "8627",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2025-09-22/267dda725d2eb4fea7051df4216886190232e10c.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2011-06-03",
+      "scraped_at": "2020-11-26T20:18:56.380359",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2011-06-03/1305f79fc8f484c7353d713e855064969acc81ac.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "interesse superior da Administração Pública \n\nMunicipal de Goiânia, \n\nDeclara Inexigível a Licitação\n\ncom apoio no artigo 25, I da Lei 8.666/93, para proceder a contratação \n\nda Software AG Brasil Informática e Serviços Ltda., Cnpj n° \n\n07.594.862/0001-39, cujo objeto é a aquisição de licença permanente \n\nde sistemas de software, com atualização, manutenção production \n\nsupport (24x7) e suporte técnico, em ambiente mainframe IBM, autos \n\nnº 43822349/11.\n\nCumpra-se e Publique-se.\n\nGoiânia, 1° de junho"
+      ],
+      "edition": "5118",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2011-06-03/1305f79fc8f484c7353d713e855064969acc81ac.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-06-01",
+      "scraped_at": "2020-11-26T19:51:31.133879",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-06-01/f78f21200a5ce2f87a29282acb4b8e8adf995233.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Municipal de Goiânia, na presidência da \nempresa criada para o fim especifico de \nprestação de serviços de informática ao \nMunicípio de Goiânia, tendo em vista a \nnecessidade de compra do SOFTWARE \nANTI-ViRUS,em face da Declaração de \nExclusividade acostada nos autos, \nemitida pela Associação Brasileira das \nEmpresas de Software, de que a empresa \nTREND MICRO DO BRASIL LTDA. é a \núnica \tempresa \trepresentante \ncredenciada no Brasil comercializar os \nprodutos, objetos do presente processo, \nfundamentado, também"
+      ],
+      "edition": "2326",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-06-01/f78f21200a5ce2f87a29282acb4b8e8adf995233.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2006-06-20",
+      "scraped_at": "2020-11-26T20:12:50.968841",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2006-06-20/c8ee953873a179dd3379e8ad6933642934ce62be.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "realização do competente processo \nlicitatório, na modalidade de CONVITE nº 104/2006, tipo \nmenor preço, referente a aquisição de 850 (oitocentos e cinquen-\nta) licenças de software antivírus, incluindo sua instalação e \natualização por período de 02 (dois) anos. As regras gerais de \ninstalação, assim como, as características mínimas do software \nantivírus, estão contidas no Anexo I do Edital, às fls. 22/23 do \nprocesso administrativo n° 28418787/06; \n\nConsiderando o resultado da referida licitação prolatado"
+      ],
+      "edition": "3905",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2006-06-20/c8ee953873a179dd3379e8ad6933642934ce62be.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1995-07-04",
+      "scraped_at": "2020-11-26T19:49:58.416795",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1995-07-04/264563a575770f60a37fcc7df6a6922f421d537f.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "a outros órgãos \nde natureza pública e privada, a seguir es-\npecificados: \n\nI - Planejamento, desenvolvimento e \nimplantação de software aplicativo; \n\nII - Planejamento, instalação e manu-\ntenção de equipamentos de computação; \n\nIII - Manutenção e suporte a software \naliQativo em produção; \n\nIV - Locação de equipamentos de \ncomputação e licenciamento de uso de \nsoftware; \n\nV - Consultoria técnica em projetos de \norganização e informatização; \n\nVI,- Treinamentos de pessoal relati-\nvos a área de informática;"
+      ],
+      "edition": "1445",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1995-07-04/264563a575770f60a37fcc7df6a6922f421d537f.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2004-08-27",
+      "scraped_at": "2020-11-26T20:07:46.559353",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2004-08-27/ebf0fe43c1a8e79a448e5a176ee0a77853f761dd.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "do prazo todo o equipamento em perfeitas condições de uso.\n\nMATERIAL:\n\n001 Nobreak 2kva multivoltagem Netstation UTS, 600 BIFX SMS. 01 UN\n\n002 Impressoras colorida jato de tinta A3, Deskjet HP 9300 02 UN\n\n003 Plotter HP Designjet 500. 01 UN\n\n004 Software Office Pro 2003, português, Open Lics 02 UN\n\nDATA: 18/08/2004.\n\n\n\n7\n\nEXTRATO DE TERMO DE COMODATO\n\nCOMODANTE: COMOB - COMPANHIA DE OBRAS E HABITAÇÃO DO MUNICÍPIO DE GOIÂNIA\n\nCOMODATÁRIA: SECRETARIA MUNICIPAL DE FISCALIZAÇÃO URBANA\n\nDO OBJETO: O objetivo"
+      ],
+      "edition": "3476",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2004-08-27/ebf0fe43c1a8e79a448e5a176ee0a77853f761dd.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2021-02-23",
+      "scraped_at": "2021-07-19T18:11:07.077820",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2021-02-23/1402f31639c7aabeb3fa2838914482ec7cdd2c09.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "de comunicação (telefone, telex, correios, etc.);fretes e carretos; locação de \nimóveis (inclusive despesas de condomínio e tributos à conta do locatário, quando previstos no contrato \nde locação); locação de equipamentos e materiais permanentes; software; conservação e adaptação de \nbens imóveis; seguros em geral (exceto os decorrentes de obrigação patronal); serviços de asseio e \nhigiene; serviços de divulgação, impressão, encadernação e emolduramento; serviços funerários; \ndespesas com congressos"
+      ],
+      "edition": "7492",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2021-02-23/1402f31639c7aabeb3fa2838914482ec7cdd2c09.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2015-01-14",
+      "scraped_at": "2020-11-26T20:51:55.942959",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-01-14/8a89efcb15c5e962620315caccd28823c96e2da2.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "considerando a realização do \nProcedimento Licitatório, na modalidade Pregão Eletrônico nº 204/2014  destinado à “Contratação de empresa \nespecializada para insumos e serviços necessários para aquisição e implantação do Software de Gestão de \nAssistência Medica (Consultoria, Software, Hardware, Implementação e Treinamento), para atender o \nInstituto de Assistência à Saúde e Social dos Servidores Municipais de Goiânia - IMAS, por um período de \n12 (doze) meses, conforme condições e especificações estabelecidas"
+      ],
+      "edition": "6002",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-01-14/8a89efcb15c5e962620315caccd28823c96e2da2.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2018-10-16",
+      "scraped_at": "2020-11-26T21:19:43.687683",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2018-10-16/f05b9209c80de230e5091752a1c5575c21d33159.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Mãe do mesmo fabricante do equipamento, não sendo \naceita solução em OEM ou placas encontradas no mercado \ncomum. Deverá possuir chip de segurança integrado, no padrão \nTPM versão 1.2 ou superior, não será aceita solução em slot. \nDeverá acompanhar software para implantação e utilização de \ntodos os recursos de segurança do mesmo fabricante do \nmicrocomputador. \n\n3. Processador\n3.1. Processador de arquitetura x86 com suporte a 32bits e 64bits. \n3.2. Deverá possuir suporte a AES, para criptografia de"
+      ],
+      "edition": "6917",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2018-10-16/f05b9209c80de230e5091752a1c5575c21d33159.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-10-11",
+      "scraped_at": "2020-11-26T19:46:56.371321",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-10-11/c75fa6cc9bc2d4277edb63c207dad480658ab96d.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "da Presidência n° 149/99, pro-\ncesso administrativo n° 14725458/99, com \nfulcro na Lei Federal n° 8.666, de 21 de ju-\nnho de 1993, com suas alterações posteri-\nores. \n\nCLÁUSULA SEGUNDA: DO OBJETO \n2.1- Fornecimento, manutenção e ins-\n\ntalação do software SQE - SISTEMA DA \nQUALIDADE NA ESCOLA, para utilização \nda Secretaria Municipal de Educação. \n\nCLAUSULA SEXTA: DO PREÇO E DA \nFORMA DE PAGAMENTO \n\n6.1 - Pela prestação dos serviços, ob-\njeto deste instrumento contratual, a \nCOMDATA pagará à CONTRATADA"
+      ],
+      "edition": "2403",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-10-11/c75fa6cc9bc2d4277edb63c207dad480658ab96d.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-04-30",
+      "scraped_at": "2020-11-26T19:52:54.785311",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-04-30/a7702721198d7e40845c7d0b5a5079de2948f993.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "necessidade de compra de \nequipamentos de informática, acessóri-\nos e treinamento do seu pessoal, em face \nda Declaração de Exclusividade acosta-\nda nos autos, emitida pela Associação \ndas Empresas Brasileiras de Software e \nServiços de Informática, de que a empre-\nsa LOTUS DESENVOLVIMENTO DE \n\nSOFTWARE LTDA. É detentora de exclu-\nsividade na comercialização no Brasil dos \nprodutos Notes, o Domínio, o Smart Suite, \nseus acessórios, treinamento e serviços, \nfundamentado, também, no que dispõe \na Lei Federal"
+      ],
+      "edition": "2306",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-04-30/a7702721198d7e40845c7d0b5a5079de2948f993.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1998-02-13",
+      "scraped_at": "2020-11-26T19:57:11.747044",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1998-02-13/c3ad9ca96bb8ac0c8bd1d93e855fb16518eccf0f.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Técnica \n\njustifica a necessidade da contratação \n\ndo software CA-OPAL, tendo em vista \n\no desenvolvimento de aplicações grá-\n\nficas a atualizações de telas dos sis-\n\ntemas já desenvolvidos em NATURAL, \n\nna Empresa. \n\nO caso versado nos presentes \n\nautos, enquadra-se na questão da \n\ninexigilidade de licitação, pelo motivo \n\ndeclinado através da Certidão de Ex-\n\nclusividade, exarada pela A.B.E.S -\n\nAssociação Brasileira das Empresas \n\nde Software, onde registra que a em-\n\npresa Computer Associates do"
+      ],
+      "edition": "2042",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1998-02-13/c3ad9ca96bb8ac0c8bd1d93e855fb16518eccf0f.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2013-05-21",
+      "scraped_at": "2020-11-26T20:28:03.531382",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2013-05-21/3567865b03920bfbfcb3235e6d3276ccc11a23cc.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "2º\n\n§ 3º\n\n§ 4º\n\n§ 5º\n\n§ 6º\n\nTÍTULO II\nDAS COMPETÊNCIAS\n\nCAPITULO I\nDO SECRETÁRIO\n\nArt. 11.\n\n1.2. Divisão de Relações Públicas e Comunicação\n\n2.1. Divisão de Gestão da Qualidade\n2.2. Divisão de Orçamento e Controle\n\n1.1.1. Gerência de Projetos de Software\n1.1.2. Gerência de Normas, Qualidade e Auditoria\nde Sistemas\n1.1.3. Gerência de Sistemas de Arrecadação\n1.1.4. Gerência de Sistemas Administrativos\n1.1.5. Gerência de Sistemas Financeiros\n1.1.6. Gerência de Sistemas Sociais\n\n1.3.1. Gerência de Redes"
+      ],
+      "edition": "5596",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2013-05-21/3567865b03920bfbfcb3235e6d3276ccc11a23cc.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2005-08-24",
+      "scraped_at": "2020-11-26T20:07:48.685768",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2005-08-24/a260aeac7ad8b23b069f2276138ff9ce62551682.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "TO DE CONTRATO N° 015/2005\n\nCONTRATANTE: Superintendência Municipal de Trânsito e Transportes - SMT.\n\nCONTRATADA: Computer System Comércio e Serviços de Eletro-Eletrônicos Ltda.\n\nProcesso n°: 26523419, de 23/05/2005.\n\nObjeto: Manutenção e Suporte software “Infoto”.\n\nValor: R$ 500,00 (quinhentos reais), com pagamento mensal de R$ 6.000,00 (seis mil reais).\n\nPrazo: 12 (doze) meses, a contar de 10 de agosto de 2005.\n\nFundamento legal: Art. 24, II, da Lei Federal n° 8.666/ 93.\n\nGoiânia, 10 de agosto de"
+      ],
+      "edition": "3705",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2005-08-24/a260aeac7ad8b23b069f2276138ff9ce62551682.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1996-07-09",
+      "scraped_at": "2020-11-26T19:50:04.704947",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1996-07-09/acb4082d67d36a22a81a2c11ee23ce63c4b5f57d.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "n° 9868135/96 e; \n\nLtda ., com sede á Rua Conselheiro \n\nDantas, n.1331, Rebouças - Curitiba/ \tCONSIDERANDO que os servi- \n\nPR, é detentora exclusiva do software ços a serem prestados pela empresa: \n\ngráfico interativo, conforme atesta a As- PAUTA EDITORA LTDA (JORNAL \n\nsociação das Empresas Brasileiras de PONTO DE VISTA  refere-se tão so- \n\nSoftware e Serviços de Informática. \tmente à veiculação de matérias de in- \n\nteresse do Município; \n\nDetermino desde logo, que seja \n\npreviamente empenhada despesa"
+      ],
+      "edition": "1696",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1996-07-09/acb4082d67d36a22a81a2c11ee23ce63c4b5f57d.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2000-02-15",
+      "scraped_at": "2020-11-26T19:55:35.243853",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2000-02-15/7b410fdb183ce648ad015cd20dc7d6fd8af561de.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "desenvolvimento, comercialização, trei-\nnamento e consultoria do software SGPT \nfor Windows para o estado de Goiás, fui-\nciado no que dispõe a Lei Federal no \n8.666/93 e alterações pOstenores, espe-\ncificamente o art. 57, II, \n\nDECLARA INEXIGIVEL A LICITAÇÃO \n\nno presente caso, para a celebra-\nção de aditivo de rerratificação para pror-\nrogação por mais 24 (vinte e quatro) me-\nses do contrato CTJR0498, de licença de \nuso de software SGTP for Windows, ob-\nservadas que foram as formalidades exi-\ngidas"
+      ],
+      "edition": "2472",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2000-02-15/7b410fdb183ce648ad015cd20dc7d6fd8af561de.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2015-10-19",
+      "scraped_at": "2020-11-26T20:07:51.385095",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-10-19/bdd168e74e171f9524f2b50d16d2767606aaf62e.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        ". \nCEP: 74023‐020  ‐ Tel.: 55 62 3524‐2307 \nimaspresidencia@gmail.com \n\n2º TERMO ADITIVO AO CONTRATO Nº 009/2015 \n\nSegundo Termo Aditivo ao contrato de insumos e serviços \n\nnecessários para aquisição e implantação do Software de \n\nGestão de Assistência Médica (Consultoria, Software, \n\nHardware, Implementação e Treinamento), para atender o \n\nInstituto de Assistência à Saúde e Social dos Servidores \n\nMunicipais de Goiânia - IMAS, que entre si celebram o \n\nIMAS e a empresa Asert Serviços e Tecnologia"
+      ],
+      "edition": "6188",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-10-19/bdd168e74e171f9524f2b50d16d2767606aaf62e.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-05-20",
+      "scraped_at": "2020-11-26T19:52:02.435236",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-05-20/549fa70eb618029c3af6a4986fa51f1478d3f8e5.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "considerando o interesse \nsuperior da Administração Pública Muni-\ncipal de Goiânia, na presidência da em-\npresa criada para o fim especifico de pres-\ntação de serviços de informática ao Mu-\nnicípio de Goiânia, tendo em vista a ne-\ncessidade de compra do SOFTWARE \nAUTOCAD MAP R3 COM UPGRADE PARA \nAUTOCAD MAP 2000, em face da Decla-\nração de Exclusividade acostada nos \nautos, emitida pela Associação Comer-\ncial e Industrial do Estado de Goiás, que \na empresa CGCG - CENTRO GOIANO DE \nCOMPUTAÇÃO GRÁFICA LTDA"
+      ],
+      "edition": "2319",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-05-20/549fa70eb618029c3af6a4986fa51f1478d3f8e5.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2014-09-08",
+      "scraped_at": "2020-11-26T20:08:07.061554",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2014-09-08/b00e72f85f7be79435be265f12fce9f4e1f6b5c6.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "E: \n\n                 I – Ratificar a inexigibilidade de licitação com fundamento no Inciso I do \nArtigo 25 da Lei 8.666/93,  e, por conseqüência, a contratação da empresa  T&C Engenharia de \nSoftware Ltda -  ME, cuja proposta  pela   contratação da prestação de serviços de manutenção e \nconsultoria de Software importa em R$ 60.240,00 (sessenta mil duzentos e quarenta reais), sendo \nR$ 5.020,00 (cinco mil e vinte reais) por mês, pelo período de 12 (doze) meses; \n\nII – Determinar aos setores competentes"
+      ],
+      "edition": "5916",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2014-09-08/b00e72f85f7be79435be265f12fce9f4e1f6b5c6.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2015-04-09",
+      "scraped_at": "2020-11-26T20:32:40.394602",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-04-09/d044fddefbee7028850e6a7494f94a6dde28aa57.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "partir das 09:00 horas (horário de Brasília-DF) do dia 24 de abril de \n\n2015, através do site: www.licitacoes-e.com.br, Processo n.º 60365784/2015, destinado à \n\naquisição de solução do tipo Data Discovery, incluindo o licenciamento perpétuo do \n\nsoftware e consultoria para implementação da solução, permitindo ao usuário realizar com \n\nagilidade, flexibilidade e alto desempenho todas as funções e operações necessárias e\n\nrelevantes para visualização dos dados para o propósito de compreensão dos fatos"
+      ],
+      "edition": "6058",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2015-04-09/d044fddefbee7028850e6a7494f94a6dde28aa57.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-11-22",
+      "scraped_at": "2020-11-26T19:46:50.864950",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-11-22/b82061fd761e9e3b1a57d307992729e32c135df3.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "\nuso de suas atribuições legais e \nestatutárias, tendo em vista a necessi-\ndade de compra do SOFTWARE DATA \nBRINGER, Declaração de Exclusividade \nn° 990914/2893 emitida pela Associação \nBrasileira das Empresas de Software, \nfundamentado, ainda no que dispõe a Lei \nn° 8.666/93, artigo 25, I, aplicável à maté-\nria em análise, \n\nDECLARA INEXIGÍVEL A LICITAÇÃO \n\nno presente caso, para aquisição do \nSOFTWARE DATA BRINGER, conforme \nproposta técnica e comercial, observadas \nque foram as formalidades exigidas"
+      ],
+      "edition": "2424",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-11-22/b82061fd761e9e3b1a57d307992729e32c135df3.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2011-04-15",
+      "scraped_at": "2020-11-26T20:25:45.729432",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2011-04-15/44b47192fb3c58e429ed1b35de353c0588cd6d1e.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "o desenvolvimento, \n\nimplantação e manutenção de sistemas;\n\nX - responsabilizar-se pela qualidade dos sistemas \n\ndesenvolvidos e mantidos pela AMTEC, planejando e executando \n\nauditorias de sistemas e outros estudos relacionados à qualidade de \n\nsoftware;\n\nXI - cumprir as normas e padrões técnicos de documentação \n\ne segurança dos sistemas definidos pelo Departamento de Suporte \n\nTécnico;\n\nXII - promover a realização de atividades de treinamento de \n\nclientes/usuários e dos demais servidores responsáveis"
+      ],
+      "edition": "5087",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2011-04-15/44b47192fb3c58e429ed1b35de353c0588cd6d1e.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-09-13",
+      "scraped_at": "2020-11-26T19:47:03.469236",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-09-13/84bc9963c1f62f77a73190ab74044d607063caa9.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "666, de 21 de junho de 1993, alterações \nposteriores, especificamente, no disposto \ndo artigo 25, I, aplicável á matéria posta em \nanálise. \n\nDECLARA INEXIGIVEL A LICITAÇÃO \nno caso versado nos autos acima in-\n\ndicado, para efetuar a aquisição do \nSoftware 3D ANALYST, pelo valor total de \nR$ 5.300,00 (cinco mil e trezentos reais), \nobservadas que foram as formalidades \nexigidas pela Lei Federal n° 8,666/93. \n\nCumpra-se e Publique-se. \n\nGoiânia, 08 de setembro de 1999. \n\nMárcio Avelino Martins \nDiretor"
+      ],
+      "edition": "2385",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-09-13/84bc9963c1f62f77a73190ab74044d607063caa9.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2007-05-14",
+      "scraped_at": "2020-11-26T20:20:11.391691",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2007-05-14/1e74b7554c22c850d1d1130296b232bbe4c22d99.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Item 08 - 02 unidades de Scanner de \nmesa colorido, com as seguintes características mínimas: Scan-\nner de mesa colorido, Interface Paralela ou USB, Resolução Ótica \n1200 Dpi, Resolução de 16,7 milhões de cores, Capacidade de \nscan de folhas A4, Software de tratamento de imagem, Compati-\nbilidade com driver “Twain”, Garantia de 1 ano, Observação: O \nscanner deverá ter funcionalidade integral no sistema operacional \nWindows 98/ME/2000/XP e vir acompanhado do cabo de cone-\nxão, manuais, documentações"
+      ],
+      "edition": "4120",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2007-05-14/1e74b7554c22c850d1d1130296b232bbe4c22d99.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-05-10",
+      "scraped_at": "2020-11-26T19:52:39.889516",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-05-10/accb13f6213e22adb2c72c45406239d3b0343563.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "de prestação de serviços de \ninformática ao Município de Goiânia, tendo \nem vista a necessidade de compra do \nSOFFWARE ARC VIEW, em face da Declara- \n\nção de Exclusividade acostada nos autos, \nemitida pela Associação Brasileira das Em-\npresas de Software, de que a empresa GES-\nTÃO EMPRESARIAL E INFORMÁTICA LTDA. \né detentora de exclusividade na sua \ncomercialização no Brasil, fundamentado, \ntambém, no que dispõe a Lei Federal n° \n8.666, de 21 de junho de 1993, e suas altera-\nções posteriores, baseado"
+      ],
+      "edition": "2311",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-05-10/accb13f6213e22adb2c72c45406239d3b0343563.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-09-17",
+      "scraped_at": "2020-11-26T19:47:01.972682",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-09-17/f738c6ee6ea87c4a64cf165421f337ae2952a03a.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "DESENVOLVIMENTO \nDE SOFTWARE LTDA. \n\nLOCAL E DATA : Lavrado e assinado \nem Goiânia, Capital do Estado de Goiás, na \nCOMDATA, sito na Av. \"A\", n° 490, Setor \nOeste, ao 01 de setembro de 1999. \n\nFUNDAMENTO: Inexigibilidade do pro-\ncedimento licitatório, conforme Despacho \nda Presidência n° 058/99, processo admi-\nnistrativo 13964904/99, com fulcro na Lei \nn° 8.666/93, com suas alterações posteriores. \n\nCLÁUSULA SEGUNDA: DO OBJETO \nFornecimento, manutenção e instala-\n\nção do software LOTUS; recursos de"
+      ],
+      "edition": "2389",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-09-17/f738c6ee6ea87c4a64cf165421f337ae2952a03a.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2018-03-09",
+      "scraped_at": "2020-11-26T21:28:23.359077",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2018-03-09/322cb6eacf52be37dbd420e153da64f4b7227ce4.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "lotada na Diretoria de \nDesenvolvimento de Sistemas, para acompanhar e fiscalizar a execução do Contrato n° 05/2015, \ncelebrado entre a Sedetec e a empresa True Change Tecnologia Ltda., CNPJ n° 14.467.292/0001-81, \nque tem por objeto a aquisição de software de plataforma ágil, para montagem do principal ambiente de \ndesenvolvimento de sistemas informatizados, incluindo a instalação e configuração  da plataforma no \nambiente atual da Sedetec, processos n° 61329234. \n\nArt. 2°. Determinar que o mencionado"
+      ],
+      "edition": "6769",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2018-03-09/322cb6eacf52be37dbd420e153da64f4b7227ce4.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2010-06-30",
+      "scraped_at": "2020-11-26T20:15:26.443195",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2010-06-30/5f5379992ae11188291380990025e29d0943e3f6.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "“J”, lotado junto à Agência \n\nMunicipal do Meio Ambiente, contagem em dobro da Licença Prêmio \n\npor Assiduidade, adquirida e não gozada, referente ao quinquênio de \n\n\n\nDiário Oficial do Município N° 4.891 - Quarta-feira - 30/06/2010 Página 04\n\nos software utilizados pelo órgão;\n\nConsiderando que o aperfeiçoamento dos programas já \n\nutilizados por essa Secretaria, somente são compatíveis com os \n\nprodutos ofertados no país, pela Empresa IMAGEM GEOSISTEMAS \n\n& COMÉRCIO LTDA;\n\nConsiderando Parecer do"
+      ],
+      "edition": "4891",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2010-06-30/5f5379992ae11188291380990025e29d0943e3f6.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-10-01",
+      "scraped_at": "2020-11-26T19:46:58.626407",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-10-01/9b9893fb81f7cbb8d8abbf9941a155f014c076e7.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Goiânia, tendo em vista a neces-\nsidade de compra do SOFTWARE SQE -\nSISTEMA DE QUALIDADE NA ESCOLA, em \nface da Declaração de Exclusividade acosta-\nda aos autos, emitida pela Associação Co-\nmercial e Industrial do Estado de Goiás, fun-\ndamentado ainda, no que dispõe a Lei n° \n8.666/93, especificamente no seu artigo 25, \naplicável à matéria posta em análise. \n\nDECLARA INEXIGÍVEL A LICITAÇÃO \nno caso versado no Processo referi-\n\ndo, para aquisição do SOFTWARE SQE -\nSISTEMA DE QUALIDADE NA ESCOLA da \nempresa"
+      ],
+      "edition": "2398",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-10-01/9b9893fb81f7cbb8d8abbf9941a155f014c076e7.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1998-04-27",
+      "scraped_at": "2020-11-26T19:54:21.610212",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1998-04-27/64cad73794567aa95681402bb067514278cb1505.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "demais disposi-\n\nções da Lei Federal n° 8.666, de 21 de \n\njunho de 1993, com alterações poste-\n\nriores. \n\nOBJETO: O presente contrato tem por \n\nobjeto a aquisição de licença de uso \n\nde: \n\n01 (um) software para desenvolvimen-\n\nto de aplicações de multimídia; \n\n01 (um) curso básico e avançado so-\n\nbre o software proposto; \n\n01 (uma) assessoria no desenvolvi-\n\nmento do aplicativo de multimídia para \n\na Secretaria de Turismo. \n\nVALOR: O valor total do presente con-\n\ntrato é de R$ 28.245,00 (vinte e oito"
+      ],
+      "edition": "2083",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1998-04-27/64cad73794567aa95681402bb067514278cb1505.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2003-07-29",
+      "scraped_at": "2020-11-26T20:08:14.347499",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2003-07-29/f3e4651835df1c023b0b92499d46a51220edf3de.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "manutenção de informática readequado \ne equipado \n\nManual de normas de desenvolVimento de sistema \nrealizado \n\nEmulador dc terminal adquirido \nSoftware de desenvolvimento (linguagem de \nprogramação) adquirido \nSoftware de integração Micro x Maiframe adquirido \nSoftware para controle de versões dos sistemas / \nprogramas para mainframe e micro adquirido \n\n... \nSoftware de automação de escritório adquirido (licença) \n\n20% \tCOMDATA \n\n20% \tCOMDATA \n\n25% \tCOMDATA \n\n10% \tCOMDATA \n30% \n\n10% \n20% \n\n10% \n\n\n\nDiário"
+      ],
+      "edition": "3209",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2003-07-29/f3e4651835df1c023b0b92499d46a51220edf3de.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2007-04-18",
+      "scraped_at": "2020-11-26T20:25:26.191304",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2007-04-18/fc1fea35bbd8a0cef34b8f6ff8e72f91e4e3f8d1.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Orientar a utilização dos recursos computacionais; Selecionar, instalar e manter “software” básico e de apoio; \nAvaliar o desempenho do sistema operacional, compiladores, “software” de banco de dados, monitor de tele-\nprocessamento e outros sistemas; Estabelecer diretrizes, procedimentos e metodologia para uso eficiente de recur-\nsos de “software”; Analisar as repercussões da implantação de novos recursos de “software” no sistema de aplica-\nção em desempenho e em produção; Pesquisar, analisar e avaliar"
+      ],
+      "edition": "4103",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2007-04-18/fc1fea35bbd8a0cef34b8f6ff8e72f91e4e3f8d1.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1999-03-18",
+      "scraped_at": "2020-11-26T19:55:11.425049",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-03-18/d9fdf66e04aabbf4182c88d8cf40e1e82cf3bacd.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "Presidência da empresa criada \npara o fim específico de prestação de servi-\nços de informática ao município de Goiânia, \nem face da \"Declaração de Exclusividade\" \nacostada aos autos emitida pela \nASSESPRO - Associação das Empresas \nBrasileiras de Software e Serviços de \nInformática, de que é detentora a Empresa \nMaxidata Tecnologia e Informática Ltda., com \nsede em CuritibwEstado do Paraná, fulcrado \nno que dispõe a Lei Federal n2  8.666, e suas \nalterações, baseado na Exposição de Moti-\nvos de Inexigibilidade"
+      ],
+      "edition": "2278",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1999-03-18/d9fdf66e04aabbf4182c88d8cf40e1e82cf3bacd.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "1995-03-03",
+      "scraped_at": "2020-11-26T19:57:29.791320",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1995-03-03/77f10c3263e5cd8ec7b75d42e4b8394733cff7ed.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "licitação para aquisição do Software \nGráfico Interativo, Processo Administra-\ntivo n° 8386030/95, por ser a .  Empresa \nMaxidata Tecnologia e Informática Ltda., \ndetentora exclusiva do programa, \nconforme declaração contida nos autos, \nàs fls. 06, e de acordo com o Art. 25, \nCaput, da Lei n° 8.666193. \n\nGoiânia, 23 de fevereiro de 1995 \n\nEURÍPEDES CARLOS BORGES \nDIRETOR ADMINISTRATIVO e \n\nFINANCEIRO \nRatifico o ato de inexigibilidade de \n\nlicitação para aquisição do Software da \nEmpresa Maxidata Tecnologia"
+      ],
+      "edition": "1364",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/1995-03-03/77f10c3263e5cd8ec7b75d42e4b8394733cff7ed.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2003-04-04",
+      "scraped_at": "2020-11-26T20:21:34.372220",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2003-04-04/e57c52f042765753114b80285070afae5a25d302.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "riso dos prograntas/software, conforme o cantielo noS itens \n2.3 e 2.4, licença não tranOrivets e ralo exclidivw, dentro do território nacional \npára usar programas IBM sob licença; \n\n23- Os programatisoftware, objetado presente contraio estão delineados conforme \nlas tabelas afroixo, sendo o presente licenciamento taucandire aplicável para a \norápirra :BOO, 2056 ãl, série rt°11;ODA: \n\n24 - Após o instalação pela CIOMDATA do programaleoftniat 5694,401 7/05, os \nprogramas/software relacionados na Tabela"
+      ],
+      "edition": "3134",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2003-04-04/e57c52f042765753114b80285070afae5a25d302.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2021-07-29",
+      "scraped_at": "2021-07-29T12:28:20.743807",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2021-07-29/ae80a5e210f3d00ebb12d9d142810c1131e1fe76.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "comunicação \n(telefone, telex, correios, etc.); fretes e carretos; locação de imóveis (inclusive despesas de condomínio e \ntributos à conta do locatário, quando previstos no contrato de locação); locação de equipamentos e \nmateriais permanentes; software; despesas com serviços de reparos, consertos, revisões e adaptações de \nmáquinas e equipamentos; conservação e adaptação de bens imóveis; despesas com serviços de reparos, \nconsertos e revisões de veículos; seguros em geral (exceto os decorrentes"
+      ],
+      "edition": "7605",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2021-07-29/ae80a5e210f3d00ebb12d9d142810c1131e1fe76.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2014-10-20",
+      "scraped_at": "2020-11-26T20:07:50.881112",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2014-10-20/f7979540e022ce46b130a314f595005152a281c6.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "sistemas de processamento de dados, \n\nnas diversas modalidades (rede, software básico, banco de dados, suporte, desenvolvimento, projetos, \n\nprodução); criar programas e rotinas operacionais; monitorar e manter os equipamentos de Tecnologia \n\nde Informação, atualizando sistemas operacionais e programas básicos de apoio; montar e conter \n\nataques de invasão de redes; monitorar o gerenciamento de redes; executar configuração de software e \n\nhardware. \n\n2.5 – FUNÇÃO: TÉCNICO EM GEOPROCESSAMENTO: executar"
+      ],
+      "edition": "5946",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2014-10-20/f7979540e022ce46b130a314f595005152a281c6.txt"
+    },
+    {
+      "territory_id": "5208707",
+      "date": "2005-11-14",
+      "scraped_at": "2020-11-26T20:07:20.280459",
+      "url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2005-11-14/fce08cbe1d374bca94c30072cf0daa7aa42b5171.pdf",
+      "territory_name": "Goiânia",
+      "state_code": "GO",
+      "excerpts": [
+        "MICROSOFT com resolução mínimo de 400 dpi;\n\n- 01 Placa de Rede PCI de 32 bits, padrão Ethernet - IEEE 802.3 CSMA/CD, saídas 10BaseT/100BaseTX (RJ-\n45), velocidade dupla de 10 ou 100 Mbps configurável por software ou auto-sense, gerenciamento SNMP,\ncompatível com TCP/IP, com configuração por software de endereço de memória, interrupção e endereçamento;\n\nObs: Todas as placas e periféricos deverão vir configurados, funcionando e acompanhados de seus respectivos\ncabos, acessórios, manuais, documentação"
+      ],
+      "edition": "3758",
+      "is_extra_edition": false,
+      "txt_url": "https://querido-diario.nyc3.cdn.digitaloceanspaces.com/5208707/2005-11-14/fce08cbe1d374bca94c30072cf0daa7aa42b5171.txt"
+    }
+  ]
+}

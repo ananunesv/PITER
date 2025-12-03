@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/organisms/Navbar';
 import Footer from '@/components/organisms/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
-  title: 'Projeto P.I.T.E.R',
-  description: 'Análise de investimentos públicos em pesquisa e eletrônicos para Goiás e Goiânia',
-  keywords: 'investimentos públicos, transparência, Goiás, Goiânia, pesquisa, eletrônicos',
+  title: 'P.I.T.E.R - Transparencia em Educacao',
+  description: 'Plataforma de Integracao e Transparencia em Educacao e Recursos',
+  keywords: 'investimentos publicos, transparencia, Goias, educacao, tecnologia',
   icons: {
     icon: '/logo_inv.png',
   }
@@ -22,13 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
-        <div id="root" className="min-h-screen bg-piter-100">
+      <body>
+        <div className="min-h-screen flex flex-col">
           <Navbar />
-          <div className="min-h-screen flex flex-col items-center mt-10">
-            <div className="flex-1">{children}</div>
-            <Footer />
-          </div>
+          <main className="flex-1 pt-16">
+            {children}
+          </main>
+          <Footer />
         </div>
       </body>
     </html>

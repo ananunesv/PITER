@@ -1,10 +1,8 @@
- 'use client';
+'use client';
 
 import React from 'react';
-import { Select } from '@/components/atoms/Select';
-import { Input } from '@/components/atoms/Input';
-import { Button } from '@/components/atoms/Button';
 import { MUNICIPALITIES, CATEGORIES, SearchFilters } from '@/types';
+import { MapPin, Tag, Calendar, Search, Loader2 } from 'lucide-react';
 
 interface SearchFormProps {
   filters: SearchFilters;
@@ -20,54 +18,99 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   loading = false,
 }) => {
   return (
-    <div className="bg-[#F0EBD8] p-6 rounded-lg shadow-md space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Select
-          label="Município"
-          options={MUNICIPALITIES}
-          value={filters.municipio}
-          onChange={(value) => onFiltersChange({ municipio: value })}
-          placeholder="Selecione o município"
-          required
-          id="municipio"
-        />
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Municipio */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <MapPin size={16} className="text-indigo-500" />
+            Municipio
+          </label>
+          <select
+            value={filters.municipio}
+            onChange={(e) => onFiltersChange({ municipio: e.target.value })}
+            className="select-modern w-full"
+          >
+            <option value="">Selecione o municipio</option>
+            {MUNICIPALITIES.map((mun) => (
+              <option key={mun.value} value={mun.value}>
+                {mun.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <Select
-          label="Categoria"
-          options={CATEGORIES}
-          value={filters.categoria}
-          onChange={(value) => onFiltersChange({ categoria: value as SearchFilters['categoria'] })}
-          placeholder="Selecione a categoria"
-          required
-          id="categoria"
-        />
+        {/* Categoria */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Tag size={16} className="text-indigo-500" />
+            Categoria
+          </label>
+          <select
+            value={filters.categoria}
+            onChange={(e) => onFiltersChange({ categoria: e.target.value as SearchFilters['categoria'] })}
+            className="select-modern w-full"
+          >
+            <option value="">Selecione a categoria</option>
+            {CATEGORIES.map((cat) => (
+              <option key={cat.value} value={cat.value}>
+                {cat.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <Input
-          type="date"
-          label="De"
-          value={filters.dataInicio}
-          onChange={(value) => onFiltersChange({ dataInicio: value })}
-          id="dataInicio"
-        />
+        {/* Data Inicio */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Calendar size={16} className="text-indigo-500" />
+            Data Inicial
+          </label>
+          <input
+            type="date"
+            value={filters.dataInicio}
+            onChange={(e) => onFiltersChange({ dataInicio: e.target.value })}
+            className="input-modern"
+          />
+        </div>
 
-        <Input
-          type="date"
-          label="Até"
-          value={filters.dataFim}
-          onChange={(value) => onFiltersChange({ dataFim: value })}
-          id="dataFim"
-        />
+        {/* Data Fim */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-neutral-700">
+            <Calendar size={16} className="text-indigo-500" />
+            Data Final
+          </label>
+          <input
+            type="date"
+            value={filters.dataFim}
+            onChange={(e) => onFiltersChange({ dataFim: e.target.value })}
+            className="input-modern"
+          />
+        </div>
       </div>
 
-      <div className="flex justify-center pt-4">
-        <Button
+      {/* Botao de Busca */}
+      <div className="flex justify-center pt-2">
+        <button
           onClick={onSearch}
           disabled={loading}
-          size="lg"
-          className="px-8"
+          className={`
+            btn-primary flex items-center gap-3 min-w-[200px] justify-center
+            ${loading ? 'opacity-80 cursor-wait' : ''}
+          `}
         >
-          {loading ? 'Buscando...' : 'Buscar'}
-        </Button>
+          {loading ? (
+            <>
+              <Loader2 size={20} className="animate-spin" />
+              Buscando...
+            </>
+          ) : (
+            <>
+              <Search size={20} />
+              Buscar
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

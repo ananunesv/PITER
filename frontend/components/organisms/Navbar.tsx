@@ -13,8 +13,8 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/", icon: Home, external: true },
-  { label: "Sobre Nós", href: "https://unb-mds.github.io/Projeto-P.I.T.E.R/", icon: Book },
+  { label: "Home", href: "/", icon: Home },
+  { label: "Sobre Nos", href: "https://unb-mds.github.io/Projeto-P.I.T.E.R/", icon: Book, external: true },
   { label: "GitHub", href: "https://github.com/unb-mds/Projeto-P.I.T.E.R.git", icon: Github, external: true },
 ];
 
@@ -25,35 +25,39 @@ export const Navbar: React.FC = () => {
     pathname === path || pathname.startsWith(path + "/");
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-[#F0EBD8] backdrop-blur-xl shadow-md">
+    <header className="w-full fixed top-0 left-0 z-50 bg-white/95 backdrop-blur-xl shadow-sm border-b border-neutral-100">
       <div className="container mx-auto flex items-center justify-between py-3 px-6">
         {/* Logo */}
         <a
           href="https://unb-mds.github.io/Projeto-P.I.T.E.R/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-3"
+          className="flex items-center gap-3 group"
         >
           <img
             src="/logo.png"
-            alt="logo"
+            alt="P.I.T.E.R Logo"
             width={40}
             height={40}
-            className="transition-transform duration-300 hover:scale-110"
+            className="transition-transform duration-300 group-hover:scale-110"
           />
+          <span className="font-semibold text-neutral-800 hidden sm:block">P.I.T.E.R</span>
         </a>
 
         {/* Navigation */}
         <nav>
-          <ul className="flex items-center gap-2">
+          <ul className="flex items-center gap-1">
             {navItems.map(({ label, href, icon: Icon, external }) => {
-              const active = isActive(href);
-              const baseStyle =
-                "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 text-sm font-medium";
-              const activeStyle = active
-                ? "bg-[#06080F]/70 text-[#F0EBD8] shadow"
-                : "text-gray-800 hover:bg-[#06080F]/80 hover:text-[#F0EBD8]";
-              const linkClass = `${baseStyle} ${activeStyle}`;
+              const active = !external && isActive(href);
+              
+              const linkClass = `
+                flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium
+                transition-all duration-200
+                ${active 
+                  ? "bg-indigo-100 text-indigo-700" 
+                  : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
+                }
+              `;
 
               return (
                 <li key={label}>
